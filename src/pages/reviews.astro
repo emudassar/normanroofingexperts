@@ -1,0 +1,226 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import CTABand from '../components/CTABand.astro';
+import { site } from '../config/site';
+
+const url = `${site.url}/reviews/`;
+
+/**
+ * No Review or AggregateRating schema, and no review markup of any kind. There
+ * are no verified reviews behind this site yet and fabricating them, in markup
+ * or on the page, is exactly the thing this page argues against.
+ * See docs/brief.md §2.
+ */
+const schema = [
+  {
+    '@type': 'WebPage',
+    '@id': `${url}#page`,
+    name: 'Reviews & Verifying a Roofing Contractor',
+    url,
+    isPartOf: { '@id': `${site.url}/#website` },
+  },
+  {
+    '@type': 'BreadcrumbList',
+    '@id': `${url}#breadcrumbs`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Reviews', item: url },
+    ],
+  },
+];
+
+const checks = [
+  {
+    title: 'Check the state registration',
+    body: 'Oklahoma requires roofing contractors to register with the state Construction Industries Board. Ask for the registration number and verify it directly with the CIB rather than accepting a number on a business card.',
+  },
+  {
+    title: 'Ask for insurance certificates, then verify them',
+    body: 'General liability and workers’ compensation. Ask for the certificates and call the issuing agency to confirm they are current. If someone is injured on your roof and the contractor is not properly covered, that can become your liability.',
+  },
+  {
+    title: 'Look for an Oklahoma presence that predates the storm',
+    body: 'A local phone number, a business registration with some history, and physical evidence of working in the area before the last hail event. Storm-chasing crews are competent often enough; the problem is that your warranty leaves the state when they do.',
+  },
+  {
+    title: 'Read the negative reviews, not the average',
+    body: 'A five-star average tells you very little. What matters is the pattern in the one- and two-star reviews. Are they about scheduling, or are they about leaks that came back and calls that were not returned?',
+  },
+  {
+    title: 'Ask for local references and actually call them',
+    body: 'Specifically ask for jobs completed two or more years ago rather than last month. Roofing defects surface on a delay, so a reference from a job finished three weeks ago tells you almost nothing.',
+  },
+  {
+    title: 'Compare bids on scope, not on the number',
+    body: 'Ask every bidder in writing: full tear-off with disposal? What is the per-sheet decking rate? Is all flashing replaced or reused? What underlayment, and where does ice-and-water membrane go? Is ventilation being changed? Bids thousands apart nearly always differ on those answers.',
+  },
+];
+---
+
+<BaseLayout
+  title="Reviews & How to Vet a Roofing Contractor in Norman, OK"
+  description="We don't publish star ratings we can't substantiate. Instead, here is exactly how to verify any roofing contractor in Norman, OK before you hire them."
+  schema={schema}
+>
+  <PageHeader
+    eyebrow="Reviews"
+    title="We'd rather tell you how to check than show you a number"
+    lede="There is no star rating on this page and no review count. Here is why, and more usefully, here is exactly how to verify any roofing contractor in Oklahoma, including us."
+  />
+
+  <section class="section">
+    <div class="container container--narrow prose">
+      <h2>The honest position</h2>
+      <p>
+        Norman Roofing Experts is building its public review record. We have not accumulated the
+        volume of verified, independently hosted reviews that would make a rating figure
+        meaningful, so we are not going to display one.
+      </p>
+      <p>
+        That is a deliberately unusual thing for a contractor website to say. Almost every roofing
+        site you will visit today shows a star rating, a review count and a row of testimonials.
+        Some of those are entirely genuine. Some are collected from a handful of friendly
+        customers and presented as though they represent the whole. Some are simply written by
+        whoever built the site.
+      </p>
+      <p>
+        You cannot tell which is which by looking, and neither can we. That is the actual problem
+        with the format. Not that reviews are worthless, but that a graphic on a company's own
+        website is not evidence of anything, because the company controls it entirely.
+      </p>
+
+      <h2>What we'd suggest instead</h2>
+      <p>
+        Verification you perform yourself is worth more than any claim we could make here. It
+        takes about twenty minutes and it applies to every contractor you are considering, not
+        just us.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--sunk">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Twenty minutes, six checks</p>
+        <h2>How to vet a roofing contractor in Oklahoma</h2>
+      </div>
+      <div class="checks">
+        {
+          checks.map((check, i) => (
+            <div class="check">
+              <span class="check__num">{String(i + 1).padStart(2, '0')}</span>
+              <h3 class="check__title">{check.title}</h3>
+              <p class="check__body">{check.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container container--narrow prose">
+      <h2>Red flags worth walking away from</h2>
+      <ul>
+        <li>
+          <strong>Any offer involving your deductible.</strong> Rebating, absorbing or advertising
+          the waiving of an insurance deductible is fraud under Oklahoma law, and it exposes you
+          as well as the contractor. This one is not a judgement call.
+        </li>
+        <li>
+          <strong>Pressure to sign on your doorstep.</strong> Particularly a contingency
+          agreement, which commits you to a contractor before you know the scope or the price.
+        </li>
+        <li>
+          <strong>A price quoted without anyone having been on the roof.</strong> It will change,
+          and not downward.
+        </li>
+        <li>
+          <strong>A large payment demanded up front.</strong> A deposit toward materials is
+          normal. Most of the money before most of the work is not.
+        </li>
+        <li><strong>No written scope.</strong> If it is not written down, it is not included.</li>
+        <li>
+          <strong>Reluctance to provide insurance certificates or a registration number.</strong>
+          There is no good reason for this.
+        </li>
+      </ul>
+
+      <h2>What you can hold us to</h2>
+      <p>
+        Rather than testimonials, here are the specific, checkable commitments we make on every
+        job. If we fail on any of them, that is a fair thing to say publicly about us.
+      </p>
+      <ul>
+        <li>A free inspection with a dated photo report you keep, whether or not you hire us.</li>
+        <li>
+          A written, line-itemed scope before work begins, including the per-sheet rate for
+          replacing decking we have not yet seen.
+        </li>
+        <li>Full tear-off, all new flashing, and ventilation brought up to specification.</li>
+        <li>
+          A stop-and-consult if opening the roof changes the scope, before any additional money is
+          spent.
+        </li>
+        <li>A magnetic nail sweep of yard, drive and street at the end of every working day.</li>
+        <li>Certificates of liability and workers' compensation insurance on request.</li>
+        <li>We will never discuss, rebate or absorb your insurance deductible.</li>
+      </ul>
+
+      <h2>Leaving us a review</h2>
+      <p>
+        If we have worked on your roof, an honest review on an independent platform is genuinely
+        useful to us, and more importantly to the next homeowner trying to work out who to
+        trust. Please leave it wherever you would naturally look for one, and please be accurate
+        rather than kind. Ask us for the current links when your job is complete.
+      </p>
+      <p>
+        When we have enough verified, independently hosted reviews for a rating to mean something,
+        this page will link to them. Until then it will keep saying this.
+      </p>
+    </div>
+  </section>
+
+  <CTABand
+    heading="Judge us on the inspection."
+    body="It's free, it takes about an hour, and you keep the photo report whether or not you hire us. That's a lower-risk way to evaluate a contractor than reading testimonials they wrote themselves."
+  />
+</BaseLayout>
+
+<style>
+  .checks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+    gap: var(--space-m);
+  }
+
+  .check {
+    padding: var(--space-m);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+  }
+
+  .check__num {
+    display: block;
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    font-weight: 800;
+    line-height: 1;
+    color: var(--copper-100);
+    -webkit-text-stroke: 1px var(--copper-500);
+    margin-bottom: 0.6rem;
+  }
+
+  .check__title {
+    font-size: var(--step-1);
+    margin-bottom: 0.4rem;
+  }
+
+  .check__body {
+    font-size: var(--step--1);
+    line-height: 1.65;
+    color: var(--ink-muted);
+  }
+</style>

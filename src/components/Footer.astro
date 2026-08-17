@@ -1,0 +1,312 @@
+---
+import { getCollection } from 'astro:content';
+import { site, legalNav, yearsServing } from '../config/site';
+
+/**
+ * The footer links every service and every location directly. That is what keeps
+ * the whole collection within two clicks of the homepage. See docs/sitemap.md.
+ */
+const services = (await getCollection('services', ({ data }) => !data.draft)).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+const locations = (await getCollection('locations', ({ data }) => !data.draft)).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+
+const normanAreas = locations.filter((l) => l.data.group === 'norman');
+const surroundingAreas = locations.filter((l) => l.data.group === 'surrounding');
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a class="footer__logo" href="/">
+          <svg viewBox="0 0 40 32" aria-hidden="true" focusable="false">
+            <path d="M2 18 20 3l18 15" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="square" />
+            <path d="M8 20v9h24v-9" fill="none" stroke="currentColor" stroke-width="3.2" />
+            <path d="M20 3 38 18" fill="none" stroke="var(--copper-500)" stroke-width="3.2" stroke-linecap="square" />
+          </svg>
+          <span>
+            <strong>Norman Roofing</strong>
+            <em>Experts</em>
+          </span>
+        </a>
+        <p class="footer__blurb">
+          Roof repair, replacement, inspection and storm damage restoration for homeowners
+          across Norman and the surrounding Cleveland and McClain County communities.
+          Serving the Norman area for {yearsServing} years, since {site.servingSince}.
+        </p>
+        <div class="footer__contact">
+          <a class="footer__phone" href={site.phone.href}>{site.phone.display}</a>
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+          <p class="footer__hours">{site.hours}</p>
+        </div>
+      </div>
+
+      <nav class="footer__col" aria-labelledby="footer-services">
+        <h2 class="footer__heading" id="footer-services">Services</h2>
+        <ul>
+          {
+            services.map((s) => (
+              <li>
+                <a href={`/services/${s.id}/`}>{s.data.title}</a>
+              </li>
+            ))
+          }
+          <li><a href="/services/">All services</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer__col" aria-labelledby="footer-norman">
+        <h2 class="footer__heading" id="footer-norman">Norman Areas</h2>
+        <ul>
+          {
+            normanAreas.map((l) => (
+              <li>
+                <a href={`/service-areas/${l.id}/`}>{l.data.title}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <nav class="footer__col" aria-labelledby="footer-surrounding">
+        <h2 class="footer__heading" id="footer-surrounding">Nearby Towns</h2>
+        <ul>
+          {
+            surroundingAreas.map((l) => (
+              <li>
+                <a href={`/service-areas/${l.id}/`}>{l.data.title}</a>
+              </li>
+            ))
+          }
+          <li><a href="/service-areas/">All service areas</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer__col" aria-labelledby="footer-company">
+        <h2 class="footer__heading" id="footer-company">Company</h2>
+        <ul>
+          <li><a href="/about/">About Us</a></li>
+          <li><a href="/reviews/">Reviews</a></li>
+          <li><a href="/blog/">Roof Guides</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <li><a href="/free-estimate/">Free Estimate</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="footer__disclaimer">
+      <p>
+        <strong>How we work.</strong> Every roof we price gets inspected first. Our crews work on
+        site across Norman, Cleveland County and McClain County, and appointments are scheduled
+        by phone or through the form on this site. Any price figures published here are general
+        ranges for guidance; your actual price is the written estimate you receive after the
+        inspection.
+      </p>
+      <p>
+        <strong>Insurance work.</strong> We handle claim documentation and meet your adjuster on
+        the roof, and we follow Oklahoma law on deductibles: the deductible is yours to pay and
+        no contractor may waive or absorb it. Information on this site is general guidance about
+        roofing, not legal, financial or insurance advice, so check your own policy with your
+        insurer or agent.
+      </p>
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; {year} {site.legalName}. All rights reserved.</p>
+      <ul class="footer__legal">
+        {
+          legalNav.map((item) => (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--navy-950);
+    color: var(--on-navy-muted);
+    font-size: var(--step--1);
+    padding-block: var(--space-2xl) var(--space-m);
+    margin-top: auto;
+  }
+
+  .footer__top {
+    display: grid;
+    gap: var(--space-l);
+    grid-template-columns: minmax(15rem, 1.6fr) repeat(4, minmax(8rem, 1fr));
+    padding-bottom: var(--space-xl);
+  }
+
+  @media (max-width: 62rem) {
+    .footer__top {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+    }
+    .footer__brand {
+      grid-column: 1 / -1;
+    }
+  }
+
+  /* --- Brand column ------------------------------------------------------- */
+
+  .footer__logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: #fff;
+    text-decoration: none;
+    font-family: var(--font-display);
+  }
+
+  .footer__logo svg {
+    width: 2.35rem;
+    height: 1.9rem;
+  }
+
+  .footer__logo span {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+
+  .footer__logo strong {
+    font-size: 1.02rem;
+    font-weight: 800;
+    letter-spacing: -0.015em;
+  }
+
+  .footer__logo em {
+    font-size: 0.66rem;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--copper-400);
+    margin-top: 0.22rem;
+  }
+
+  .footer__blurb {
+    margin-top: var(--space-s);
+    max-width: 30rem;
+    line-height: 1.6;
+  }
+
+  .footer__contact {
+    margin-top: var(--space-m);
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .footer__phone {
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .footer__phone:hover {
+    color: var(--copper-400);
+  }
+
+  .footer__contact a {
+    color: var(--on-navy-muted);
+  }
+
+  .footer__hours {
+    margin-top: 0.35rem;
+    color: var(--navy-400);
+    font-size: 0.8rem;
+  }
+
+  /* --- Link columns ------------------------------------------------------- */
+
+  .footer__heading {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: var(--space-xs);
+  }
+
+  .footer__col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .footer__col a {
+    color: var(--on-navy-muted);
+    text-decoration: none;
+    line-height: 1.35;
+  }
+
+  .footer__col a:hover {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  /* --- Disclaimer / bottom ------------------------------------------------ */
+
+  .footer__disclaimer {
+    border-top: 1px solid rgb(255 255 255 / 0.1);
+    padding-top: var(--space-m);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    font-size: 0.78rem;
+    line-height: 1.6;
+    color: var(--navy-400);
+    max-width: 62rem;
+  }
+
+  .footer__disclaimer strong {
+    color: var(--on-navy-muted);
+  }
+
+  .footer__bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-s);
+    margin-top: var(--space-m);
+    padding-top: var(--space-m);
+    border-top: 1px solid rgb(255 255 255 / 0.1);
+    font-size: 0.78rem;
+  }
+
+  .footer__legal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-m);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer__legal a {
+    color: var(--navy-400);
+    text-decoration: none;
+  }
+
+  .footer__legal a:hover {
+    color: #fff;
+  }
+</style>

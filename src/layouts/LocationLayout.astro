@@ -1,0 +1,279 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getEntries } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import LeadForm from '../components/LeadForm.astro';
+import CTABand from '../components/CTABand.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import CTAButton from '../components/CTAButton.astro';
+import { site } from '../config/site';
+import { toHtml, toPlainText } from '../utils/inline-markdown';
+
+interface Props {
+  location: CollectionEntry<'locations'>;
+}
+
+const { location } = Astro.props;
+const d = location.data;
+const url = `${site.url}/service-areas/${location.id}/`;
+
+const relatedServices = await getEntries(d.relatedServices);
+
+const schema = [
+  {
+    '@type': 'Service',
+    '@id': `${url}#service`,
+    name: `Roofing services in ${d.title}`,
+    serviceType: 'Roofing contractor',
+    description: d.description,
+    url,
+    provider: { '@id': `${site.url}/#organization` },
+    areaServed: { '@type': 'Place', name: `${d.title}, Oklahoma` },
+  },
+  {
+    '@type': 'FAQPage',
+    '@id': `${url}#faq`,
+    mainEntity: d.faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: toPlainText(faq.answer) },
+    })),
+  },
+  {
+    '@type': 'BreadcrumbList',
+    '@id': `${url}#breadcrumbs`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Service Areas',
+        item: `${site.url}/service-areas/`,
+      },
+      { '@type': 'ListItem', position: 3, name: d.title, item: url },
+    ],
+  },
+];
+---
+
+<BaseLayout title={d.metaTitle} description={d.description} schema={schema}>
+  <Hero
+    eyebrow={`Service Area · ${d.county}`}
+    title={d.h1}
+    lede={d.summary}
+    image={d.heroImage}
+    imageAlt={d.heroImageAlt}
+    secondaryCta={{ href: site.phone.href, label: site.phone.display }}
+  />
+
+  <div class="crumbbar">
+    <div class="container">
+      <Breadcrumbs
+        trail={[{ label: 'Service Areas', href: '/service-areas/' }]}
+        current={d.title}
+      />
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container loc">
+      <div class="loc__main">
+        <p class="loc__intro">{d.intro}</p>
+
+        <div class="housing">
+          <h2 class="housing__title">Housing stock &amp; roof types in {d.title}</h2>
+          <p class="housing__body">{d.housingStock}</p>
+          {
+            d.landmarks && (
+              <ul class="landmarks">
+                {d.landmarks.map((landmark) => (
+                  <li>{landmark}</li>
+                ))}
+              </ul>
+            )
+          }
+        </div>
+
+        <div class="prose loc__prose">
+          <slot />
+        </div>
+      </div>
+
+      <aside class="loc__aside">
+        <div class="loc__sticky">
+          <LeadForm
+            formId={`area-${location.id}`}
+            defaultArea={d.group === 'surrounding' ? `${d.title}, OK` : d.title}
+            heading={`Free inspection in ${d.title}`}
+            lede="Tell us what the roof is doing. We inspect, photograph everything and send a written price."
+          />
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--sunk">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Local knowledge</p>
+        <h2>What we look for on {d.title} roofs</h2>
+        <p class="lede">
+          Every area has its own failure patterns. These are the ones that come up here.
+        </p>
+      </div>
+      <div class="notes">
+        {
+          d.localNotes.map((note) => (
+            <div class="note">
+              <h3 class="note__title">{note.title}</h3>
+              <p class="note__body" set:html={toHtml(note.body)} />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--navy">
+    <div class="container container--narrow">
+      <FAQAccordion faqs={d.faqs} heading={`Roofing in ${d.title}: common questions`} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Services here</p>
+        <h2>What {d.title} homeowners call us for</h2>
+      </div>
+      <div class="grid grid--3">
+        {relatedServices.map((service) => <ServiceCard service={service} />)}
+      </div>
+      <p class="loc__allservices">
+        <CTAButton href="/services/" variant="ghost">See all roofing services</CTAButton>
+      </p>
+    </div>
+  </section>
+
+  <CTABand
+    heading={`Need a roofer in ${d.title}?`}
+    body="Book a free inspection. We photograph everything, explain what we found in plain language, and give you a written price with no obligation."
+  />
+</BaseLayout>
+
+<style>
+  .crumbbar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    padding-block: 0.85rem;
+  }
+
+  .loc {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 22rem);
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  @media (max-width: 68rem) {
+    .loc {
+      grid-template-columns: 1fr;
+      gap: var(--space-l);
+    }
+  }
+
+  .loc__intro {
+    font-size: var(--step-1);
+    line-height: 1.6;
+    border-left: 3px solid var(--copper-500);
+    padding-left: var(--space-m);
+  }
+
+  .loc__sticky {
+    position: sticky;
+    top: calc(var(--header-height) + 1.5rem);
+  }
+
+  @media (max-width: 68rem) {
+    .loc__sticky {
+      position: static;
+    }
+  }
+
+  /* --- Housing stock panel -------------------------------------------------- */
+
+  .housing {
+    margin-top: var(--space-l);
+    padding: var(--space-m);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--navy-900);
+    border-radius: var(--radius-lg);
+  }
+
+  .housing__title {
+    font-size: var(--step-1);
+    margin-bottom: var(--space-xs);
+  }
+
+  .housing__body {
+    color: var(--ink-muted);
+    line-height: 1.7;
+    font-size: var(--step--1);
+  }
+
+  .landmarks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    list-style: none;
+    padding: 0;
+    margin-top: var(--space-s);
+  }
+
+  .landmarks li {
+    padding: 0.32rem 0.7rem;
+    font-size: 0.74rem;
+    line-height: 1.35;
+    color: var(--navy-700);
+    background: var(--surface-sunk);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+  }
+
+  .loc__prose {
+    margin-top: var(--space-l);
+    max-width: 44rem;
+  }
+
+  /* --- Local notes ---------------------------------------------------------- */
+
+  .notes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    gap: var(--space-m) var(--space-l);
+  }
+
+  .note {
+    padding-top: var(--space-s);
+    border-top: 2px solid var(--copper-500);
+  }
+
+  .note__title {
+    font-size: var(--step-1);
+    margin-bottom: 0.45rem;
+  }
+
+  .note__body {
+    color: var(--ink-muted);
+    font-size: var(--step--1);
+    line-height: 1.65;
+  }
+
+  .loc__allservices {
+    margin-top: var(--space-m);
+  }
+</style>

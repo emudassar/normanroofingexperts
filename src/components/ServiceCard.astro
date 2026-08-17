@@ -1,0 +1,40 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import ServiceIcon from './ServiceIcon.astro';
+
+interface Props {
+  service: CollectionEntry<'services'>;
+}
+
+const { service } = Astro.props;
+const { title, summary, icon } = service.data;
+---
+
+<article class="card svc-card">
+  <div class="card__body">
+    <ServiceIcon name={icon} />
+    <h3 class="card__title">
+      <a href={`/services/${service.id}/`}>{title}</a>
+    </h3>
+    <p class="card__text">{summary}</p>
+    <p class="card__more">Learn more &rarr;</p>
+  </div>
+</article>
+
+<style>
+  .svc-card {
+    position: relative;
+  }
+
+  .svc-card .card__body {
+    gap: 0.75rem;
+  }
+
+  .svc-card :global(.svc-icon) {
+    margin-bottom: 0.25rem;
+  }
+
+  .svc-card:hover :global(.svc-icon) {
+    color: var(--copper-500);
+  }
+</style>

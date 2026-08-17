@@ -1,0 +1,129 @@
+---
+import { Font } from 'astro:assets';
+import { site } from '../config/site';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  /** <title> content. Should be unique across the site. */
+  title: string;
+  /** Meta description. Should be unique across the site. */
+  description: string;
+  /** Path-only canonical override. Defaults to the current URL. */
+  canonicalPath?: string;
+  /** Absolute or root-relative OG image. Defaults to the site image. */
+  ogImage?: string;
+  /** "website" for most pages, "article" for blog posts. */
+  ogType?: 'website' | 'article';
+  /** Keep the page out of the index (404 only). */
+  noindex?: boolean;
+  /** Extra JSON-LD graph nodes for this page. */
+  schema?: Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  canonicalPath,
+  ogImage = site.defaultOgImage,
+  ogType = 'website',
+  noindex = false,
+  schema = [],
+} = Astro.props;
+
+const canonical = new URL(canonicalPath ?? Astro.url.pathname, site.url).href;
+const ogImageUrl = new URL(ogImage, site.url).href;
+
+/**
+ * Organization only, never LocalBusiness. There is no physical address and no
+ * Google Business Profile behind this site, so a LocalBusiness node would be a
+ * fabricated one. See docs/brief.md §2.
+ */
+const organizationSchema = {
+  '@type': 'Organization',
+  '@id': `${site.url}/#organization`,
+  name: site.name,
+  url: `${site.url}/`,
+  description: site.description,
+  telephone: site.phone.display,
+  email: site.email,
+  areaServed: site.areaServed.map((name) => ({
+    '@type': 'Place',
+    name,
+  })),
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: site.phone.display,
+    contactType: 'customer service',
+    areaServed: 'US-OK',
+    availableLanguage: 'English',
+  },
+};
+
+const websiteSchema = {
+  '@type': 'WebSite',
+  '@id': `${site.url}/#website`,
+  url: `${site.url}/`,
+  name: site.name,
+  description: site.description,
+  publisher: { '@id': `${site.url}/#organization` },
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [organizationSchema, websiteSchema, ...schema],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <meta name="theme-color" content="#0B1E3B" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    <!-- Self-hosted, preloaded webfonts. No external font request. -->
+    <Font cssVariable="--font-display" preload />
+    <Font cssVariable="--font-body" preload />
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

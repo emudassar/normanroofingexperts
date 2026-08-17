@@ -1,0 +1,136 @@
+---
+import { yearsServing } from '../config/site';
+
+/**
+ * Trust signals only. No review counts, no star ratings, no fabricated badges;
+ * there is no Google Business Profile and no verified review corpus behind this
+ * site. Everything here is a statement about how we work, not a claim about
+ * reputation. See docs/brief.md §2.
+ */
+const items = [
+  {
+    title: `${yearsServing} Years Serving Norman`,
+    body: 'Local to Cleveland County, not a storm-season crew passing through.',
+    icon: 'years',
+  },
+  {
+    title: 'Licensed & Insured',
+    body: 'General liability and workers’ compensation certificates on request.',
+    icon: 'shield',
+  },
+  {
+    title: 'Free Photo Inspections',
+    body: 'A documented report you keep, whether or not you hire us.',
+    icon: 'camera',
+  },
+  {
+    title: 'Written Pricing First',
+    body: 'A fixed scope in writing before anything is opened up.',
+    icon: 'doc',
+  },
+];
+
+const glyphs: Record<string, string> = {
+  years: `<circle cx="12" cy="12" r="9" /><path d="M12 7v5.5l3.5 2" />`,
+  shield: `<path d="M12 3 4.5 6v6c0 4.4 3.1 7.9 7.5 9 4.4-1.1 7.5-4.6 7.5-9V6Z" /><path d="m8.8 12.2 2.3 2.3 4.1-4.4" />`,
+  camera: `<path d="M3.5 8.5h3l1.4-2h6.2l1.4 2h3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-15a1 1 0 0 1-1-1v-8a1 1 0 0 1 1-1Z" /><circle cx="12" cy="13" r="3.2" />`,
+  doc: `<path d="M6 3.5h8L18.5 8v12.5h-12.5Z" /><path d="M14 3.5V8h4.5" /><path d="M9 12.5h6" /><path d="M9 16h6" />`,
+};
+---
+
+<div class="trustbar">
+  <div class="container">
+    <ul class="trustbar__list">
+      {
+        items.map((item) => (
+          <li class="trustbar__item">
+            <svg
+              class="trustbar__icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+              focusable="false"
+              set:html={glyphs[item.icon]}
+            />
+            <div>
+              <p class="trustbar__title">{item.title}</p>
+              <p class="trustbar__body">{item.body}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>
+
+<style>
+  .trustbar {
+    background: var(--navy-800);
+    color: var(--on-navy);
+    border-block: 1px solid rgb(255 255 255 / 0.09);
+  }
+
+  .trustbar__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .trustbar__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    padding: var(--space-m) var(--space-m) var(--space-m) 0;
+  }
+
+  .trustbar__item + .trustbar__item {
+    padding-left: var(--space-m);
+    border-left: 1px solid rgb(255 255 255 / 0.1);
+  }
+
+  @media (max-width: 62rem) {
+    .trustbar__item,
+    .trustbar__item + .trustbar__item {
+      padding: var(--space-s) 0;
+      border-left: 0;
+    }
+    .trustbar__item + .trustbar__item {
+      border-top: 1px solid rgb(255 255 255 / 0.1);
+    }
+  }
+
+  @media (min-width: 62.001rem) {
+    .trustbar__item:first-child {
+      padding-left: 0;
+    }
+  }
+
+  .trustbar__icon {
+    width: 1.65rem;
+    height: 1.65rem;
+    color: var(--copper-400);
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .trustbar__title {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #fff;
+  }
+
+  .trustbar__body {
+    margin-top: 0.2rem;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--on-navy-muted);
+  }
+</style>

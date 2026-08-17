@@ -1,0 +1,10 @@
+# Norman Roofing Experts — normanroofingexperts.com
+# Static marketing site. Everything is intended to be crawlable.
+
+User-agent: *
+Allow: /
+
+# Astro build artefacts — hashed assets, no crawl value.
+Disallow: /_astro/
+
+Sitemap: https://normanroofingexperts.com/sitemap-index.xml

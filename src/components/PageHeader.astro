@@ -1,0 +1,62 @@
+---
+import Breadcrumbs from './Breadcrumbs.astro';
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  lede?: string;
+  /** Breadcrumb trail excluding Home and the current page. */
+  trail?: { label: string; href: string }[];
+  /** Breadcrumb label for the current page. Defaults to the title. */
+  current?: string;
+  /** Hide breadcrumbs entirely (used on the 404). */
+  crumbs?: boolean;
+}
+
+const { eyebrow, title, lede, trail = [], current, crumbs = true } = Astro.props;
+---
+
+<section class="pagehead">
+  <div class="container">
+    {crumbs && <Breadcrumbs trail={trail} current={current ?? title} tone="dark" />}
+    <div class="pagehead__body">
+      {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+      <h1 class="pagehead__title">{title}</h1>
+      {lede && <p class="pagehead__lede">{lede}</p>}
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style>
+  .pagehead {
+    background: var(--navy-900);
+    color: var(--on-navy);
+    padding-block: var(--space-m) var(--space-xl);
+    background-image: radial-gradient(circle at 92% 0%, rgb(206 107 38 / 0.2), transparent 45%);
+  }
+
+  .pagehead__body {
+    max-width: 48rem;
+    margin-top: var(--space-l);
+  }
+
+  .pagehead .eyebrow {
+    color: var(--copper-400);
+  }
+
+  .pagehead__title {
+    color: #fff;
+    font-size: var(--step-4);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.032em;
+  }
+
+  .pagehead__lede {
+    margin-top: var(--space-m);
+    font-size: var(--step-1);
+    line-height: 1.55;
+    color: var(--on-navy-muted);
+  }
+</style>

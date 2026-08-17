@@ -1,0 +1,87 @@
+---
+interface Crumb {
+  label: string;
+  href: string;
+}
+
+interface Props {
+  /** Excluding Home, which is always prepended, and the current page. */
+  trail: Crumb[];
+  current: string;
+  tone?: 'light' | 'dark';
+}
+
+const { trail, current, tone = 'light' } = Astro.props;
+const items = [{ label: 'Home', href: '/' }, ...trail];
+---
+
+<nav class:list={['crumbs', tone === 'dark' && 'crumbs--dark']} aria-label="Breadcrumb">
+  <ol>
+    {
+      items.map((item) => (
+        <li>
+          <a href={item.href}>{item.label}</a>
+          <span class="crumbs__sep" aria-hidden="true">/</span>
+        </li>
+      ))
+    }
+    <li aria-current="page">{current}</li>
+  </ol>
+</nav>
+
+<style>
+  .crumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.78rem;
+  }
+
+  .crumbs li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--ink-muted);
+  }
+
+  .crumbs a {
+    color: var(--ink-muted);
+    text-decoration: none;
+  }
+
+  .crumbs a:hover {
+    color: var(--copper-700);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  .crumbs__sep {
+    color: var(--line-strong);
+  }
+
+  .crumbs [aria-current='page'] {
+    color: var(--navy-900);
+    font-weight: 600;
+  }
+
+  .crumbs--dark li,
+  .crumbs--dark a {
+    color: var(--on-navy-muted);
+  }
+
+  .crumbs--dark a:hover {
+    color: #fff;
+  }
+
+  .crumbs--dark .crumbs__sep {
+    color: rgb(255 255 255 / 0.28);
+  }
+
+  .crumbs--dark [aria-current='page'] {
+    color: #fff;
+  }
+</style>

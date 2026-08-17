@@ -1,0 +1,268 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import CTABand from '../components/CTABand.astro';
+import { site, yearsServing } from '../config/site';
+import aboutImage from '../assets/images/placeholder-crew-blue-sky.jpg';
+
+const url = `${site.url}/about/`;
+
+const schema = [
+  {
+    '@type': 'AboutPage',
+    '@id': `${url}#page`,
+    name: 'About Norman Roofing Experts',
+    url,
+    isPartOf: { '@id': `${site.url}/#website` },
+    about: { '@id': `${site.url}/#organization` },
+  },
+  {
+    '@type': 'BreadcrumbList',
+    '@id': `${url}#breadcrumbs`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'About', item: url },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="About Norman Roofing Experts | Local Roofers, Norman OK"
+  description="Who we are, how we work, and what we will and will not do. A Norman, OK roofing company that inspects before quoting and never touches your deductible."
+  schema={schema}
+>
+  <PageHeader
+    eyebrow="About us"
+    title="A roofing company built around one idea: show the homeowner the evidence"
+    lede="Most bad roofing outcomes in Norman start the same way. A homeowner is asked to make a five-figure decision based on someone's verbal assessment of a surface they cannot see. We built this company to remove that problem."
+  />
+
+  <section class="section">
+    <div class="container about">
+      <div class="about__body prose">
+        <h2>Why we work this way</h2>
+        <p>
+          Roofing has a structural information problem. The customer cannot inspect the product,
+          cannot watch most of the work, and cannot easily tell a good job from a bad one for
+          several years, by which point the contractor may be long gone. Almost every complaint
+          about this trade traces back to that gap.
+        </p>
+        <p>
+          Our entire process is designed around closing it. We photograph everything we find and
+          give you the report whether or not you hire us. We price a defined scope in writing
+          before anything is opened up, including the rate for replacing decking we haven't seen
+          yet. We tell you when a repair is the right answer even though a replacement pays us
+          better. And when the honest answer is that your roof is fine and you should call us
+          again in three years, that is what you'll be told.
+        </p>
+
+        <h2>What we do</h2>
+        <p>
+          We are a residential and light-commercial roofing company serving Norman, the rest of
+          Cleveland County and northern McClain County. Roof repair, full replacement,
+          inspections, storm and hail damage restoration with insurance claim support, gutters,
+          and low-slope commercial work.
+        </p>
+        <p>
+          We have served the Norman area for {yearsServing} years, since {site.servingSince}, and
+          we are not a storm-chasing operation that appears after a hail event and leaves when
+          the work runs out. That distinction matters more than it sounds. A workmanship warranty
+          is only worth as much as the likelihood that the company issuing it will still be
+          reachable when a defect surfaces, which in roofing is typically one to three years
+          after the job.
+        </p>
+
+        <h2>How we're set up</h2>
+        <p>
+          We are a <strong>local roofing contractor</strong> built around crews and trucks rather
+          than a retail showroom. Roofing happens at your property, so that is where our people
+          are: on the roof, in the attic and at your kitchen table going through the photographs.
+          Keeping our overhead in the field instead of a shopfront is part of how we hold our
+          pricing where it is.
+        </p>
+        <p>
+          Estimates are always produced from an on-site inspection. We do not give roof prices
+          over the phone. A number quoted without seeing the roof is a number that will change,
+          and the change is never downward.
+        </p>
+
+        <h2>What we will not do</h2>
+        <p>
+          This list is short and we are direct about it, because most of these things are common
+          in this market.
+        </p>
+        <ul>
+          <li>
+            <strong>We will not touch your deductible.</strong> Rebating, absorbing or advertising
+            the waiving of an insurance deductible is fraud under Oklahoma law. It exposes you as
+            well as the contractor, and any company willing to commit fraud on your behalf at the
+            start of a job is not one whose warranty means anything at the end of it.
+          </li>
+          <li>
+            <strong>We will not ask you to sign on your doorstep.</strong> Not a contract, not a
+            contingency agreement, not anything. If a decision is worth making it is worth making
+            after you've read the paperwork and slept on it.
+          </li>
+          <li>
+            <strong>We will not tell you that you need a new roof when you don't.</strong> The
+            photo report exists so that you can check.
+          </li>
+          <li>
+            <strong>We will not lay new shingles over old ones.</strong> It hides decking damage
+            you're about to cover for twenty years, adds weight, traps heat and can complicate a
+            future claim.
+          </li>
+          <li>
+            <strong>We will not invent reviews, ratings or credentials.</strong> Which brings us
+            to the next point.
+          </li>
+        </ul>
+
+        <h2>An honest note about reviews</h2>
+        <p>
+          You will not find a star rating or a review count on this site. We would rather say
+          plainly that we are building our public review record than display numbers we cannot
+          substantiate, and a great many roofing sites display exactly those numbers. Our
+          <a href="/reviews/">reviews page</a> explains this in more detail, including how to
+          verify any roofing contractor in Oklahoma before you hire them.
+        </p>
+        <p>
+          We would rather earn your trust through the inspection than borrow it from a graphic.
+        </p>
+
+        <h2>Licensing and insurance</h2>
+        <p>
+          We carry general liability and workers' compensation coverage, and we provide
+          certificates on request before work starts. You should ask this of every contractor you
+          consider and you should verify it independently rather than accept a verbal answer. If
+          someone is injured on your roof and the contractor is not properly insured, that can
+          become your problem.
+        </p>
+        <p>
+          Oklahoma requires roofing contractors to register with the state Construction Industries
+          Board. Ask any contractor for their registration number and check it. It takes two
+          minutes and it eliminates a meaningful share of the risk.
+        </p>
+      </div>
+
+      <aside class="about__aside">
+        <div class="about__media">
+          <Image
+            src={aboutImage}
+            alt="Roofing crew working on a residential roof under a clear blue sky"
+            widths={[420, 640, 900]}
+            sizes="(max-width: 68rem) 100vw, 24rem"
+            format="webp"
+            quality={72}
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <div class="factbox">
+          <h2 class="factbox__title">At a glance</h2>
+          <dl class="factbox__list">
+            <div><dt>Serving Norman since</dt><dd>{site.servingSince}</dd></div>
+            <div><dt>Business type</dt><dd>Local roofing crews, no retail showroom</dd></div>
+            <div><dt>Coverage</dt><dd>Norman, Cleveland County, north McClain County</dd></div>
+            <div><dt>Inspections</dt><dd>Free, with a photo report you keep</dd></div>
+            <div><dt>Quotes</dt><dd>Written, from an on-site inspection only</dd></div>
+            <div><dt>Insurance work</dt><dd>Yes, we meet your adjuster on the roof</dd></div>
+            <div><dt>Deductible offers</dt><dd>Never. It's fraud in Oklahoma.</dd></div>
+          </dl>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <CTABand
+    heading="Start with an inspection, not a quote."
+    body="An hour on your roof and in your attic, a photo report you keep, and a straight recommendation. Then decide."
+  />
+</BaseLayout>
+
+<style>
+  .about {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 22rem);
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  @media (max-width: 68rem) {
+    .about {
+      grid-template-columns: 1fr;
+      gap: var(--space-l);
+    }
+  }
+
+  .about__body > :global(h2:first-child) {
+    margin-top: 0;
+  }
+
+  .about__media {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .about__media :global(img) {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .factbox {
+    margin-top: var(--space-m);
+    padding: var(--space-m);
+    background: var(--navy-900);
+    color: var(--on-navy);
+    border-radius: var(--radius-lg);
+  }
+
+  .factbox__title {
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-s);
+  }
+
+  .factbox__list {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .factbox__list > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding-bottom: 0.7rem;
+    border-bottom: 1px solid rgb(255 255 255 / 0.12);
+  }
+
+  .factbox__list > div:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .factbox dt {
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--navy-400);
+  }
+
+  .factbox dd {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 0.92rem;
+    font-weight: 650;
+    line-height: 1.35;
+    color: #fff;
+  }
+</style>

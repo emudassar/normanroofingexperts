@@ -1,0 +1,185 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import LeadForm from '../components/LeadForm.astro';
+import { site } from '../config/site';
+
+const url = `${site.url}/contact/`;
+
+const schema = [
+  {
+    '@type': 'ContactPage',
+    '@id': `${url}#page`,
+    name: 'Contact Norman Roofing Experts',
+    url,
+    isPartOf: { '@id': `${site.url}/#website` },
+  },
+  {
+    '@type': 'BreadcrumbList',
+    '@id': `${url}#breadcrumbs`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Contact', item: url },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Contact Norman Roofing Experts | Norman, OK Roofers"
+  description="Call or message Norman Roofing Experts for roof repair, replacement or a free inspection anywhere in Norman, Cleveland County and northern McClain County, OK."
+  schema={schema}
+>
+  <PageHeader
+    eyebrow="Contact"
+    title="Get in touch"
+    lede="Call for anything urgent: an active leak, storm damage, water coming through a ceiling. Use the form for everything else and we'll come back to you to arrange the inspection."
+  />
+
+  <section class="section">
+    <div class="container contact">
+      <div class="contact__details">
+        <div class="detail detail--primary">
+          <p class="detail__label">Phone</p>
+          <a class="detail__phone" href={site.phone.href}>{site.phone.display}</a>
+          <p class="detail__note">
+            Fastest route for anything urgent. Storm-season call volume can be heavy, so leave a
+            message and we will call back.
+          </p>
+        </div>
+
+        <div class="detail">
+          <p class="detail__label">Email</p>
+          <p class="detail__value"><a href={`mailto:${site.email}`}>{site.email}</a></p>
+          <p class="detail__note">
+            Good for photographs, insurance paperwork and anything that isn't time-critical.
+          </p>
+        </div>
+
+        <div class="detail">
+          <p class="detail__label">Hours</p>
+          <p class="detail__value">{site.hours}</p>
+          <p class="detail__note">
+            Emergency tarping for active leaks is available outside normal hours during storm
+            season.
+          </p>
+        </div>
+
+        <div class="detail">
+          <p class="detail__label">Where we work</p>
+          <p class="detail__value">Norman, Cleveland County &amp; northern McClain County</p>
+          <p class="detail__note">
+            Including Noble, Lexington, Slaughterville, Washington, Little Axe and Goldsby. See
+            the full list on our <a href="/service-areas/">service areas page</a>. There is no
+            travel charge anywhere we work.
+          </p>
+        </div>
+
+        <div class="detail detail--muted">
+          <p class="detail__label">We come to you</p>
+          <p class="detail__note detail__note--lead">
+            Everything we do happens at your property, so there is nothing to drive to and no
+            appointment to sit through in a showroom. Book by phone or through the form and a
+            roofer comes out to you. Every estimate is produced from an on-site inspection.
+          </p>
+        </div>
+      </div>
+
+      <div class="contact__form">
+        <LeadForm
+          formId="contact"
+          heading="Send us a message"
+          lede="Tell us what's happening with the roof and where you are. We'll call you back to arrange a free inspection."
+        />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 30rem);
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  @media (max-width: 68rem) {
+    .contact {
+      grid-template-columns: 1fr;
+      gap: var(--space-l);
+    }
+  }
+
+  .detail {
+    padding-bottom: var(--space-m);
+    margin-bottom: var(--space-m);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .detail:last-child {
+    border-bottom: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .detail__label {
+    font-family: var(--font-display);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--copper-600);
+    margin-bottom: 0.4rem;
+  }
+
+  .detail__phone {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-size: var(--step-3);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--navy-900);
+    text-decoration: none;
+  }
+
+  .detail__phone:hover {
+    color: var(--copper-600);
+  }
+
+  .detail__value {
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    font-weight: 650;
+    line-height: 1.35;
+    color: var(--navy-900);
+  }
+
+  .detail__value a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .detail__value a:hover {
+    color: var(--copper-600);
+  }
+
+  .detail__note {
+    margin-top: 0.45rem;
+    font-size: var(--step--1);
+    line-height: 1.6;
+    color: var(--ink-muted);
+    max-width: 34rem;
+  }
+
+  .detail__note--lead {
+    margin-top: 0;
+  }
+
+  .detail--muted {
+    padding: var(--space-m);
+    background: var(--surface-sunk);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+  }
+</style>

@@ -1,0 +1,86 @@
+---
+import { site } from '../config/site';
+import CTAButton from './CTAButton.astro';
+
+interface Props {
+  heading?: string;
+  body?: string;
+}
+
+const {
+  heading = 'Not sure whether you need a repair or a new roof?',
+  body = 'Book a free inspection. We photograph everything, explain what we found in plain language, and give you a written price. If the honest answer is that your roof is fine, that is the answer you will get.',
+} = Astro.props;
+---
+
+<section class="ctaband">
+  <div class="container ctaband__inner">
+    <div class="ctaband__text">
+      <h2 class="ctaband__heading">{heading}</h2>
+      <p class="ctaband__body">{body}</p>
+    </div>
+    <div class="ctaband__actions">
+      <CTAButton href="/free-estimate/" variant="primary">Get a Free Estimate</CTAButton>
+      <CTAButton href={site.phone.href} variant="ghost" phone>{site.phone.display}</CTAButton>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ctaband {
+    background: var(--navy-900);
+    color: var(--on-navy);
+    background-image:
+      radial-gradient(circle at 88% 18%, rgb(206 107 38 / 0.24), transparent 46%),
+      radial-gradient(circle at 8% 90%, rgb(41 79 132 / 0.4), transparent 42%);
+  }
+
+  .ctaband__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-l);
+    padding-block: var(--space-xl);
+  }
+
+  .ctaband__text {
+    max-width: 42rem;
+  }
+
+  .ctaband__heading {
+    color: #fff;
+    font-size: var(--step-3);
+  }
+
+  .ctaband__body {
+    margin-top: var(--space-s);
+    color: var(--on-navy-muted);
+    line-height: 1.65;
+  }
+
+  .ctaband__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s);
+  }
+
+  .ctaband__actions :global(.btn--ghost) {
+    color: #fff;
+  }
+
+  .ctaband__actions :global(.btn--ghost:hover) {
+    background: #fff;
+    border-color: #fff;
+    color: var(--navy-900);
+  }
+
+  @media (max-width: 34rem) {
+    .ctaband__actions {
+      width: 100%;
+    }
+    .ctaband__actions :global(.btn) {
+      width: 100%;
+    }
+  }
+</style>

@@ -1,0 +1,193 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import { site } from '../config/site';
+
+const url = `${site.url}/terms/`;
+const effective = 'August 2026';
+
+const schema = [
+  {
+    '@type': 'WebPage',
+    '@id': `${url}#page`,
+    name: 'Terms of Service',
+    url,
+    isPartOf: { '@id': `${site.url}/#website` },
+  },
+  {
+    '@type': 'BreadcrumbList',
+    '@id': `${url}#breadcrumbs`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Terms of Service', item: url },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Terms of Service | Norman Roofing Experts"
+  description="The terms governing use of normanroofingexperts.com, including how estimates, pricing ranges and warranty statements on this site should be read."
+  schema={schema}
+>
+  <PageHeader eyebrow="Legal" title="Terms of Service" lede={`Effective ${effective}.`} />
+
+  <section class="section">
+    <div class="container container--narrow prose">
+      <p>
+        These terms govern your use of <strong>normanroofingexperts.com</strong> (the "site"),
+        operated by Norman Roofing Experts ("we", "us"). By using the site you accept them. If you
+        do not accept them, please do not use the site.
+      </p>
+      <p>
+        Work we carry out at your property is governed by the separate written proposal and
+        contract you sign for that work, not by these terms. Where the two differ in relation to
+        a job, the signed proposal governs.
+      </p>
+
+      <h2>1. The site is information, not a quotation</h2>
+      <p>
+        Everything published here is general information about roofing. <strong>No price, range or
+        figure on this site is a quotation</strong> and none of it is binding. Cost ranges are
+        published to help you set expectations and to make it harder for anyone to quote you an
+        unreasonable number. They are not offers.
+      </p>
+      <p>
+        A binding price comes only from a written proposal issued after an on-site inspection of
+        your specific roof. We do not price roofs over the phone or by email without inspecting
+        them.
+      </p>
+
+      <h2>2. No professional advice</h2>
+      <p>
+        Content on this site, including our guides on hail damage, insurance claims and materials,
+        is general information for Oklahoma property owners. It is <strong>not legal, financial,
+        insurance or engineering advice</strong>, and it is not a substitute for advice about your
+        specific circumstances.
+      </p>
+      <p>
+        In particular, we are roofing contractors and not licensed insurance advisers. Statements
+        about coverage, deductibles, policy types and claim outcomes describe how the process
+        generally works in practice. Your policy is a contract between you and your carrier, so
+        consult your agent or carrier about what it actually covers.
+      </p>
+
+      <h2>3. Estimates and inspections</h2>
+      <ul>
+        <li>
+          Our standard roof inspection and photo report are provided free of charge and without
+          obligation for properties within the areas we serve.
+        </li>
+        <li>
+          Formal written certifications required for a real-estate transaction are a separate paid
+          service, quoted before booking.
+        </li>
+        <li>
+          Written estimates are valid for the period stated on the estimate. Material prices move,
+          and an expired estimate may be re-issued at a different figure.
+        </li>
+        <li>
+          Estimates are based on what is visible at the time of inspection. Conditions concealed
+          beneath the existing roof covering, decking damage in particular, may change the scope.
+          Where that happens we stop and consult you before additional work is carried out.
+        </li>
+      </ul>
+
+      <h2>4. Insurance claims</h2>
+      <p>
+        Where we assist with a storm damage claim, we provide documentation, technical assessment
+        and, at your request, attendance at the adjuster's inspection. <strong>We do not act as
+        your agent with your insurer</strong>, we do not adjust claims, and we do not guarantee any
+        claim outcome. The claim is between you and your carrier and you remain responsible for
+        filing it and for the accuracy of what you file.
+      </p>
+      <p>
+        <strong>We will not rebate, absorb, discount or advertise the waiving of any insurance
+        deductible.</strong> Doing so is unlawful in Oklahoma and exposes the property owner as
+        well as the contractor. Any suggestion to the contrary attributed to us is unauthorised.
+      </p>
+
+      <h2>5. Warranties</h2>
+      <p>
+        Where we carry out work, the warranty terms applying to that work are stated in your
+        written proposal and any documentation issued on completion. Manufacturer warranties on
+        materials are issued by the manufacturer and subject to their terms, which commonly require
+        correct installation and adequate ventilation.
+      </p>
+      <p>
+        Nothing on this site creates a warranty. General statements here about typical roof service
+        life are estimates based on Oklahoma conditions, not guarantees for any particular roof.
+      </p>
+
+      <h2>6. Use of the site</h2>
+      <p>You agree not to:</p>
+      <ul>
+        <li>Use the site for any unlawful purpose or in breach of these terms.</li>
+        <li>
+          Attempt to gain unauthorised access to the site, its hosting infrastructure or any
+          connected system.
+        </li>
+        <li>
+          Submit false, misleading or malicious information through our forms, or use them to send
+          unsolicited commercial messages.
+        </li>
+        <li>
+          Scrape, republish or reproduce substantial parts of the site's content without written
+          permission.
+        </li>
+      </ul>
+
+      <h2>7. Intellectual property</h2>
+      <p>
+        The text, layout, design and original graphics on this site are our property or used under
+        licence. Photography currently used on the site is stock imagery licensed for commercial
+        use and is not a depiction of our own completed work; it is placeholder material and is
+        marked as such in our project documentation.
+      </p>
+
+      <h2>8. Third-party links</h2>
+      <p>
+        We link to external resources such as state licensing bodies and insurance regulators for
+        your convenience. We do not control those sites and are not responsible for their content
+        or availability.
+      </p>
+
+      <h2>9. Limitation of liability</h2>
+      <p>
+        The site is provided "as is". To the fullest extent permitted by Oklahoma law, we exclude
+        liability for any indirect or consequential loss arising from use of, or reliance on,
+        information published here. Nothing in these terms limits liability that cannot lawfully be
+        limited, including liability for death or personal injury caused by negligence, or for
+        fraud.
+      </p>
+      <p>
+        This clause limits liability arising from the <em>website</em>. Liability in respect of
+        physical work carried out at your property is addressed in your signed proposal and by our
+        insurance.
+      </p>
+
+      <h2>10. Governing law</h2>
+      <p>
+        These terms are governed by the laws of the State of Oklahoma. Disputes relating to the
+        site are subject to the exclusive jurisdiction of the courts of Cleveland County, Oklahoma.
+      </p>
+
+      <h2>11. Changes</h2>
+      <p>
+        We may revise these terms. The effective date above will change when we do, and the revised
+        terms apply from the date they are posted.
+      </p>
+
+      <h2>12. Contact</h2>
+      <p>
+        Email: <a href={`mailto:${site.email}`}>{site.email}</a><br />
+        Phone: <a href={site.phone.href}>{site.phone.display}</a>
+      </p>
+      <p>
+        Norman Roofing Experts is a roofing contractor serving Norman, Cleveland County and
+        northern McClain County, Oklahoma. All inspections, estimates and roofing work are
+        carried out at the customer's property.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

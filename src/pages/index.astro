@@ -1,0 +1,489 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustBar from '../components/TrustBar.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import AreaCard from '../components/AreaCard.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import LeadForm from '../components/LeadForm.astro';
+import CTAButton from '../components/CTAButton.astro';
+import { site, yearsServing } from '../config/site';
+import { toPlainText } from '../utils/inline-markdown';
+import heroImage from '../assets/images/placeholder-hero-roofer-shingle.jpg';
+import whyImage from '../assets/images/placeholder-crew-brick-home.jpg';
+
+const services = (await getCollection('services', ({ data }) => !data.draft)).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+const locations = (await getCollection('locations', ({ data }) => !data.draft)).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+const normanAreas = locations.filter((l) => l.data.group === 'norman');
+
+const reasons = [
+  {
+    title: 'We inspect before we quote',
+    body: 'No roof price over the phone. We get on the roof, into the attic, and photograph what we find, then price a defined scope in writing.',
+  },
+  {
+    title: 'Full tear-off, never a layover',
+    body: 'Laying new shingles over old hides the decking, adds weight and shortens the life of the roof you just paid for. We remove what is there.',
+  },
+  {
+    title: 'All new flashing, every time',
+    body: 'Almost every leak on a sound roof is a flashing detail. Reusing flashing is the easiest thousand dollars to quietly cut from a bid.',
+  },
+  {
+    title: 'Ventilation brought up to spec',
+    body: 'Under-ventilated attics cook shingles from below through an Oklahoma summer, and void most manufacturers’ material warranties.',
+  },
+  {
+    title: 'Insurance claims handled properly',
+    body: 'Adjuster-standard documentation, and we will meet your adjuster on the roof. We never touch your deductible; that is fraud in Oklahoma.',
+  },
+  {
+    title: 'Daily magnetic nail sweeps',
+    body: 'Yard, drive and street swept at the end of every working day, not only on the last one. Landscaping and AC units covered before tear-off.',
+  },
+];
+
+const faqs = [
+  {
+    question: 'How much do roofing contractors in Norman, OK charge?',
+    answer:
+      'For a full architectural shingle tear-off and replacement on a typical Norman home, most jobs land between roughly $9,000 and $20,000. Repairs are usually $400–$1,500. The spread comes from roof size, pitch, complexity, storeys, how much decking needs replacing and the shingle grade you choose. Impact-resistant Class 4 shingles typically add 10–20%. We quote in writing after an inspection, because a price given without seeing the roof is a number that will change.',
+  },
+  {
+    question: 'Do you charge for a roof inspection?',
+    answer:
+      'No. Our standard inspection and photo report are free and carry no obligation, across Norman and the surrounding communities we serve. You keep the report whether or not you hire us. Formal written certifications for a property sale are a separate paid service and we will tell you that before booking, not after.',
+  },
+  {
+    question: 'How quickly can you come out if my roof is leaking?',
+    answer:
+      'Active leaks are prioritised, and in normal weather we aim to be on site the same or next day. Emergency tarping can usually stop water entering immediately while the permanent repair is scheduled. After a major hail event across Cleveland County every roofer in the area is triaging, so we will give you an honest window rather than an optimistic one.',
+  },
+  {
+    question: 'Do you work with insurance companies?',
+    answer:
+      'Yes. We document damage to adjuster standard, meet your adjuster on the roof at your request, and file supported supplements where the initial scope misses code-required work. What we will never do is rebate, absorb or waive your deductible; that is insurance fraud under Oklahoma law and it exposes you as well as the contractor.',
+  },
+  {
+    question: 'Are impact-resistant shingles worth it in Norman?',
+    answer:
+      'Often, yes. Class 4 impact-rated shingles hold up measurably better against small and moderate hail, and many Oklahoma insurers offer a premium discount for them that recovers a meaningful share of the extra cost over the roof’s life. Ask your carrier what discount applies to you specifically, because it varies, and that number should drive the decision. They are not hail-proof and we will not claim otherwise.',
+  },
+  {
+    question: 'Which areas around Norman do you cover?',
+    answer:
+      'All of Norman, including Campus Corner, the historic districts, Brookhaven, Hall Park, Summit Lakes, West Norman and the Franklin Road area, plus Noble, Lexington, Slaughterville, Washington, Little Axe and Goldsby. See our service areas page for what we know about roofing in each.',
+  },
+];
+
+const schema = [
+  {
+    '@type': 'FAQPage',
+    '@id': `${site.url}/#faq`,
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: toPlainText(faq.answer) },
+    })),
+  },
+  {
+    '@type': 'BreadcrumbList',
+    '@id': `${site.url}/#breadcrumbs`,
+    itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` }],
+  },
+];
+---
+
+<BaseLayout
+  title="Roofing Contractors in Norman, OK | Norman Roofing Experts"
+  description="Roofing contractors in Norman, OK for roof repair, replacement and hail damage. Free photo inspections, written pricing and insurance claim support."
+  schema={schema}
+>
+  <Hero
+    size="full"
+    eyebrow="Norman · Cleveland County · McClain County"
+    title="Roofing Contractors"
+    titleAccent="Norman, OK Trusts"
+    lede="Roof repair, full replacement, inspections and storm damage restoration. We inspect before we quote, photograph everything we find, and put a fixed price in writing before anything is opened up."
+    image={heroImage}
+    imageAlt="Roofer installing asphalt shingles on a residential roof in bright daylight"
+    primaryCta={{ href: '/free-estimate/', label: 'Get a Free Estimate' }}
+  />
+
+  <TrustBar />
+
+  <!-- Services -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">What we do</p>
+        <h2>Roofing services across Norman</h2>
+        <p class="lede">
+          Seven services, each written for a homeowner with a specific problem rather than a
+          catalogue. Every one includes a free inspection and a written price before work starts.
+        </p>
+      </div>
+
+      <div class="grid grid--3">
+        {services.map((service) => <ServiceCard service={service} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why choose us -->
+  <section class="section section--navy why">
+    <div class="container why__inner">
+      <div class="why__text">
+        <p class="eyebrow">Why homeowners choose us</p>
+        <h2>The six things that decide whether a roof lasts</h2>
+        <p class="lede">
+          Roofing bids differ by thousands and the shingle is almost never the reason. These are
+          what actually separate a roof that reaches its rated life from one that doesn't.
+        </p>
+        <ul class="reasons">
+          {
+            reasons.map((reason) => (
+              <li class="reason">
+                <svg
+                  class="reason__tick"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                  focusable="false"
+                >
+                  <path d="m4 10.5 4 4 8-9" />
+                </svg>
+                <div>
+                  <h3 class="reason__title">{reason.title}</h3>
+                  <p class="reason__body">{reason.body}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="why__media">
+        <Image
+          src={whyImage}
+          alt="Roofing crew working on the roof of a brick family home"
+          widths={[420, 640, 900]}
+          sizes="(max-width: 68rem) 100vw, 30rem"
+          format="webp"
+          quality={72}
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="why__badge">
+          <span class="why__badge-num">{yearsServing}</span>
+          <span class="why__badge-label">Years serving<br />the Norman area</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service areas -->
+  <section class="section section--sunk">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Where we work</p>
+        <h2>Real Norman neighbourhoods, not a city-wide page</h2>
+        <p class="lede">
+          Roofing problems are local. A 1920s bungalow in the Miller district and a 2015 build in
+          Summit Lakes fail in completely different ways. We write a page for each area covering
+          what we actually find there.
+        </p>
+      </div>
+
+      <div class="grid grid--3">
+        {normanAreas.map((location) => <AreaCard location={location} />)}
+      </div>
+
+      <p class="areas__more">
+        <CTAButton href="/service-areas/" variant="ghost"
+          >All 12 service areas, including nearby towns</CTAButton
+        >
+      </p>
+    </div>
+  </section>
+
+  <!-- Estimate form -->
+  <section class="section estimate">
+    <div class="container estimate__inner">
+      <div class="estimate__text">
+        <p class="eyebrow">Free estimate</p>
+        <h2>Leaking roof? Storm damage? Start here.</h2>
+        <p class="lede">
+          Tell us what the roof is doing and we will book a free inspection. You get a photo
+          report you keep, a plain-English explanation of what we found, and a written price,
+          with no obligation and no doorstep pressure.
+        </p>
+        <ul class="estimate__points">
+          <li>Free inspection and photo report, no obligation</li>
+          <li>Fixed written pricing before any work begins</li>
+          <li>Insurance claim documentation to adjuster standard</li>
+          <li>Emergency tarping available for active leaks</li>
+        </ul>
+        <p class="estimate__call">
+          Roof leaking right now? Call
+          <a href={site.phone.href}>{site.phone.display}</a>; that's faster than the form.
+        </p>
+      </div>
+      <div class="estimate__form">
+        <LeadForm formId="home" />
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQs -->
+  <section class="section section--surface">
+    <div class="container container--narrow">
+      <FAQAccordion faqs={faqs} heading="Roofing in Norman: common questions" />
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="finale">
+    <div class="container finale__inner">
+      <div>
+        <h2 class="finale__heading">Get an honest assessment of your roof.</h2>
+        <p class="finale__body">
+          Free inspection, documented findings, written pricing. If your roof is fine, we will
+          tell you that and you can call us again in three years.
+        </p>
+      </div>
+      <div class="finale__actions">
+        <CTAButton href="/free-estimate/" variant="primary">Get a Free Estimate</CTAButton>
+        <CTAButton href={site.phone.href} variant="ghost" phone>{site.phone.display}</CTAButton>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* --- Why choose us -------------------------------------------------------- */
+
+  .why__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: var(--space-xl);
+    align-items: center;
+  }
+
+  @media (max-width: 68rem) {
+    .why__inner {
+      grid-template-columns: 1fr;
+      gap: var(--space-l);
+    }
+  }
+
+  .reasons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    gap: var(--space-m) var(--space-l);
+    list-style: none;
+    padding: 0;
+    margin-top: var(--space-l);
+  }
+
+  .reason {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+
+  .reason__tick {
+    width: 1.35rem;
+    height: 1.35rem;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+    color: var(--copper-400);
+  }
+
+  .reason__title {
+    font-size: var(--step-0);
+    letter-spacing: -0.01em;
+    color: #fff;
+    margin-bottom: 0.25rem;
+  }
+
+  .reason__body {
+    font-size: var(--step--1);
+    line-height: 1.6;
+    color: var(--on-navy-muted);
+  }
+
+  .why__media {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .why__media :global(img) {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+  }
+
+  @media (max-width: 68rem) {
+    .why__media :global(img) {
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  .why__badge {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: var(--space-s) var(--space-m);
+    background: var(--copper-500);
+    color: #fff;
+    border-start-end-radius: var(--radius-lg);
+  }
+
+  .why__badge-num {
+    font-family: var(--font-display);
+    font-size: var(--step-3);
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .why__badge-label {
+    font-family: var(--font-display);
+    font-size: 0.74rem;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: 0.02em;
+  }
+
+  /* --- Service areas -------------------------------------------------------- */
+
+  .areas__more {
+    margin-top: var(--space-l);
+  }
+
+  /* --- Estimate ------------------------------------------------------------- */
+
+  .estimate__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 30rem);
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  @media (max-width: 68rem) {
+    .estimate__inner {
+      grid-template-columns: 1fr;
+      gap: var(--space-l);
+    }
+  }
+
+  .estimate__points {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin-top: var(--space-m);
+  }
+
+  .estimate__points li {
+    position: relative;
+    padding-left: 1.6rem;
+    color: var(--ink-muted);
+    font-size: var(--step--1);
+  }
+
+  .estimate__points li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 0.55rem;
+    height: 0.55rem;
+    background: var(--copper-500);
+    transform: rotate(45deg);
+  }
+
+  .estimate__call {
+    margin-top: var(--space-m);
+    padding-top: var(--space-s);
+    border-top: 1px solid var(--line);
+    font-size: var(--step--1);
+    color: var(--ink-muted);
+  }
+
+  .estimate__call a {
+    font-family: var(--font-display);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  /* --- Finale --------------------------------------------------------------- */
+
+  .finale {
+    background: var(--navy-950);
+    color: var(--on-navy);
+    background-image:
+      radial-gradient(circle at 85% 10%, rgb(206 107 38 / 0.28), transparent 45%),
+      radial-gradient(circle at 5% 95%, rgb(41 79 132 / 0.45), transparent 40%);
+  }
+
+  .finale__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-l);
+    padding-block: var(--space-2xl);
+  }
+
+  .finale__heading {
+    color: #fff;
+    font-size: var(--step-3);
+    max-width: 22ch;
+  }
+
+  .finale__body {
+    margin-top: var(--space-s);
+    max-width: 40rem;
+    color: var(--on-navy-muted);
+    line-height: 1.65;
+  }
+
+  .finale__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s);
+  }
+
+  .finale__actions :global(.btn--ghost) {
+    color: #fff;
+  }
+
+  .finale__actions :global(.btn--ghost:hover) {
+    background: #fff;
+    border-color: #fff;
+    color: var(--navy-900);
+  }
+
+  @media (max-width: 34rem) {
+    .finale__actions,
+    .finale__actions :global(.btn) {
+      width: 100%;
+    }
+  }
+</style>

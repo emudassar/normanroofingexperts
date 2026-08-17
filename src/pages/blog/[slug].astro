@@ -1,0 +1,319 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import type { GetStaticPaths } from 'astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CTABand from '../../components/CTABand.astro';
+import { site } from '../../config/site';
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}) satisfies GetStaticPaths;
+
+const { post } = Astro.props;
+const d = post.data;
+const { Content, headings } = await render(post);
+
+const url = `${site.url}/blog/${post.id}/`;
+
+const dateFormat = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+/** Only h2s make the table of contents; h3s would make it unreadable. */
+const toc = headings.filter((h) => h.depth === 2);
+
+const schema = [
+  {
+    '@type': 'Article',
+    '@id': `${url}#article`,
+    headline: d.title,
+    description: d.description,
+    url,
+    datePublished: d.publishDate.toISOString(),
+    dateModified: (d.updatedDate ?? d.publishDate).toISOString(),
+    author: { '@id': `${site.url}/#organization` },
+    publisher: { '@id': `${site.url}/#organization` },
+    mainEntityOfPage: url,
+    image: new URL(site.defaultOgImage, site.url).href,
+    keywords: d.tags.join(', '),
+  },
+  {
+    '@type': 'BreadcrumbList',
+    '@id': `${url}#breadcrumbs`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Roof Guides', item: `${site.url}/blog/` },
+      { '@type': 'ListItem', position: 3, name: d.title, item: url },
+    ],
+  },
+];
+---
+
+<BaseLayout title={d.metaTitle} description={d.description} ogType="article" schema={schema}>
+  <div class="crumbbar">
+    <div class="container">
+      <Breadcrumbs trail={[{ label: 'Roof Guides', href: '/blog/' }]} current={d.title} />
+    </div>
+  </div>
+
+  <article>
+    <header class="posthead">
+      <div class="container container--narrow">
+        <p class="posthead__meta">
+          <time datetime={d.publishDate.toISOString()}>{dateFormat.format(d.publishDate)}</time>
+          {
+            d.updatedDate && (
+              <>
+                <span aria-hidden="true"> · </span>
+                Updated <time datetime={d.updatedDate.toISOString()}>
+                  {dateFormat.format(d.updatedDate)}
+                </time>
+              </>
+            )
+          }
+        </p>
+        <h1 class="posthead__title">{d.title}</h1>
+        <p class="posthead__excerpt">{d.excerpt}</p>
+        {
+          d.tags.length > 0 && (
+            <ul class="posthead__tags">
+              {d.tags.map((tag) => (
+                <li>{tag}</li>
+              ))}
+            </ul>
+          )
+        }
+      </div>
+    </header>
+
+    <div class="container">
+      <figure class="posthero">
+        <Image
+          src={d.heroImage}
+          alt={d.heroImageAlt}
+          widths={[640, 1024, 1400]}
+          sizes="(max-width: 76rem) 100vw, 72rem"
+          format="webp"
+          quality={72}
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </figure>
+    </div>
+
+    <div class="section section--tight">
+      <div class="container postbody">
+        {
+          toc.length > 2 && (
+            <nav class="toc" aria-labelledby="toc-title">
+              <div class="toc__inner">
+                <h2 class="toc__title" id="toc-title">
+                  On this page
+                </h2>
+                <ol>
+                  {toc.map((heading) => (
+                    <li>
+                      <a href={`#${heading.slug}`}>{heading.text}</a>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            </nav>
+          )
+        }
+
+        <div class="prose postbody__prose">
+          <Content />
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <CTABand />
+</BaseLayout>
+
+<style>
+  .crumbbar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    padding-block: 0.85rem;
+  }
+
+  .posthead {
+    background: var(--navy-900);
+    color: var(--on-navy);
+    padding-block: var(--space-xl) var(--space-2xl);
+    background-image: radial-gradient(circle at 92% 0%, rgb(206 107 38 / 0.2), transparent 45%);
+  }
+
+  .posthead__meta {
+    font-family: var(--font-display);
+    font-size: 0.74rem;
+    font-weight: 650;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--copper-400);
+  }
+
+  .posthead__title {
+    margin-top: var(--space-s);
+    color: #fff;
+    font-size: var(--step-4);
+    font-weight: 800;
+    line-height: 1.06;
+    letter-spacing: -0.032em;
+  }
+
+  .posthead__excerpt {
+    margin-top: var(--space-m);
+    font-size: var(--step-1);
+    line-height: 1.55;
+    color: var(--on-navy-muted);
+  }
+
+  .posthead__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    list-style: none;
+    padding: 0;
+    margin-top: var(--space-m);
+  }
+
+  .posthead__tags li {
+    padding: 0.3rem 0.7rem;
+    font-size: 0.74rem;
+    color: var(--on-navy-muted);
+    border: 1px solid rgb(255 255 255 / 0.2);
+    border-radius: 999px;
+  }
+
+  .posthero {
+    margin: calc(var(--space-xl) * -1) 0 0;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .posthero :global(img) {
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    object-fit: cover;
+  }
+
+  @media (max-width: 55rem) {
+    .posthero :global(img) {
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  /* --- Body with a sticky table of contents -------------------------------- */
+
+  .postbody {
+    display: grid;
+    grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  @media (max-width: 68rem) {
+    .postbody {
+      grid-template-columns: 1fr;
+      gap: var(--space-m);
+    }
+  }
+
+  .toc__inner {
+    position: sticky;
+    top: calc(var(--header-height) + 1.5rem);
+    padding: var(--space-m);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+  }
+
+  @media (max-width: 68rem) {
+    .toc__inner {
+      position: static;
+    }
+  }
+
+  .toc__title {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--copper-600);
+    margin-bottom: var(--space-xs);
+  }
+
+  .toc ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    counter-reset: toc;
+  }
+
+  .toc li {
+    counter-increment: toc;
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.83rem;
+    line-height: 1.4;
+  }
+
+  .toc li::before {
+    content: counter(toc, decimal-leading-zero);
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--line-strong);
+    flex-shrink: 0;
+    padding-top: 0.1rem;
+  }
+
+  .toc a {
+    color: var(--ink-muted);
+    text-decoration: none;
+  }
+
+  .toc a:hover {
+    color: var(--copper-700);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  .postbody__prose {
+    max-width: 44rem;
+  }
+
+  .postbody__prose > :global(h2:first-child) {
+    margin-top: 0;
+  }
+
+  /* Markdown tables can be wide; scroll them inside their own box. */
+  .postbody__prose :global(table) {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  @media (min-width: 55rem) {
+    .postbody__prose :global(table) {
+      display: table;
+      white-space: normal;
+    }
+  }
+</style>

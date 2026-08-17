@@ -1,0 +1,21 @@
+{
+  "name": "norman-roofing-experts",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "seo-audit": "node scripts/seo-audit.mjs dist",
+    "check": "astro build && node scripts/seo-audit.mjs dist"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.3",
+    "astro": "^7.2.2"
+  }
+}

@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import { site } from '../config/site';
+
+const url = `${site.url}/privacy-policy/`;
+const effective = 'August 2026';
+
+const schema = [
+  {
+    '@type': 'WebPage',
+    '@id': `${url}#page`,
+    name: 'Privacy Policy',
+    url,
+    isPartOf: { '@id': `${site.url}/#website` },
+  },
+  {
+    '@type': 'BreadcrumbList',
+    '@id': `${url}#breadcrumbs`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Privacy Policy', item: url },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Privacy Policy | Norman Roofing Experts"
+  description="How Norman Roofing Experts collects, uses and protects the information you submit through this website or provide when requesting a roofing estimate."
+  schema={schema}
+>
+  <PageHeader eyebrow="Legal" title="Privacy Policy" lede={`Effective ${effective}.`} />
+
+  <section class="section">
+    <div class="container container--narrow prose">
+      <p>
+        This policy explains what information Norman Roofing Experts ("we", "us") collects through
+        <strong>normanroofingexperts.com</strong>, why we collect it, and what we do with it. It
+        applies to this website and to enquiries made through it.
+      </p>
+
+      <h2>Information we collect</h2>
+      <h3>Information you give us</h3>
+      <p>
+        When you submit an estimate or contact form, we collect the details you enter: your name,
+        phone number, email address if provided, the service area you select, the type of project,
+        and anything you write in the message field. If you call us, we collect the information
+        you provide during that call and, where a call-tracking number is used, the calling number
+        and call metadata such as time and duration.
+      </p>
+      <p>
+        Please do not send us sensitive personal information such as government identification numbers,
+        financial account details, or health information. We do not need any of it to quote or
+        carry out roofing work.
+      </p>
+
+      <h3>Information collected automatically</h3>
+      <p>
+        Like most websites, our hosting infrastructure records standard technical information when
+        pages are requested: IP address, browser type and version, device type, referring page,
+        pages viewed and timestamps. This is used for security, troubleshooting and understanding
+        which pages are useful.
+      </p>
+
+      <h2>Cookies and analytics</h2>
+      <p>
+        This site is a static website and does not set advertising or cross-site tracking cookies
+        of its own. Where a privacy-respecting analytics tool or a call-tracking provider is in
+        use, it may set a cookie or similar identifier to measure page views and attribute calls
+        to the pages that generated them. You can block or delete cookies through your browser
+        settings; the site will continue to work normally without them.
+      </p>
+
+      <h2>How we use your information</h2>
+      <ul>
+        <li>To respond to your enquiry and arrange a roof inspection.</li>
+        <li>To prepare and send you an estimate.</li>
+        <li>To carry out and support work you engage us for, including insurance documentation.</li>
+        <li>To contact you about a job in progress or an existing quote.</li>
+        <li>To maintain business records, including for warranty and tax purposes.</li>
+        <li>To improve the website and understand which content is useful.</li>
+      </ul>
+
+      <h2>Sharing your information</h2>
+      <p>We share personal information only in the following circumstances:</p>
+      <ul>
+        <li>
+          <strong>Lead routing partners.</strong> Enquiries submitted through this site may be
+          passed to a partner roofing contractor operating in your area so that your request can
+          be responded to promptly. That partner will contact you directly about your roof.
+        </li>
+        <li>
+          <strong>Service providers.</strong> Hosting, form handling, call tracking and email
+          providers that operate the site and our communications on our behalf.
+        </li>
+        <li>
+          <strong>Where you ask us to.</strong> For example, sending inspection documentation to
+          your insurance carrier or adjuster in support of a claim.
+        </li>
+        <li>
+          <strong>Where the law requires it.</strong> In response to a valid legal request, or to
+          establish or defend legal claims.
+        </li>
+      </ul>
+      <p>
+        <strong>We do not sell your personal information</strong> to advertisers or data brokers,
+        and we do not add you to unrelated marketing lists.
+      </p>
+
+      <h2>How long we keep it</h2>
+      <p>
+        Enquiries that do not lead to work are retained only as long as needed to respond and
+        maintain basic records. Records relating to completed work (contracts, invoices,
+        inspection documentation and warranty records) are kept for as long as required to
+        support the warranty and to meet legal and tax obligations.
+      </p>
+
+      <h2>Security</h2>
+      <p>
+        The site is served over HTTPS and we take reasonable technical and organisational measures
+        to protect the information we hold. No method of transmission or storage is completely
+        secure, and we cannot guarantee absolute security.
+      </p>
+
+      <h2>Your choices</h2>
+      <ul>
+        <li>
+          <strong>Access and correction.</strong> Ask us what information we hold about you, and
+          ask us to correct it if it is wrong.
+        </li>
+        <li>
+          <strong>Deletion.</strong> Ask us to delete your enquiry details, subject to records we
+          are required to retain.
+        </li>
+        <li>
+          <strong>Opting out of contact.</strong> Tell us to stop contacting you and we will,
+          other than where necessary for work already in progress.
+        </li>
+      </ul>
+      <p>
+        To make any of these requests, email <a href={`mailto:${site.email}`}>{site.email}</a> or
+        call <a href={site.phone.href}>{site.phone.display}</a>.
+      </p>
+
+      <h2>Children</h2>
+      <p>
+        This site is intended for adults arranging work on property they own or manage. We do not
+        knowingly collect information from children under 13.
+      </p>
+
+      <h2>Third-party links</h2>
+      <p>
+        Where we link to external resources such as insurance regulators, state licensing bodies
+        and manufacturers, those sites have their own privacy policies. We are not responsible for
+        their practices.
+      </p>
+
+      <h2>Changes to this policy</h2>
+      <p>
+        We may update this policy from time to time. The effective date at the top of this page
+        will change when we do. Material changes will be reflected here rather than announced
+        individually.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        Questions about this policy or about how we handle your information:<br />
+        Email: <a href={`mailto:${site.email}`}>{site.email}</a><br />
+        Phone: <a href={site.phone.href}>{site.phone.display}</a>
+      </p>
+      <p>
+        Norman Roofing Experts is a roofing contractor working across Norman, Cleveland County
+        and northern McClain County, Oklahoma. All inspections, estimates and roofing work are
+        carried out at the customer's property.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

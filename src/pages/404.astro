@@ -1,0 +1,133 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import CTAButton from '../components/CTAButton.astro';
+import { site } from '../config/site';
+
+const services = (await getCollection('services', ({ data }) => !data.draft)).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<BaseLayout
+  title="Page Not Found | Norman Roofing Experts"
+  description="That page doesn't exist. Here are the roofing services and service areas you were most likely looking for."
+  noindex
+>
+  <PageHeader
+    eyebrow="404"
+    title="That page isn't here"
+    lede="The link may be out of date, or the address may have a typo in it. Nothing is broken on your end. Here's where most people were heading."
+    crumbs={false}
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="notfound">
+        <div>
+          <h2 class="notfound__title">Roofing services</h2>
+          <ul class="notfound__list">
+            {
+              services.map((service) => (
+                <li>
+                  <a href={`/services/${service.id}/`}>{service.data.title}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="notfound__title">Popular pages</h2>
+          <ul class="notfound__list">
+            <li><a href="/">Home</a></li>
+            <li><a href="/service-areas/">All service areas</a></li>
+            <li><a href="/free-estimate/">Book a free estimate</a></li>
+            <li><a href="/about/">About us</a></li>
+            <li><a href="/blog/">Roof guides</a></li>
+            <li><a href="/contact/">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="notfound__cta">
+          <h2 class="notfound__title">Need someone now?</h2>
+          <p class="notfound__body">
+            If your roof is leaking, don't hunt through the site, just call us. Emergency tarping to
+            stop water entering is usually available the same day.
+          </p>
+          <p class="notfound__actions">
+            <CTAButton href={site.phone.href} variant="primary" phone>
+              {site.phone.display}
+            </CTAButton>
+            <CTAButton href="/free-estimate/" variant="ghost">Get a Free Estimate</CTAButton>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .notfound {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    gap: var(--space-l);
+  }
+
+  .notfound__title {
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--copper-600);
+    margin-bottom: var(--space-s);
+  }
+
+  .notfound__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .notfound__list li {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .notfound__list a {
+    display: block;
+    padding: 0.6rem 0;
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--navy-900);
+    text-decoration: none;
+  }
+
+  .notfound__list a:hover {
+    color: var(--copper-700);
+  }
+
+  .notfound__cta {
+    padding: var(--space-m);
+    background: var(--surface-sunk);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    align-self: start;
+  }
+
+  .notfound__body {
+    font-size: var(--step--1);
+    line-height: 1.6;
+    color: var(--ink-muted);
+  }
+
+  .notfound__actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-top: var(--space-m);
+  }
+</style>

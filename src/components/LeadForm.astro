@@ -1,0 +1,318 @@
+---
+import { getCollection } from 'astro:content';
+import { site, projectTypes } from '../config/site';
+
+interface Props {
+  /** Distinguishes submissions by page once LeadSmart is wired up. */
+  formId?: string;
+  /** Pre-selects the service area, e.g. from a location page. */
+  defaultArea?: string;
+  /** Pre-selects the project type, e.g. from a service page. */
+  defaultProject?: string;
+  heading?: string;
+  lede?: string;
+  /** Renders on a navy panel rather than a light card. */
+  tone?: 'light' | 'dark';
+}
+
+const {
+  formId = 'lead',
+  defaultArea = '',
+  defaultProject = '',
+  heading = 'Request your free estimate',
+  lede = 'Tell us what the roof is doing. We inspect, photograph everything, and send a written price. No obligation and no doorstep pressure.',
+  tone = 'light',
+} = Astro.props;
+
+const locations = (await getCollection('locations', ({ data }) => !data.draft)).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+
+const areaOptions = [
+  ...locations.filter((l) => l.data.group === 'norman').map((l) => l.data.title),
+  ...locations.filter((l) => l.data.group === 'surrounding').map((l) => `${l.data.title}, OK`),
+  'Elsewhere in Norman',
+  'Somewhere else nearby',
+];
+---
+
+<div class:list={['leadform', tone === 'dark' && 'leadform--dark']}>
+  <div class="leadform__head">
+    <h2 class="leadform__heading">{heading}</h2>
+    <p class="leadform__lede">{lede}</p>
+  </div>
+
+  <form
+    class="leadform__form"
+    id={`form-${formId}`}
+    action={site.formEndpoint}
+    method="post"
+    novalidate
+  >
+    <!-- Wired to LeadSmart later. See docs/brief.md §12. -->
+    <input type="hidden" name="form_id" value={formId} />
+    <input type="hidden" name="source_page" value={Astro.url.pathname} />
+    <!-- Honeypot: bots fill it, humans never see it. -->
+    <p class="leadform__trap" aria-hidden="true">
+      <label for={`company-${formId}`}>Company</label>
+      <input id={`company-${formId}`} type="text" name="company" tabindex="-1" autocomplete="off" />
+    </p>
+
+    <div class="leadform__grid">
+      <p class="field">
+        <label for={`name-${formId}`}>Name <span aria-hidden="true">*</span></label>
+        <input
+          id={`name-${formId}`}
+          name="name"
+          type="text"
+          autocomplete="name"
+          required
+        />
+      </p>
+
+      <p class="field">
+        <label for={`phone-${formId}`}>Phone <span aria-hidden="true">*</span></label>
+        <input
+          id={`phone-${formId}`}
+          name="phone"
+          type="tel"
+          autocomplete="tel"
+          inputmode="tel"
+          required
+        />
+      </p>
+
+      <p class="field">
+        <label for={`email-${formId}`}>Email</label>
+        <input id={`email-${formId}`} name="email" type="email" autocomplete="email" />
+      </p>
+
+      <p class="field">
+        <label for={`area-${formId}`}>Your area <span aria-hidden="true">*</span></label>
+        <select id={`area-${formId}`} name="area" required>
+          <option value="">Select your area…</option>
+          {
+            areaOptions.map((area) => (
+              <option value={area} selected={area === defaultArea}>
+                {area}
+              </option>
+            ))
+          }
+        </select>
+      </p>
+
+      <p class="field field--full">
+        <label for={`project-${formId}`}>Project type <span aria-hidden="true">*</span></label>
+        <select id={`project-${formId}`} name="project_type" required>
+          <option value="">What do you need?</option>
+          {
+            projectTypes.map((type) => (
+              <option value={type} selected={type === defaultProject}>
+                {type}
+              </option>
+            ))
+          }
+        </select>
+      </p>
+
+      <p class="field field--full">
+        <label for={`message-${formId}`}>Tell us what's happening</label>
+        <textarea
+          id={`message-${formId}`}
+          name="message"
+          rows="4"
+          placeholder="Active leak in the back bedroom since Tuesday's storm, roof is about 15 years old…"></textarea>
+      </p>
+    </div>
+
+    <button class="btn btn--primary btn--wide" type="submit">Request My Free Estimate</button>
+
+    <p class="leadform__note">
+      We'll call you back to arrange the inspection. We never sell your details on to a list, and
+      there's no obligation to proceed. If your roof is leaking right now,
+      <a href={site.phone.href}>call {site.phone.display}</a> instead; that's faster.
+    </p>
+
+    <p class="leadform__status" role="status" aria-live="polite" hidden></p>
+  </form>
+</div>
+
+<style>
+  .leadform {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: clamp(1.25rem, 3vw, 2.25rem);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .leadform--dark {
+    background: var(--navy-800);
+    border-color: rgb(255 255 255 / 0.12);
+    box-shadow: none;
+  }
+
+  .leadform__head {
+    margin-bottom: var(--space-m);
+  }
+
+  .leadform__heading {
+    font-size: var(--step-2);
+  }
+
+  .leadform--dark .leadform__heading {
+    color: #fff;
+  }
+
+  .leadform__lede {
+    margin-top: 0.55rem;
+    color: var(--ink-muted);
+    font-size: var(--step--1);
+    line-height: 1.6;
+  }
+
+  .leadform--dark .leadform__lede {
+    color: var(--on-navy-muted);
+  }
+
+  .leadform__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+    gap: var(--space-s);
+    margin-bottom: var(--space-m);
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin: 0;
+  }
+
+  .field--full {
+    grid-column: 1 / -1;
+  }
+
+  .field label {
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 650;
+    letter-spacing: 0.02em;
+    color: var(--navy-900);
+  }
+
+  .leadform--dark .field label {
+    color: var(--on-navy);
+  }
+
+  .field label span {
+    color: var(--copper-600);
+  }
+
+  .field :is(input, select, textarea) {
+    width: 100%;
+    padding: 0.7rem 0.85rem;
+    font-size: 0.95rem;
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .field textarea {
+    resize: vertical;
+    min-height: 6rem;
+  }
+
+  .field :is(input, select, textarea):focus {
+    border-color: var(--copper-500);
+    box-shadow: 0 0 0 3px rgb(206 107 38 / 0.16);
+    outline: none;
+  }
+
+  .field :is(input, select, textarea)[aria-invalid='true'] {
+    border-color: #B3261E;
+    box-shadow: 0 0 0 3px rgb(179 38 30 / 0.14);
+  }
+
+  .field ::placeholder {
+    color: var(--ink-faint);
+  }
+
+  /* Honeypot: off-screen, never focusable, invisible to real users. */
+  .leadform__trap {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .leadform__note {
+    margin-top: var(--space-s);
+    font-size: 0.78rem;
+    line-height: 1.55;
+    color: var(--ink-muted);
+  }
+
+  .leadform--dark .leadform__note {
+    color: var(--on-navy-muted);
+  }
+
+  .leadform--dark .leadform__note a {
+    color: var(--copper-400);
+  }
+
+  .leadform__status {
+    margin-top: var(--space-s);
+    padding: 0.75rem 0.9rem;
+    border-radius: var(--radius);
+    font-size: 0.85rem;
+    line-height: 1.55;
+    background: var(--copper-100);
+    border: 1px solid var(--copper-400);
+    color: var(--copper-700);
+  }
+</style>
+
+<script>
+  /**
+   * The form has no live endpoint yet (see docs/brief.md §12). Until LeadSmart is
+   * wired up, submitting would post into the void and look like a silent failure,
+   * so we intercept, validate, and tell the visitor to call instead. Delete this
+   * whole block once site.formEndpoint is real.
+   */
+  const PLACEHOLDER_ENDPOINT = '/api/lead-placeholder';
+
+  document.querySelectorAll<HTMLFormElement>('.leadform__form').forEach((form) => {
+    const status = form.querySelector<HTMLParagraphElement>('.leadform__status');
+
+    form.addEventListener('submit', (event) => {
+      const fields = form.querySelectorAll<HTMLInputElement | HTMLSelectElement>('[required]');
+      let firstInvalid: HTMLElement | null = null;
+
+      fields.forEach((field) => {
+        const valid = field.checkValidity();
+        field.setAttribute('aria-invalid', String(!valid));
+        if (!valid && !firstInvalid) firstInvalid = field;
+      });
+
+      if (firstInvalid) {
+        event.preventDefault();
+        (firstInvalid as HTMLElement).focus();
+        return;
+      }
+
+      if (form.getAttribute('action') === PLACEHOLDER_ENDPOINT) {
+        event.preventDefault();
+        if (status) {
+          status.hidden = false;
+          status.textContent =
+            'This form is not connected yet, so your details were not sent. Please call us instead and we will book your free inspection.';
+        }
+      }
+    });
+  });
+</script>

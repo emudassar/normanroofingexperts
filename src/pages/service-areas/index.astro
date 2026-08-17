@@ -1,0 +1,126 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import AreaCard from '../../components/AreaCard.astro';
+import CTABand from '../../components/CTABand.astro';
+import { site } from '../../config/site';
+
+const locations = (await getCollection('locations', ({ data }) => !data.draft)).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+
+const normanAreas = locations.filter((l) => l.data.group === 'norman');
+const surroundingAreas = locations.filter((l) => l.data.group === 'surrounding');
+
+const url = `${site.url}/service-areas/`;
+
+const schema = [
+  {
+    '@type': 'CollectionPage',
+    '@id': `${url}#page`,
+    name: 'Areas We Serve | Norman Roofing Experts',
+    url,
+    isPartOf: { '@id': `${site.url}/#website` },
+  },
+  {
+    '@type': 'ItemList',
+    '@id': `${url}#list`,
+    itemListElement: locations.map((location, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: location.data.title,
+      url: `${site.url}/service-areas/${location.id}/`,
+    })),
+  },
+  {
+    '@type': 'BreadcrumbList',
+    '@id': `${url}#breadcrumbs`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Service Areas', item: url },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Roofing Service Areas in & Around Norman, OK"
+  description="Every area we cover, from Campus Corner and the Norman historic districts to Noble, Lexington, Slaughterville, Little Axe and Goldsby."
+  schema={schema}
+>
+  <PageHeader
+    eyebrow="Service Areas"
+    title="Where we work, and what we find there"
+    lede="Roofing problems are local. A 1920s bungalow in the Miller district, a 1960s all-electric home in Hall Park and a 2015 build in Summit Lakes fail in completely different ways. So each area gets its own page rather than a name swapped into a template."
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Inside Norman</p>
+        <h2>Norman neighbourhoods &amp; districts</h2>
+        <p class="lede">
+          Seven areas inside the city, each with its own housing stock, roof age profile and
+          failure patterns.
+        </p>
+      </div>
+      <div class="grid grid--3">
+        {normanAreas.map((location, i) => <AreaCard location={location} loading={i < 3 ? 'eager' : 'lazy'} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--sunk">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Around Norman</p>
+        <h2>Cleveland &amp; McClain County communities</h2>
+        <p class="lede">
+          The towns outside the city limits get the same free inspection and the same pricing, with
+          no travel premium and no treating them as the job of last resort.
+        </p>
+      </div>
+      <div class="grid grid--3">
+        {surroundingAreas.map((location) => <AreaCard location={location} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container">
+      <div class="coverage">
+        <h2 class="coverage__title">Not sure whether you're in our area?</h2>
+        <p class="coverage__body">
+          We work across Norman, Cleveland County and northern McClain County. If you're near one
+          of the areas above but not listed, call us. We would rather tell you honestly that
+          you're outside our range than waste your time. There is no travel charge anywhere we
+          do work.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CTABand />
+</BaseLayout>
+
+<style>
+  .coverage {
+    padding: var(--space-l);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--copper-500);
+    border-radius: var(--radius-lg);
+    max-width: 52rem;
+  }
+
+  .coverage__title {
+    font-size: var(--step-2);
+  }
+
+  .coverage__body {
+    margin-top: var(--space-s);
+    color: var(--ink-muted);
+    line-height: 1.7;
+  }
+</style>

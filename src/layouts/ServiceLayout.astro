@@ -1,0 +1,412 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getEntries } from 'astro:content';
+import BaseLayout from './BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import LeadForm from '../components/LeadForm.astro';
+import CTABand from '../components/CTABand.astro';
+import CTAButton from '../components/CTAButton.astro';
+import { site } from '../config/site';
+import { toHtml, toPlainText } from '../utils/inline-markdown';
+
+interface Props {
+  service: CollectionEntry<'services'>;
+}
+
+const { service } = Astro.props;
+const d = service.data;
+const url = `${site.url}/services/${service.id}/`;
+
+const relatedLocations = await getEntries(d.relatedLocations);
+
+const schema = [
+  {
+    '@type': 'Service',
+    '@id': `${url}#service`,
+    name: d.h1,
+    serviceType: d.title,
+    description: d.description,
+    url,
+    provider: { '@id': `${site.url}/#organization` },
+    areaServed: site.areaServed.map((name) => ({ '@type': 'Place', name })),
+    audience: { '@type': 'Audience', audienceType: 'Homeowners and property owners' },
+  },
+  {
+    '@type': 'FAQPage',
+    '@id': `${url}#faq`,
+    mainEntity: d.faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: toPlainText(faq.answer) },
+    })),
+  },
+  {
+    '@type': 'BreadcrumbList',
+    '@id': `${url}#breadcrumbs`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: `${site.url}/services/` },
+      { '@type': 'ListItem', position: 3, name: d.title, item: url },
+    ],
+  },
+];
+---
+
+<BaseLayout title={d.metaTitle} description={d.description} schema={schema}>
+  <Hero
+    eyebrow="Roofing Services · Norman, OK"
+    title={d.h1}
+    lede={d.summary}
+    image={d.heroImage}
+    imageAlt={d.heroImageAlt}
+    secondaryCta={{ href: site.phone.href, label: site.phone.display }}
+  />
+
+  <div class="crumbbar">
+    <div class="container">
+      <Breadcrumbs trail={[{ label: 'Services', href: '/services/' }]} current={d.title} />
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container svc">
+      <div class="svc__main">
+        <p class="svc__intro">{d.intro}</p>
+
+        {
+          d.signals && (
+            <div class="signals">
+              <h2 class="signals__title">Signs you need {d.title.toLowerCase()}</h2>
+              <ul class="signals__list">
+                {d.signals.map((signal) => (
+                  <li>{signal}</li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
+
+        <div class="prose svc__prose">
+          <slot />
+        </div>
+      </div>
+
+      <aside class="svc__aside">
+        <div class="svc__sticky">
+          <LeadForm
+            formId={`service-${service.id}`}
+            defaultProject={d.title}
+            heading="Book a free inspection"
+            lede="Tell us what the roof is doing. We inspect, photograph everything and send a written price."
+          />
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--sunk">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">What's included</p>
+        <h2>Exactly what you're paying for</h2>
+      </div>
+      <div class="includes">
+        {
+          d.includes.map((item) => (
+            <div class="include">
+              <h3 class="include__title">{item.title}</h3>
+              <p class="include__body" set:html={toHtml(item.body)} />
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {
+    d.process && (
+      <section class="section">
+        <div class="container">
+          <div class="section-head">
+            <p class="eyebrow">How it works</p>
+            <h2>From your first call to the final sweep</h2>
+          </div>
+          <ol class="steps">
+            {d.process.map((step, i) => (
+              <li class="step">
+                <span class="step__num">{String(i + 1).padStart(2, '0')}</span>
+                <h3 class="step__title">{step.title}</h3>
+                <p class="step__body" set:html={toHtml(step.body)} />
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+    )
+  }
+
+  {
+    d.pricingNote && (
+      <section class="section section--tight">
+        <div class="container">
+          <div class="pricing">
+            <div class="pricing__label">
+              <p class="eyebrow">Honest pricing</p>
+              <h2 class="pricing__heading">What it typically costs</h2>
+            </div>
+            <p class="pricing__body" set:html={toHtml(d.pricingNote)} />
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <section class="section section--navy">
+    <div class="container container--narrow">
+      <FAQAccordion faqs={d.faqs} heading={`${d.title}: your questions answered`} />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Where we work</p>
+        <h2>{d.title} across the Norman area</h2>
+        <p class="lede">
+          We cover Norman's neighbourhoods and the Cleveland and McClain County communities
+          around it. Here are a few areas where this service comes up most.
+        </p>
+      </div>
+      <div class="grid grid--3">
+        {
+          relatedLocations.map((location) => (
+            <article class="card related">
+              <div class="card__body">
+                <p class="related__county">{location.data.county}</p>
+                <h3 class="card__title">
+                  <a href={`/service-areas/${location.id}/`}>
+                    {d.title} in {location.data.title}
+                  </a>
+                </h3>
+                <p class="card__text">{location.data.summary}</p>
+                <p class="card__more">View this area &rarr;</p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+      <p class="svc__allareas">
+        <CTAButton href="/service-areas/" variant="ghost">See all service areas</CTAButton>
+      </p>
+    </div>
+  </section>
+
+  <CTABand />
+</BaseLayout>
+
+<style>
+  .crumbbar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    padding-block: 0.85rem;
+  }
+
+  /* --- Two-column body with a sticky form ---------------------------------- */
+
+  .svc {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 22rem);
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  @media (max-width: 68rem) {
+    .svc {
+      grid-template-columns: 1fr;
+      gap: var(--space-l);
+    }
+  }
+
+  .svc__intro {
+    font-size: var(--step-1);
+    line-height: 1.6;
+    color: var(--ink);
+    border-left: 3px solid var(--copper-500);
+    padding-left: var(--space-m);
+  }
+
+  .svc__prose {
+    margin-top: var(--space-l);
+    max-width: 44rem;
+  }
+
+  .svc__sticky {
+    position: sticky;
+    top: calc(var(--header-height) + 1.5rem);
+  }
+
+  @media (max-width: 68rem) {
+    .svc__sticky {
+      position: static;
+    }
+  }
+
+  /* --- Signals ------------------------------------------------------------- */
+
+  .signals {
+    margin-top: var(--space-l);
+    padding: var(--space-m);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+  }
+
+  .signals__title {
+    font-size: var(--step-1);
+    margin-bottom: var(--space-s);
+  }
+
+  .signals__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    gap: 0.55rem var(--space-m);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .signals__list li {
+    position: relative;
+    padding-left: 1.6rem;
+    font-size: var(--step--1);
+    line-height: 1.5;
+    color: var(--ink-muted);
+  }
+
+  .signals__list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 0.55rem;
+    height: 0.55rem;
+    background: var(--copper-500);
+    transform: rotate(45deg);
+  }
+
+  /* --- Includes ------------------------------------------------------------ */
+
+  .includes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+    gap: var(--space-m) var(--space-l);
+  }
+
+  .include {
+    padding-top: var(--space-s);
+    border-top: 2px solid var(--navy-900);
+  }
+
+  .include__title {
+    font-size: var(--step-1);
+    margin-bottom: 0.45rem;
+  }
+
+  .include__body {
+    color: var(--ink-muted);
+    font-size: var(--step--1);
+    line-height: 1.65;
+  }
+
+  /* --- Process steps ------------------------------------------------------- */
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+    gap: var(--space-m);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: step;
+  }
+
+  .step {
+    padding: var(--space-m);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+  }
+
+  .step__num {
+    display: block;
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    font-weight: 800;
+    line-height: 1;
+    color: var(--copper-100);
+    -webkit-text-stroke: 1px var(--copper-500);
+    margin-bottom: 0.6rem;
+  }
+
+  .step__title {
+    font-size: var(--step-0);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.35rem;
+  }
+
+  .step__body {
+    font-size: var(--step--1);
+    line-height: 1.6;
+    color: var(--ink-muted);
+  }
+
+  /* --- Pricing ------------------------------------------------------------- */
+
+  .pricing {
+    display: grid;
+    grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
+    gap: var(--space-l);
+    padding: var(--space-l);
+    background: var(--navy-900);
+    border-radius: var(--radius-lg);
+    color: var(--on-navy);
+  }
+
+  @media (max-width: 55rem) {
+    .pricing {
+      grid-template-columns: 1fr;
+      gap: var(--space-m);
+    }
+  }
+
+  .pricing .eyebrow {
+    color: var(--copper-400);
+  }
+
+  .pricing__heading {
+    color: #fff;
+    font-size: var(--step-2);
+  }
+
+  .pricing__body {
+    color: var(--on-navy-muted);
+    line-height: 1.7;
+  }
+
+  /* --- Related ------------------------------------------------------------- */
+
+  .related__county {
+    font-family: var(--font-display);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--copper-600);
+  }
+
+  .svc__allareas {
+    margin-top: var(--space-m);
+  }
+</style>

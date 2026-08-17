@@ -1,0 +1,594 @@
+---
+import { getCollection } from 'astro:content';
+import { site, primaryNav } from '../config/site';
+
+const path = Astro.url.pathname;
+const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
+
+/**
+ * Dropdown contents come straight from the collections, so a new service or
+ * location markdown file shows up in the menu with no extra wiring.
+ */
+const services = (await getCollection('services', ({ data }) => !data.draft)).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+const locations = (await getCollection('locations', ({ data }) => !data.draft)).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+
+const menus: Record<string, { href: string; label: string }[]> = {
+  services: [
+    ...services.map((s) => ({ href: `/services/${s.id}/`, label: s.data.title })),
+    { href: '/services/', label: 'All services' },
+  ],
+  locations: [
+    ...locations.map((l) => ({ href: `/service-areas/${l.id}/`, label: l.data.title })),
+    { href: '/service-areas/', label: 'All areas we serve' },
+  ],
+};
+---
+
+<header class="header">
+  <div class="header__inner container">
+    <a class="brand" href="/" aria-label={`${site.name} home`}>
+      <svg class="brand__mark" viewBox="0 0 40 32" aria-hidden="true" focusable="false">
+        <path d="M2 18 20 3l18 15" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="square" />
+        <path d="M8 20v9h24v-9" fill="none" stroke="currentColor" stroke-width="3.2" />
+        <path d="M20 3 38 18" fill="none" stroke="var(--copper-500)" stroke-width="3.2" stroke-linecap="square" />
+      </svg>
+      <span class="brand__text">
+        <span class="brand__name">Norman Roofing</span>
+        <span class="brand__sub">Experts</span>
+      </span>
+    </a>
+
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <ul class="nav__list">
+        {
+          primaryNav.map((item) => {
+            const submenu = 'menu' in item ? menus[item.menu] : undefined;
+
+            if (!submenu) {
+              return (
+                <li class="nav__item">
+                  <a
+                    href={item.href}
+                    class="nav__link"
+                    aria-current={isCurrent(item.href) ? 'page' : undefined}
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              );
+            }
+
+            const panelId = `nav-menu-${item.menu}`;
+
+            return (
+              <li class="nav__item nav__item--has-menu" data-dropdown>
+                <div class="nav__row">
+                  <a
+                    href={item.href}
+                    class="nav__link"
+                    aria-current={isCurrent(item.href) ? 'page' : undefined}
+                  >
+                    {item.label}
+                  </a>
+                  <button
+                    type="button"
+                    class="nav__caret"
+                    aria-expanded="false"
+                    aria-controls={panelId}
+                    aria-label={`Show ${item.label} menu`}
+                    data-dropdown-toggle
+                  >
+                    <svg viewBox="0 0 12 8" aria-hidden="true" focusable="false">
+                      <path
+                        d="M1 1.5 6 6.5l5-5"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+
+                <ul class="submenu" id={panelId} data-dropdown-panel>
+                  {submenu.map((link) => (
+                    <li>
+                      <a
+                        href={link.href}
+                        class="submenu__link"
+                        aria-current={path === link.href ? 'page' : undefined}
+                      >
+                        {link.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </nav>
+
+    <div class="header__actions">
+      <a class="header__phone" href={site.phone.href}>
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false" class="header__phone-icon">
+          <path
+            d="M4.2 2.5h3l1.5 3.7-1.9 1.4a10.5 10.5 0 0 0 4.6 4.6l1.4-1.9 3.7 1.5v3a1.5 1.5 0 0 1-1.6 1.5A13.6 13.6 0 0 1 2.7 4.1 1.5 1.5 0 0 1 4.2 2.5Z"
+            fill="currentColor"></path>
+        </svg>
+        <span class="header__phone-text">
+          <span class="header__phone-label">Call today</span>
+          <span class="header__phone-number">{site.phone.display}</span>
+        </span>
+      </a>
+      <a class="btn btn--primary header__cta" href="/free-estimate/">Free Estimate</a>
+      <button
+        class="header__toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        aria-label="Open menu"
+      >
+        <span class="header__toggle-bar"></span>
+        <span class="header__toggle-bar"></span>
+        <span class="header__toggle-bar"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--navy-900);
+    color: var(--on-navy);
+    border-bottom: 1px solid rgb(255 255 255 / 0.08);
+  }
+
+  .header__inner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-m);
+    min-height: var(--header-height);
+  }
+
+  /* --- Brand -------------------------------------------------------------- */
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: #fff;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .brand__mark {
+    width: 2.35rem;
+    height: 1.9rem;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .brand__text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    font-family: var(--font-display);
+  }
+
+  .brand__name {
+    font-size: 1.02rem;
+    font-weight: 800;
+    letter-spacing: -0.015em;
+  }
+
+  .brand__sub {
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--copper-400);
+    margin-top: 0.22rem;
+  }
+
+  /* --- Nav ---------------------------------------------------------------- */
+
+  .nav {
+    margin-inline-start: auto;
+  }
+
+  .nav__list {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.45rem, 1.2vw, 1.15rem);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav__item {
+    position: relative;
+  }
+
+  .nav__row {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .nav__link {
+    display: block;
+    padding: 0.4rem 0;
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.005em;
+    color: var(--on-navy);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .nav__link:hover,
+  .nav__link[aria-current='page'] {
+    color: #fff;
+    border-bottom-color: var(--copper-500);
+  }
+
+  /* --- Dropdowns ---------------------------------------------------------- */
+
+  .nav__caret {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: var(--radius);
+    color: var(--copper-400);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .nav__caret svg {
+    width: 0.7rem;
+    height: 0.7rem;
+    transition: transform 0.18s ease;
+  }
+
+  .nav__caret[aria-expanded='true'] svg {
+    transform: rotate(180deg);
+  }
+
+  .nav__item--has-menu:hover .nav__link,
+  .nav__item--has-menu:focus-within .nav__link {
+    color: #fff;
+  }
+
+  .submenu {
+    position: absolute;
+    top: 100%;
+    inset-inline-start: -0.9rem;
+    z-index: 20;
+    min-width: 15.5rem;
+    padding: 0.5rem;
+    margin: 0;
+    list-style: none;
+    background: var(--navy-950);
+    border: 1px solid rgb(255 255 255 / 0.12);
+    border-top: 2px solid var(--copper-500);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    box-shadow: 0 18px 38px rgb(0 0 0 / 0.35);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-0.35rem);
+    transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+  }
+
+  /* Bridges the gap between the link and the panel so the pointer can cross. */
+  .nav__item--has-menu::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    inset-inline: 0;
+    height: 0.9rem;
+  }
+
+  .nav__item--has-menu:hover .submenu,
+  .nav__item--has-menu:focus-within .submenu,
+  .submenu[data-open='true'] {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .submenu__link {
+    display: block;
+    padding: 0.5rem 0.7rem;
+    border-radius: var(--radius);
+    font-size: 0.88rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--on-navy-muted);
+    text-decoration: none;
+    transition: background-color 0.12s ease, color 0.12s ease;
+  }
+
+  .submenu__link:hover,
+  .submenu__link:focus-visible,
+  .submenu__link[aria-current='page'] {
+    background: rgb(255 255 255 / 0.08);
+    color: #fff;
+  }
+
+  .submenu li:last-child .submenu__link {
+    margin-top: 0.3rem;
+    border-top: 1px solid rgb(255 255 255 / 0.1);
+    border-radius: 0;
+    color: var(--copper-400);
+  }
+
+  /* --- Actions ------------------------------------------------------------ */
+
+  .header__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-s);
+    margin-inline-start: auto;
+  }
+
+  .nav + .header__actions {
+    margin-inline-start: 0;
+  }
+
+  .header__phone {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .header__phone-icon {
+    width: 1.4rem;
+    height: 1.4rem;
+    color: var(--copper-400);
+    flex-shrink: 0;
+  }
+
+  .header__phone-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+  }
+
+  .header__phone-label {
+    font-size: 0.64rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--on-navy-muted);
+  }
+
+  .header__phone-number {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+
+  .header__cta {
+    padding: 0.75em 1.25em;
+    font-size: 0.83rem;
+  }
+
+  /* --- Mobile toggle ------------------------------------------------------ */
+
+  .header__toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    background: transparent;
+    border: 1px solid rgb(255 255 255 / 0.25);
+    border-radius: var(--radius);
+    cursor: pointer;
+  }
+
+  .header__toggle-bar {
+    display: block;
+    width: 1.15rem;
+    height: 2px;
+    margin-inline: auto;
+    background: #fff;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .header__toggle[aria-expanded='true'] .header__toggle-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .header__toggle[aria-expanded='true'] .header__toggle-bar:nth-child(2) {
+    opacity: 0;
+  }
+  .header__toggle[aria-expanded='true'] .header__toggle-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* --- Breakpoints -------------------------------------------------------- */
+
+  @media (max-width: 68rem) {
+    .header__phone-text {
+      display: none;
+    }
+    .header__phone-icon {
+      width: 1.55rem;
+      height: 1.55rem;
+    }
+  }
+
+  @media (max-width: 70rem) {
+    .header__toggle {
+      display: flex;
+    }
+
+    .nav {
+      position: absolute;
+      inset-inline: 0;
+      top: 100%;
+      max-height: calc(100vh - var(--header-height));
+      overflow-y: auto;
+      background: var(--navy-950);
+      border-bottom: 1px solid rgb(255 255 255 / 0.08);
+      display: none;
+      margin-inline-start: 0;
+    }
+
+    .nav[data-open='true'] {
+      display: block;
+    }
+
+    .nav__list {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: var(--space-xs) var(--gutter) var(--space-s);
+    }
+
+    .nav__row {
+      justify-content: space-between;
+      border-bottom: 1px solid rgb(255 255 255 / 0.08);
+    }
+
+    .nav__link {
+      padding: 0.85rem 0;
+      font-size: 1.05rem;
+      border-bottom: 1px solid rgb(255 255 255 / 0.08);
+    }
+
+    .nav__row .nav__link {
+      flex: 1;
+      border-bottom: 0;
+    }
+
+    .nav__link:hover,
+    .nav__link[aria-current='page'] {
+      border-bottom-color: var(--copper-500);
+    }
+
+    .nav__caret {
+      width: 2.75rem;
+      height: 2.75rem;
+    }
+
+    .nav__caret svg {
+      width: 0.85rem;
+      height: 0.85rem;
+    }
+
+    /* On touch the panel is accordion-style and opens only from the caret. */
+    .nav__item--has-menu::after {
+      display: none;
+    }
+
+    .submenu {
+      position: static;
+      display: none;
+      min-width: 0;
+      padding: 0.35rem 0 0.6rem 0.75rem;
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid rgb(255 255 255 / 0.08);
+      border-radius: 0;
+      box-shadow: none;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+    }
+
+    .nav__item--has-menu:hover .submenu,
+    .nav__item--has-menu:focus-within .submenu {
+      display: none;
+    }
+
+    .submenu[data-open='true'],
+    .nav__item--has-menu:hover .submenu[data-open='true'],
+    .nav__item--has-menu:focus-within .submenu[data-open='true'] {
+      display: block;
+    }
+
+    .submenu__link {
+      font-size: 0.95rem;
+      padding: 0.6rem 0.7rem;
+    }
+  }
+
+  @media (max-width: 34rem) {
+    .header__cta {
+      display: none;
+    }
+    .brand__name {
+      font-size: 0.92rem;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.header__toggle');
+  const nav = document.querySelector<HTMLElement>('#primary-nav');
+
+  const closeAllDropdowns = () => {
+    document.querySelectorAll<HTMLElement>('[data-dropdown]').forEach((item) => {
+      item.querySelector('[data-dropdown-toggle]')?.setAttribute('aria-expanded', 'false');
+      item.querySelector('[data-dropdown-panel]')?.removeAttribute('data-open');
+    });
+  };
+
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    toggle.setAttribute('aria-label', open ? 'Open menu' : 'Close menu');
+    nav?.setAttribute('data-open', String(!open));
+    if (open) closeAllDropdowns();
+  });
+
+  /**
+   * Hover opens the dropdowns on pointer devices via CSS alone. The caret
+   * button is what makes them work on touch and by keyboard.
+   */
+  document.querySelectorAll<HTMLElement>('[data-dropdown]').forEach((item) => {
+    const btn = item.querySelector<HTMLButtonElement>('[data-dropdown-toggle]');
+    const panel = item.querySelector<HTMLElement>('[data-dropdown-panel]');
+    if (!btn || !panel) return;
+
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      closeAllDropdowns();
+      if (!open) {
+        btn.setAttribute('aria-expanded', 'true');
+        panel.setAttribute('data-open', 'true');
+      }
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeAllDropdowns();
+  });
+
+  document.addEventListener('click', (event) => {
+    const target = event.target as HTMLElement;
+    if (!target.closest('[data-dropdown]')) closeAllDropdowns();
+  });
+</script>

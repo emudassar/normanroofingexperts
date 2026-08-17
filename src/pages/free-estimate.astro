@@ -1,0 +1,274 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import LeadForm from '../components/LeadForm.astro';
+import { site } from '../config/site';
+
+const url = `${site.url}/free-estimate/`;
+
+const schema = [
+  {
+    '@type': 'ContactPage',
+    '@id': `${url}#page`,
+    name: 'Free Roofing Estimate in Norman, OK',
+    url,
+    isPartOf: { '@id': `${site.url}/#website` },
+  },
+  {
+    '@type': 'BreadcrumbList',
+    '@id': `${url}#breadcrumbs`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` },
+      { '@type': 'ListItem', position: 2, name: 'Free Estimate', item: url },
+    ],
+  },
+];
+
+const steps = [
+  {
+    title: 'You send the form or call',
+    body: 'Tell us what the roof is doing and roughly where you are. Active leaks jump the queue, so say so.',
+  },
+  {
+    title: 'We book the inspection',
+    body: 'Usually within a few days in normal weather. After a regional hail event, longer. We will give you a realistic date rather than an optimistic one.',
+  },
+  {
+    title: 'About an hour on site',
+    body: 'Roof surface, penetrations, flashings, gutters, and the attic where there is safe access. Everything relevant gets photographed.',
+  },
+  {
+    title: 'Findings, then a written price',
+    body: 'We walk you through the photographs in plain language. If work is needed you get a line-itemed written quote. If it is not, you get told that.',
+  },
+];
+---
+
+<BaseLayout
+  title="Free Roofing Estimate in Norman, OK | Book an Inspection"
+  description="Book a free roof inspection in Norman, OK. Photo report you keep, plain-English findings and a written price. No obligation and no doorstep pressure."
+  schema={schema}
+>
+  <PageHeader
+    eyebrow="Free estimate"
+    title="Book your free roof inspection"
+    lede="An hour on your roof and in your attic, a photo report you keep, and a written price for a defined scope. No obligation, no pressure, and no roof priced over the phone."
+  />
+
+  <section class="section">
+    <div class="container estimate">
+      <div class="estimate__form">
+        <LeadForm formId="free-estimate" heading="Tell us about your roof" />
+      </div>
+
+      <div class="estimate__side">
+        <div class="callout">
+          <p class="callout__label">Roof leaking right now?</p>
+          <p class="callout__body">
+            Call instead. Active water is an emergency and the phone is much faster than a form.
+            We can usually tarp to stop water entering the same day.
+          </p>
+          <a class="callout__phone" href={site.phone.href}>{site.phone.display}</a>
+          <p class="callout__hours">{site.hours}</p>
+        </div>
+
+        <div class="whathappens">
+          <h2 class="whathappens__title">What happens next</h2>
+          <ol class="whathappens__list">
+            {
+              steps.map((step, i) => (
+                <li>
+                  <span class="whathappens__num">{i + 1}</span>
+                  <div>
+                    <h3>{step.title}</h3>
+                    <p>{step.body}</p>
+                  </div>
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+
+        <div class="notes">
+          <h2 class="notes__title">Before you book</h2>
+          <ul>
+            <li>
+              <strong>The inspection is genuinely free.</strong> No charge for the visit, no charge
+              for the report, no charge if the answer is that you need nothing. Formal written
+              certifications for a property sale are a separate paid service and we'll say so
+              before booking.
+            </li>
+            <li>
+              <strong>You keep the report either way.</strong> Useful for an insurance claim, a
+              second opinion, or a house sale, regardless of who ends up doing the work.
+            </li>
+            <li>
+              <strong>Storm damage? Get inspected before you file.</strong> If the damage is
+              marginal, a claim may not be in your interest, and it's better to know that first.
+            </li>
+            <li>
+              <strong>We never discuss your deductible.</strong> Waiving or absorbing it is fraud
+              under Oklahoma law. Walk away from anyone who offers.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .estimate {
+    display: grid;
+    grid-template-columns: minmax(0, 30rem) minmax(0, 1fr);
+    gap: var(--space-xl);
+    align-items: start;
+  }
+
+  @media (max-width: 68rem) {
+    .estimate {
+      grid-template-columns: 1fr;
+      gap: var(--space-l);
+    }
+  }
+
+  /* --- Emergency callout ---------------------------------------------------- */
+
+  .callout {
+    padding: var(--space-m);
+    background: var(--navy-900);
+    color: var(--on-navy);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid var(--copper-500);
+  }
+
+  .callout__label {
+    font-family: var(--font-display);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--copper-400);
+  }
+
+  .callout__body {
+    margin-top: 0.5rem;
+    color: var(--on-navy-muted);
+    font-size: var(--step--1);
+    line-height: 1.6;
+  }
+
+  .callout__phone {
+    display: inline-block;
+    margin-top: var(--space-s);
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .callout__phone:hover {
+    color: var(--copper-400);
+  }
+
+  .callout__hours {
+    margin-top: 0.35rem;
+    font-size: 0.78rem;
+    color: var(--navy-400);
+  }
+
+  /* --- What happens next ---------------------------------------------------- */
+
+  .whathappens {
+    margin-top: var(--space-l);
+  }
+
+  .whathappens__title,
+  .notes__title {
+    font-size: var(--step-2);
+    margin-bottom: var(--space-s);
+  }
+
+  .whathappens__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+  }
+
+  .whathappens__list li {
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+  }
+
+  .whathappens__num {
+    display: grid;
+    place-items: center;
+    width: 1.8rem;
+    height: 1.8rem;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--copper-500);
+    color: #fff;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  .whathappens__list h3 {
+    font-size: var(--step-0);
+    letter-spacing: -0.01em;
+  }
+
+  .whathappens__list p {
+    margin-top: 0.15rem;
+    font-size: var(--step--1);
+    line-height: 1.6;
+    color: var(--ink-muted);
+  }
+
+  /* --- Notes ---------------------------------------------------------------- */
+
+  .notes {
+    margin-top: var(--space-l);
+    padding-top: var(--space-m);
+    border-top: 1px solid var(--line);
+  }
+
+  .notes ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .notes li {
+    position: relative;
+    padding-left: 1.6rem;
+    font-size: var(--step--1);
+    line-height: 1.6;
+    color: var(--ink-muted);
+  }
+
+  .notes li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 0.55rem;
+    height: 0.55rem;
+    background: var(--copper-500);
+    transform: rotate(45deg);
+  }
+
+  .notes strong {
+    color: var(--navy-900);
+  }
+</style>

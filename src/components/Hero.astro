@@ -1,0 +1,190 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import { site } from '../config/site';
+import CTAButton from './CTAButton.astro';
+
+interface Props {
+  eyebrow?: string;
+  /** Rendered as the page <h1>. */
+  title: string;
+  /** Final words of the title, set in copper. */
+  titleAccent?: string;
+  lede?: string;
+  image: ImageMetadata;
+  imageAlt: string;
+  /** The homepage hero runs taller and larger than inner pages. */
+  size?: 'full' | 'compact';
+  primaryCta?: { href: string; label: string };
+  secondaryCta?: { href: string; label: string };
+}
+
+const {
+  eyebrow,
+  title,
+  titleAccent,
+  lede,
+  image,
+  imageAlt,
+  size = 'compact',
+  primaryCta = { href: '/free-estimate/', label: 'Get a Free Estimate' },
+  secondaryCta,
+} = Astro.props;
+---
+
+<section class:list={['hero', size === 'full' && 'hero--full']}>
+  <div class="hero__media">
+    <Image
+      src={image}
+      alt={imageAlt}
+      widths={[640, 1024, 1600, 2000]}
+      sizes="100vw"
+      format="webp"
+      quality={72}
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    />
+  </div>
+
+  <div class="hero__scrim"></div>
+
+  <div class="hero__inner container">
+    <div class="hero__content">
+      {eyebrow && <p class="hero__eyebrow">{eyebrow}</p>}
+      <h1 class="hero__title">
+        {title}{titleAccent && <><br /><span class="hero__accent">{titleAccent}</span></>}
+      </h1>
+      {lede && <p class="hero__lede">{lede}</p>}
+
+      <div class="hero__actions">
+        <CTAButton href={primaryCta.href} variant="primary">{primaryCta.label}</CTAButton>
+        {
+          secondaryCta ? (
+            <CTAButton href={secondaryCta.href} variant="ghost">
+              {secondaryCta.label}
+            </CTAButton>
+          ) : (
+            <CTAButton href={site.phone.href} variant="ghost" phone>
+              {site.phone.display}
+            </CTAButton>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    isolation: isolate;
+    background: var(--navy-900);
+    color: #fff;
+    overflow: hidden;
+  }
+
+  .hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+  }
+
+  .hero__media :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+  }
+
+  /* Two-stop scrim: solid on the text side, transparent over the photograph.
+     Keeps the headline legible without flattening the image into mud. */
+  .hero__scrim {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      linear-gradient(
+        100deg,
+        rgb(5 15 31 / 0.95) 0%,
+        rgb(5 15 31 / 0.88) 34%,
+        rgb(11 30 59 / 0.55) 62%,
+        rgb(11 30 59 / 0.3) 100%
+      ),
+      linear-gradient(to top, rgb(5 15 31 / 0.55), transparent 45%);
+  }
+
+  .hero__inner {
+    position: relative;
+    padding-block: var(--space-2xl);
+  }
+
+  .hero--full .hero__inner {
+    padding-block: clamp(4rem, 11vw, 8.5rem);
+  }
+
+  .hero__content {
+    max-width: 40rem;
+  }
+
+  .hero--full .hero__content {
+    max-width: 46rem;
+  }
+
+  .hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    font-family: var(--font-display);
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--copper-400);
+    margin-bottom: var(--space-s);
+  }
+
+  .hero__eyebrow::before {
+    content: '';
+    width: 1.75rem;
+    height: 2px;
+    background: var(--copper-500);
+  }
+
+  .hero__title {
+    color: #fff;
+    font-size: var(--step-4);
+    font-weight: 800;
+    line-height: 1.03;
+    letter-spacing: -0.035em;
+  }
+
+  .hero--full .hero__title {
+    font-size: var(--step-5);
+  }
+
+  .hero__accent {
+    color: var(--copper-400);
+  }
+
+  .hero__lede {
+    margin-top: var(--space-m);
+    max-width: 36rem;
+    font-size: var(--step-1);
+    line-height: 1.55;
+    color: #DCE5F2;
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s);
+    margin-top: var(--space-l);
+  }
+
+  @media (max-width: 34rem) {
+    .hero__actions :global(.btn) {
+      width: 100%;
+    }
+  }
+</style>
