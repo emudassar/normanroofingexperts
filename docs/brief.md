@@ -142,7 +142,7 @@ page.
 ## 12. Open Questions
 
 - [ ] Provision the call-tracking number and replace the placeholder in `src/config/site.ts`.
-- [ ] Provision the lead email address and replace the placeholder in `src/config/site.ts`.
+- [x] Provision the lead email address and replace the placeholder in `src/config/site.ts`.
 - [ ] Confirm the LeadSmart form endpoint URL and wire `LeadForm.astro` to it.
 - [ ] Confirm licensing/insurance wording that is legally accurate pre-tenant.
 - [ ] Confirm blog cadence beyond the three launch articles (all three are now written and live

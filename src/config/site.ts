@@ -23,8 +23,7 @@ export const site = {
     isPlaceholder: true,
   },
 
-  /** TODO: replace with the real lead inbox. */
-  email: 'quotes@normanroofingexperts.com',
+  email: 'normanroofingsexperts@gmail.com',
 
   /**
    * TODO: replace with the LeadSmart endpoint. Until then the form posts

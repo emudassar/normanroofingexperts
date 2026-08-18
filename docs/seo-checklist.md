@@ -107,4 +107,6 @@ No GMB / no physical address — this is a website-only lead-gen site.
 - [ ] Cross-browser check on real devices — *pending deploy*
 - [x] Schema data double-checked for accuracy (types verified; no fabricated entities)
 - [ ] Replace placeholder imagery with real photography — see `docs/image-credits.md`
-- [ ] Replace placeholder phone number and email in `src/config/site.ts`
+- [ ] Replace placeholder phone number in `src/config/site.ts`
+- [x] Replace placeholder email in `src/config/site.ts`
+- [x] Add Google Search Console HTML tag verification meta tag (`BaseLayout.astro`)
