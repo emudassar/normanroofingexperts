@@ -68,7 +68,6 @@ export const primaryNav = [
   { label: 'Services', href: '/services/', menu: 'services' },
   { label: 'Areas We Serve', href: '/service-areas/', menu: 'locations' },
   { label: 'About', href: '/about/' },
-  { label: 'Reviews', href: '/reviews/' },
   { label: 'Roof Guides', href: '/blog/' },
   { label: 'Contact', href: '/contact/' },
 ] as const;

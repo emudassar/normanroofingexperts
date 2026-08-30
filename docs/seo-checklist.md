@@ -89,7 +89,6 @@ No GMB / no physical address — this is a website-only lead-gen site.
       the per-page research notes)
 - [x] Links to authoritative external sources where relevant (state CIB registration, Oklahoma
       Insurance Department, carrier/agent verification — referenced in body copy)
-- [x] Reviews page publishes a verification method rather than unverifiable star ratings
 - [x] Legal pages are specific to this business model (service-area business, no storefront,
       no deductible rebating, pricing ranges explicitly not quotations)
 

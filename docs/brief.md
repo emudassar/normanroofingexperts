@@ -33,7 +33,7 @@ behind this site. That constraint shapes every decision below.
 |---|---|
 | No physical address | **Never** emit `LocalBusiness` / `RoofingContractor` schema with a fabricated address or geo. `Organization` schema only. |
 | No Google Business Profile | The Maps 3-pack is **not** a realistic target. Organic ranking is the goal. |
-| No verified reviews yet | No review counts, star ratings, or `AggregateRating` schema. `/reviews/` ships as structure only. |
+| No verified reviews yet | No review counts, star ratings, or `AggregateRating` schema anywhere on the site. |
 | No verified license number | Licensed & insured messaging stays general until a real contractor is attached; no invented license numbers. |
 | No project photography | Visual design carries the premium feel via typography, colour, and layout — not stock photos pretending to be our own work. |
 

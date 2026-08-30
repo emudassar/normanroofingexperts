@@ -14,7 +14,6 @@
 | About | `/about/` | `src/pages/about.astro` |
 | Contact | `/contact/` | `src/pages/contact.astro` |
 | Free Estimate | `/free-estimate/` | `src/pages/free-estimate.astro` |
-| Reviews | `/reviews/` | `src/pages/reviews.astro` |
 | Blog | `/blog/` | `src/pages/blog/index.astro` |
 | Privacy Policy | `/privacy-policy/` | `src/pages/privacy-policy.astro` |
 | Terms of Service | `/terms/` | `src/pages/terms.astro` |
@@ -104,7 +103,7 @@ Home
 ├── /services/ ──────────► 7 service pages ──┐
 ├── /service-areas/ ─────► 12 location pages ┤ cross-linked both directions
 ├── /free-estimate/                          │  (2–3 links each way per page)
-├── /about/  /contact/  /reviews/
+├── /about/  /contact/
 ├── /blog/ ──────────────► 3 posts ──────────┘
 └── /privacy-policy/  /terms/
 ```
