@@ -41,6 +41,10 @@ Desktop.ini
 # local project-state notes for Claude — not shared/pushed
 MEMORY.md
 
+# OAuth client secrets and stored tokens
+client_secret.json
+.gsc/
+
 # deployment platform output
 .vercel/
 .netlify/
