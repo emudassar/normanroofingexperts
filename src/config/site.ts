@@ -1,9 +1,7 @@
 /**
  * Single source of truth for site-wide business details.
  *
- * PLACEHOLDERS: every value marked `TODO` below must be replaced before launch.
- * The phone number uses the reserved 555-01xx fictional range on purpose so a
- * placeholder can never dial a real person. See docs/brief.md §12.
+ * Remaining pre-launch placeholders are marked `TODO` below. See docs/brief.md §12.
  */
 
 export const site = {

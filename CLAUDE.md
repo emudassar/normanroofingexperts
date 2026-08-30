@@ -12,6 +12,19 @@ is a website-only lead-gen site (leads sold via LeadSmart).
 
 See `docs/brief.md` for the full project brief, goals, and open questions.
 
+## Read MEMORY.md first
+
+Before making any change, read **`MEMORY.md`** (repo root, gitignored — local only, never
+pushed). It's a live map of current project state: exact file locations, current config
+values (phone, email, endpoints), the page/content inventory, outstanding pre-launch items,
+and a short log of recent changes. It exists so you can go straight to the right file
+instead of re-searching the whole site for things that are already known.
+
+**After completing any change**, update the relevant section(s) of `MEMORY.md` — including
+its "Recent changes" log — so it stays an accurate reflection of current state, not a
+snapshot of some earlier session. If `MEMORY.md` is missing or looks stale/wrong versus the
+actual code, fix it as part of the task rather than trusting it blindly.
+
 ## Current stage
 
 **Built — pre-launch.** All 33 indexable pages plus a 404 are implemented and build clean:
