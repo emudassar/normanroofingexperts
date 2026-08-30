@@ -12,7 +12,7 @@
 | Niche / vertical | Roofing Contractors |
 | Business model | Website-only local SEO lead generation (rank & rent optionality) |
 | Physical location | **None.** No storefront, no Google Business Profile. |
-| Phone (call-tracking number) | _TBD — placeholder in `src/config/site.ts` must be replaced before launch_ |
+| Phone (call-tracking number) | (773) 302-2292 |
 | Email | _TBD — placeholder in `src/config/site.ts` must be replaced before launch_ |
 | NAP / citations | **Not applicable at this stage.** No address exists; citations are deferred until a real contractor is attached. |
 
@@ -141,7 +141,7 @@ page.
 
 ## 12. Open Questions
 
-- [ ] Provision the call-tracking number and replace the placeholder in `src/config/site.ts`.
+- [x] Provision the call-tracking number and replace the placeholder in `src/config/site.ts`.
 - [x] Provision the lead email address and replace the placeholder in `src/config/site.ts`.
 - [ ] Confirm the LeadSmart form endpoint URL and wire `LeadForm.astro` to it.
 - [ ] Confirm licensing/insurance wording that is legally accurate pre-tenant.

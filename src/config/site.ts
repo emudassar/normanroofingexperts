@@ -15,12 +15,11 @@ export const site = {
   description:
     'Norman Roofing Experts provides roof repair, replacement, inspection and storm damage restoration for homeowners across Norman, Oklahoma and the surrounding Cleveland County communities.',
 
-  /** TODO: replace with the provisioned call-tracking number. */
   phone: {
-    display: '(405) 555-0147',
+    display: '(773) 302-2292',
     /** E.164, used for tel: links and schema. */
-    href: 'tel:+14055550147',
-    isPlaceholder: true,
+    href: 'tel:+17733022292',
+    isPlaceholder: false,
   },
 
   email: 'normanroofingsexperts@gmail.com',

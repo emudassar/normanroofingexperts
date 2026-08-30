@@ -79,7 +79,7 @@ No GMB / no physical address — this is a website-only lead-gen site.
 - [ ] Google Analytics (or privacy-friendly alternative) installed
 - [ ] Google Search Console connected
 - [ ] Bing Webmaster connected
-- [ ] Call tracking number configured — *placeholder `(405) 555-0147` in `src/config/site.ts` must be replaced*
+- [x] Call tracking number configured — `(773) 302-2292` set in `src/config/site.ts`
 - [ ] Form submission / conversion tracking
 
 ## E-E-A-T & Trust
