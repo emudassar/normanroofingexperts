@@ -77,7 +77,7 @@ No GMB / no physical address — this is a website-only lead-gen site.
 
 ## Tracking (once live)
 - [ ] Google Analytics (or privacy-friendly alternative) installed
-- [ ] Google Search Console connected
+- [x] Google Search Console connected — verified as siteOwner via OAuth; see `MEMORY.md` §8
 - [ ] Bing Webmaster connected
 - [x] Call tracking number configured — `(773) 302-2292` set in `src/config/site.ts`
 - [ ] Form submission / conversion tracking
