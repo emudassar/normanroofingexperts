@@ -63,10 +63,10 @@ export async function getAccessToken() {
   return token.access_token;
 }
 
-/** Authenticated fetch against the Search Console (webmasters v3) API. */
-export async function gscFetch(urlPath, options = {}) {
+/** Authenticated fetch against an absolute Search Console API URL. */
+export async function authedFetch(url, options = {}) {
   const accessToken = await getAccessToken();
-  const res = await fetch(`https://www.googleapis.com/webmasters/v3${urlPath}`, {
+  const res = await fetch(url, {
     ...options,
     headers: {
       ...options.headers,
@@ -79,4 +79,14 @@ export async function gscFetch(urlPath, options = {}) {
     throw new Error(`GSC API error (${res.status}): ${JSON.stringify(data)}`);
   }
   return data;
+}
+
+/** Authenticated fetch against the legacy Search Console (webmasters v3) API. */
+export function gscFetch(urlPath, options = {}) {
+  return authedFetch(`https://www.googleapis.com/webmasters/v3${urlPath}`, options);
+}
+
+/** Authenticated fetch against the newer Search Console API (URL Inspection etc). */
+export function searchConsoleFetch(urlPath, options = {}) {
+  return authedFetch(`https://searchconsole.googleapis.com/v1${urlPath}`, options);
 }
