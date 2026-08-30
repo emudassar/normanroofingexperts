@@ -131,5 +131,3 @@ Manage it with `astro dev stop`, `astro dev status`, and `astro dev logs`.
   etc.) — see `docs/competitors.md` for why.
 - No `LocalBusiness` schema with a fake address anywhere — no physical presence, don't
   fabricate one.
-- After completing SEO-relevant work (schema, meta tags, sitemap, etc.), check off the
-  matching item(s) in `docs/seo-checklist.md`.
