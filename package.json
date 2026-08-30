@@ -15,7 +15,8 @@
     "check": "astro build && node scripts/seo-audit.mjs dist",
     "gsc:auth": "node --env-file=.env scripts/gsc/auth.mjs",
     "gsc:status": "node --env-file=.env scripts/gsc/status.mjs",
-    "gsc:inspect": "node --env-file=.env scripts/gsc/inspect.mjs"
+    "gsc:inspect": "node --env-file=.env scripts/gsc/inspect.mjs",
+    "gsc:audit": "node --env-file=.env scripts/gsc/audit.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
