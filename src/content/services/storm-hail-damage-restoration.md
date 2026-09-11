@@ -214,4 +214,7 @@ before they set foot on your property, and verify it independently. If someone i
 your roof and the contractor isn't properly insured, that can become your problem.
 
 If you'd like your roof assessed and documented after a storm, a
-[free roof inspection](/services/roof-inspection/) is the place to start.
+[free roof inspection](/services/roof-inspection/) is the place to start. Want to get ahead of
+it? [Get ready before hail season hits](/blog/oklahoma-hail-season-roof-guide/). And if you do
+end up filing, see our guide to
+[filing an insurance claim after storm damage](/blog/roof-insurance-claim-process-oklahoma/).

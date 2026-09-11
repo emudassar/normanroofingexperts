@@ -178,3 +178,7 @@ you, not only the contractor.
 If the inspection turns up work that needs doing, the natural next steps are
 [roof repair](/services/roof-repair/) or, where it's warranted, a full
 [roof replacement](/services/roof-replacement/).
+
+Hail season is when inspections matter most here — see
+[our Oklahoma hail season roof guide](/blog/oklahoma-hail-season-roof-guide/) for what to
+watch for before storms roll through.

@@ -64,8 +64,8 @@ includes:
 process:
   - title: Inspection and honest recommendation
     body: >-
-      We assess whether you actually need a replacement. If a repair will genuinely buy you
-      several more years, we'll say so.
+      A [roof inspection](/services/roof-inspection/) to assess whether you actually need a
+      replacement. If a repair will genuinely buy you several more years, we'll say so.
   - title: Written proposal with material options
     body: >-
       Line-itemed: tear-off, decking rate, underlayment, flashings, ventilation, shingle
@@ -191,3 +191,8 @@ Ask every contractor, in writing:
 Bids that look wildly different on price usually differ on these answers, not on the
 shingle. If you'd like an assessment before you commit to anything, book a free
 [roof inspection](/services/roof-inspection/).
+
+Replacement is one part of what we do as a full-service
+[roofing contractor in Norman](/), alongside repair, inspections and storm damage
+restoration. Deciding between materials? See
+[which roofing materials hold up best in Oklahoma weather](/blog/best-roofing-materials-oklahoma-weather/).

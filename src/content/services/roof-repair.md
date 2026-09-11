@@ -59,8 +59,8 @@ process:
       move to the front of the queue.
   - title: Free roof inspection
     body: >-
-      We inspect the roof surface, the penetrations, the flashings and the attic, and
-      photograph everything relevant.
+      A full [roof inspection](/services/roof-inspection/) of the roof surface, the
+      penetrations, the flashings and the attic, with everything relevant photographed.
   - title: Findings and written quote
     body: >-
       You get the photos, a plain-English explanation, and a price. No pressure to decide
@@ -96,7 +96,9 @@ faqs:
       decking is sound. A localised failure on a roof with eight or more years of life left
       is worth repairing. Scattered damage across a roof that is fifteen-plus years old
       usually is not, so you end up paying twice. We show you the photographs and the
-      reasoning so it's your decision, not a sales pitch.
+      reasoning so it's your decision, not a sales pitch. If a
+      [roof replacement](/services/roof-replacement/) looks like the better option, that page
+      covers what a full re-roof involves and typical costs.
   - question: Will my homeowners insurance cover a roof repair?
     answer: >-
       Sudden, accidental damage such as hail, wind or a fallen limb is typically covered subject
@@ -166,6 +168,11 @@ rather than quietly repairing a roof that your policy might have replaced.
 - If the problem isn't the roof at all. Condensation, bathroom exhaust vented into the
   attic instead of outside, and HVAC condensate lines all produce ceiling stains that look
   exactly like roof leaks and cost nothing on the roof to fix.
+
+Repair is one part of what we do as a full-service
+[roofing contractor in Norman](/), alongside replacement, inspections and storm damage
+restoration. If the damage might be insurance-related, see
+[how the roof insurance claim process works in Oklahoma](/blog/roof-insurance-claim-process-oklahoma/).
 
 If you want the roof assessed before deciding anything, a
 [roof inspection](/services/roof-inspection/) is free and carries no obligation.

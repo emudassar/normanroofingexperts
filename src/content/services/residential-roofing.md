@@ -52,7 +52,8 @@ includes:
 process:
   - title: Free inspection and photo report
     body: >-
-      We assess the whole roof and show you what we found before recommending anything.
+      We assess the whole roof as part of a [roof inspection](/services/roof-inspection/) and
+      show you what we found before recommending anything.
   - title: Options, not an ultimatum
     body: >-
       Where there's a genuine choice between repair and replacement, or between material
@@ -181,6 +182,12 @@ falls. What we control:
 - Magnetic sweep of yard, drive and street at the end of **every** day, not only the last
 - The roof never left open overnight unless it is dried in and weather-tight
 - Someone you can actually reach by phone while the job is running
+
+This page covers work on houses specifically; for a business, warehouse or multi-family
+property, see [commercial roofing](/services/commercial-roofing/) instead. For the full range
+of what we do as a [roofing contractor in Norman](/), start on our homepage. Curious which
+materials suit an Oklahoma roof? See how they [compare roofing materials for Oklahoma
+homes](/blog/best-roofing-materials-oklahoma-weather/).
 
 If you want to start with an assessment rather than a quote, our
 [roof inspection](/services/roof-inspection/) is free and produces a photo report you keep.
