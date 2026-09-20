@@ -75,8 +75,8 @@ faqs:
       buildings fail differently from shingled houses: backed-out or over-driven fasteners
       with failed neoprene washers, seam separation, damaged closures at ridges and eaves, and
       panel damage from hail or debris. Often the right answer is refastening and seam repair
-      rather than replacement. We'll quote the house and the outbuildings together so you can
-      see the whole property's position.
+      rather than replacement. A good provider quotes the house and the outbuildings together
+      so you can see the whole property's position.
   - question: Is a metal roof a good idea for a house out here?
     answer: >-
       It's a reasonable option and worth pricing, particularly on exposed sites. Properly
@@ -92,13 +92,13 @@ faqs:
       exposure from open ground, and the fact that on acreage properties there's simply more
       roof to damage across house and outbuildings. After any significant storm it's worth
       having the whole property looked at rather than just the house.
-  - question: Will you come out this far, and does distance cost extra?
+  - question: Does coverage reach this far, and does distance cost extra?
     answer: >-
-      Yes, West Norman is core service area for us, and the inspection is free out here the same
-      as anywhere else in Norman. Distance itself isn't charged. What can affect a quote on
-      rural properties is access: long or unpaved drives, gates, and ground that won't take a
-      loaded truck after rain sometimes mean a different delivery or debris-handling
-      arrangement. We'll tell you at survey if that applies to your property.
+      Yes, West Norman is core coverage area, on the same terms as anywhere else in Norman, with
+      no distance charge. What can affect a quote on rural properties is access: long or unpaved
+      drives, gates, and ground that won't take a loaded truck after rain sometimes mean a
+      different delivery or debris-handling arrangement. A good provider will flag that at
+      survey if it applies to your property.
 relatedServices:
   - storm-hail-damage-restoration
   - roof-replacement
@@ -156,5 +156,6 @@ event:
 - Walk the outbuildings and look for loose fasteners, lifted panels and damaged closures
 - Photograph everything, dated, before anything is touched or tidied
 
-Then get it inspected properly. Our [free roof inspection](/services/roof-inspection/)
-covers the house, and on acreage properties we'll assess the outbuildings at the same visit.
+Then get it inspected properly. Requesting a [roof inspection](/services/roof-inspection/)
+can cover the house, and on acreage properties the outbuildings can be assessed at the same
+visit.

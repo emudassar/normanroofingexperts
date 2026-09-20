@@ -27,32 +27,32 @@ const schema = [
 const steps = [
   {
     title: 'You send the form or call',
-    body: 'Tell us what the roof is doing and roughly where you are. Active leaks jump the queue, so say so.',
+    body: 'Tell us what the roof is doing and roughly where you are. Mention an active leak so your request is flagged as urgent.',
   },
   {
-    title: 'We book the inspection',
-    body: 'Usually within a few days in normal weather. After a regional hail event, longer. We will give you a realistic date rather than an optimistic one.',
+    title: 'Your request goes to a local provider',
+    body: 'A roofing provider serving your area receives your details and reaches out directly to schedule a visit. Timing varies by season and provider, especially after a regional hail event.',
   },
   {
-    title: 'About an hour on site',
-    body: 'Roof surface, penetrations, flashings, gutters, and the attic where there is safe access. Everything relevant gets photographed.',
+    title: 'An on-site look at the roof',
+    body: 'A proper inspection covers the roof surface, penetrations, flashings, gutters, and the attic where there is safe access. Ask for photographs of anything they find.',
   },
   {
     title: 'Findings, then a written price',
-    body: 'We walk you through the photographs in plain language. If work is needed you get a line-itemed written quote. If it is not, you get told that.',
+    body: 'A reputable provider walks you through what they found in plain language and gives you a line-itemed written quote before any work begins.',
   },
 ];
 ---
 
 <BaseLayout
-  title="Free Roofing Estimate in Norman, OK | Book an Inspection"
-  description="Book a free roof inspection in Norman, OK. Photo report you keep, plain-English findings and a written price. No obligation and no doorstep pressure."
+  title="Free Roofing Estimate in Norman, OK | Request an Inspection"
+  description="Request a free roofing estimate in Norman, OK. No cost or obligation to ask, and your request is routed to a roofing provider serving your area."
   schema={schema}
 >
   <PageHeader
     eyebrow="Free estimate"
-    title="Book your free roof inspection"
-    lede="An hour on your roof and in your attic, a photo report you keep, and a written price for a defined scope. No obligation, no pressure, and no roof priced over the phone."
+    title="Request your free roof estimate"
+    lede="No cost or obligation to ask. Tell us what's going on with the roof, and we'll pass your details to a roofing provider serving your area, who can arrange an on-site look and a written price."
   />
 
   <section class="section">
@@ -66,7 +66,7 @@ const steps = [
           <p class="callout__label">Roof leaking right now?</p>
           <p class="callout__body">
             Call instead. Active water is an emergency and the phone is much faster than a form.
-            We can usually tarp to stop water entering the same day.
+            Say so clearly and ask the provider about emergency tarping to stop water entering.
           </p>
           <a class="callout__phone" href={site.phone.href}>{site.phone.display}</a>
           <p class="callout__hours">{site.hours}</p>
@@ -93,22 +93,23 @@ const steps = [
           <h2 class="notes__title">Before you book</h2>
           <ul>
             <li>
-              <strong>The inspection is genuinely free.</strong> No charge for the visit, no charge
-              for the report, no charge if the answer is that you need nothing. Formal written
-              certifications for a property sale are a separate paid service and we'll say so
-              before booking.
+              <strong>Requesting an estimate costs nothing.</strong> Submitting your details
+              through this site carries no charge and no obligation. Ask the provider directly
+              whether their on-site inspection itself is free — policies vary by contractor.
             </li>
             <li>
-              <strong>You keep the report either way.</strong> Useful for an insurance claim, a
-              second opinion, or a house sale, regardless of who ends up doing the work.
+              <strong>Ask to keep any report or photographs.</strong> A dated photo report is
+              useful for an insurance claim, a second opinion, or a house sale, regardless of who
+              ends up doing the work.
             </li>
             <li>
               <strong>Storm damage? Get inspected before you file.</strong> If the damage is
               marginal, a claim may not be in your interest, and it's better to know that first.
             </li>
             <li>
-              <strong>We never discuss your deductible.</strong> Waiving or absorbing it is fraud
-              under Oklahoma law. Walk away from anyone who offers.
+              <strong>Treat any deductible offer as a red flag.</strong> Waiving or absorbing your
+              insurance deductible is fraud under Oklahoma law. Walk away from any contractor who
+              offers.
             </li>
           </ul>
         </div>

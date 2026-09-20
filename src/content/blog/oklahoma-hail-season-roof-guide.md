@@ -146,8 +146,8 @@ Neither is a pleasant thing to discover during a claim.
 
 ---
 
-If a storm has been through and you'd like your roof documented properly, our
-[free roof inspection](/services/roof-inspection/) produces a dated photo report you keep
-whether or not you file, and our
+If a storm has been through and you'd like your roof documented properly, requesting a
+[roof inspection](/services/roof-inspection/) can produce a dated photo report you keep
+whether or not you file, and the
 [storm and hail damage restoration](/services/storm-hail-damage-restoration/) page explains
-how we work alongside your adjuster.
+how a provider can work alongside your adjuster.

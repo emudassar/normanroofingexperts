@@ -1,6 +1,12 @@
 /**
  * Single source of truth for site-wide business details.
  *
+ * This is a website-only lead-generation property, not an operating roofing
+ * company (see docs/brief.md §2). Do not add fields that imply a founding
+ * date, years-in-business, in-house crews, or carried insurance — none of
+ * that is verified, and this site does not perform the roofing work itself.
+ * Leads submitted here are routed to a roofing provider via LeadSmart.
+ *
  * Remaining pre-launch placeholders are marked `TODO` below. See docs/brief.md §12.
  */
 
@@ -11,7 +17,7 @@ export const site = {
   /** Used in <title> suffixes and the footer. */
   tagline: 'Roofing Contractors in Norman, OK',
   description:
-    'Norman Roofing Experts provides roof repair, replacement, inspection and storm damage restoration for homeowners across Norman, Oklahoma and the surrounding Cleveland County communities.',
+    'Norman Roofing Experts helps homeowners across Norman, Oklahoma and the surrounding Cleveland County communities request roof repair, replacement, inspection and storm damage service from a local roofing provider.',
 
   phone: {
     display: '(773) 302-2292',
@@ -31,7 +37,12 @@ export const site = {
   /** No physical address and no Google Business Profile. See docs/brief.md §2. */
   hasPhysicalLocation: false,
 
-  hours: 'Monday – Saturday, 7:00am – 7:00pm. Storm response calls answered 24/7.',
+  /**
+   * Deliberately general: there is no verified staffing/hours commitment
+   * behind this site. Requests can be submitted online any time; how fast
+   * a provider responds is theirs to say, not ours to promise.
+   */
+  hours: 'Requests can be submitted online any time.',
 
   /** Broad service region, used in copy and Organization schema areaServed. */
   areaServed: [
@@ -46,14 +57,9 @@ export const site = {
     'McClain County, OK',
   ],
 
-  /** Year the brand started serving Norman, used for "serving since" copy. */
-  servingSince: 2013,
-
   /** Open Graph default image, relative to /public. */
   defaultOgImage: '/og/placeholder-og-default.jpg',
 } as const;
-
-export const yearsServing = new Date().getFullYear() - site.servingSince;
 
 /**
  * Primary navigation. Both collection hubs sit in the header by design.

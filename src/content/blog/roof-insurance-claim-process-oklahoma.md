@@ -20,8 +20,8 @@ with construction at the end of it, and most of what determines the outcome happ
 anyone picks up a nail gun.
 
 This is the whole sequence, in order, with the parts that catch people out flagged as they
-come up. It's written for Oklahoma homeowners; we're roofers rather than licensed insurance
-advisers, so treat this as an explanation of how the process runs in practice, and take
+come up. It's written for Oklahoma homeowners as general information, not licensed insurance
+advice, so treat this as an explanation of how the process runs in practice, and take
 policy-specific questions to your agent.
 
 ## Before anything: know what your policy says
@@ -171,7 +171,7 @@ for two years.
 
 ---
 
-If you want your roof documented to adjuster standard before you file, our
-[free roof inspection](/services/roof-inspection/) produces exactly that, and
-[storm and hail damage restoration](/services/storm-hail-damage-restoration/) explains how we
-work alongside your adjuster through the rest of it.
+If you want your roof documented to adjuster standard before you file, requesting a
+[roof inspection](/services/roof-inspection/) can produce exactly that, and
+[storm and hail damage restoration](/services/storm-hail-damage-restoration/) explains how a
+provider can work alongside your adjuster through the rest of it.

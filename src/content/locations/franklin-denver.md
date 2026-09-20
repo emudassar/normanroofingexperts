@@ -35,8 +35,8 @@ localNotes:
     body: >-
       On a typical parcel out here, the shop and barn together often exceed the house in square
       footage. Any assessment that only looks at the residence has looked at a minority of the
-      property's roofing. We survey everything on the parcel and quote it so you can see the
-      whole picture and prioritise.
+      property's roofing. A thorough survey covers everything on the parcel and quotes it so
+      you can see the whole picture and prioritise.
   - title: Full wind exposure, no shelter
     body: >-
       Open agricultural land offers nothing to slow the wind. Buildings here take straight-line
@@ -47,14 +47,14 @@ localNotes:
     body: >-
       Access genuinely matters here. Gates, cattle guards, unpaved or long drives, and ground
       that won't carry a loaded material truck after heavy rain all shape how a job is
-      delivered. We establish this at the survey, because turning up with a fully loaded truck and
-      discovering the drive won't take it costs everyone a day.
+      delivered. This should get established at the survey, because turning up with a fully
+      loaded truck and discovering the drive won't take it costs everyone a day.
   - title: Watershed and drainage sensitivity
     body: >-
       The area drains into the Little River and its tributaries, and low-density zoning here
       is partly about protecting that. Practically, it means debris containment on a roofing
-      job matters more than in town, and where properties are on septic systems, we plan
-      access and container placement to keep equipment off drain fields.
+      job matters more than in town, and where properties are on septic systems, a careful
+      provider plans access and container placement to keep equipment off drain fields.
   - title: Distance from a fire hydrant, and other rural realities
     body: >-
       Rural properties often carry different insurance terms than in-town ones, including
@@ -67,14 +67,14 @@ faqs:
       rather than in the middle of a panel: screws back out or get over-driven so the neoprene
       washer fails and each one becomes a small leak, seams separate, ridge and eave closures
       degrade, and hail dents panels. A systematic refastening with oversized replacement
-      screws and new closures often restores a building for a fraction of re-sheeting cost.
-      We'll tell you honestly which of the two your building needs.
-  - question: Will you come out to a property on acreage north of Norman?
+      screws and new closures often restores a building for a fraction of re-sheeting cost. A
+      good inspection will tell you honestly which of the two a building needs.
+  - question: Does this cover properties on acreage north of Norman?
     answer: >-
-      Yes. The Franklin Road area is inside our normal service area and the inspection is free
-      here as anywhere else. Tell us about access when you book: gate codes, drive length and
-      surface, and anything that affects where a truck can go. It saves a wasted visit and lets
-      us plan material delivery properly.
+      Yes. The Franklin Road area is inside this site's normal coverage area. Mention access
+      details when you submit a request: gate codes, drive length and surface, and anything
+      that affects where a truck can go. It saves a wasted visit and helps a provider plan
+      material delivery properly.
   - question: My metal roof is leaking around the screws. Does it need replacing?
     answer: >-
       Usually not. Exposed-fastener metal roofing leaks at screws long before the panels wear
@@ -91,14 +91,15 @@ faqs:
       deformed enough to affect drainage, is usually covered. Cosmetic denting on metal is
       frequently excluded, and many policies covering outbuildings carry separate wind and hail
       deductibles calculated as a percentage of insured value, which can be substantial. Read
-      your declarations page or ask your agent. We document damage thoroughly either way.
+      your declarations page or ask your agent. A good inspection documents damage thoroughly
+      either way.
   - question: We're on a septic system. Will the work affect it?
     answer: >-
       Not if it's planned around. The risk is heavy equipment or a loaded debris container
-      compacting ground over a drain field or crushing a lateral. Tell us where the tank and
-      field are at the survey, or show us the site plan, and we'll route access and place
-      containers clear of them. It's a routine consideration on rural properties and takes five
-      minutes to get right.
+      compacting ground over a drain field or crushing a lateral. Mention where the tank and
+      field are at the survey, or share the site plan, so access and containers get routed
+      clear of them. It's a routine consideration on rural properties and takes five minutes
+      to get right.
 relatedServices:
   - roof-repair
   - storm-hail-damage-restoration
@@ -135,9 +136,9 @@ leak, and there are thousands of them on a large shop.
 
 The good news is that this is repairable. A full refasten, meaning larger-diameter screws driven
 into fresh purchase, new closures at ridge and eaves, sealant renewed at laps and
-penetrations, restores a sound building at a small fraction of re-sheeting cost. We'd rather
-do that and tell you the panels have fifteen years in them than sell you a new roof you
-didn't need.
+penetrations, restores a sound building at a small fraction of re-sheeting cost. A good
+provider would rather do that and tell you the panels have fifteen years left than sell a new
+roof that isn't needed.
 
 ## Access: get it agreed before the truck is loaded
 
@@ -151,7 +152,7 @@ This is not a trivial point on rural property. The things that actually derail j
 - Livestock, and the need to keep gates shut and debris off pasture
 
 None of it is difficult. All of it costs a day if it's discovered on the morning of the job.
-We walk it at the survey.
+A thorough provider walks it at the survey.
 
 ## Documentation matters more when nobody sees the roof
 
@@ -160,6 +161,6 @@ barn roof on forty acres gets looked at when something inside gets wet. By then 
 fastener problem has become a rust problem, and rust is a replacement rather than a repair.
 
 An annual walk of every roof on the property, and a proper look after any significant storm,
-is the highest-return maintenance available on a rural parcel. Our
-[free roof inspection](/services/roof-inspection/) covers the house and the outbuildings in
-one visit, and you keep the photo report.
+is the highest-return maintenance available on a rural parcel. Requesting a
+[roof inspection](/services/roof-inspection/) can cover the house and the outbuildings in one
+visit, and you keep the photo report.

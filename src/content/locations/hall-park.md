@@ -37,17 +37,17 @@ localNotes:
       Hall Park was laid out with common-area backyards rather than fully fenced private plots,
       giving the community an unusual amount of shared open space for its size. That legacy
       layout affects access: getting materials, equipment and debris containers to a roof can
-      mean crossing or staging on shared ground, and neighbouring properties are close. We
-      agree access routes and container placement in advance rather than turning up and
-      improvising.
+      mean crossing or staging on shared ground, and neighbouring properties are close. A good
+      provider agrees access routes and container placement in advance rather than turning up
+      and improvising.
   - title: An all-electric origin, and what changed
     body: >-
       The development's original selling point was that everything ran on electricity, with
       natural gas service added later in the decade. It matters on a roof because gas
       appliances vent through it and electric ones don't. Homes that had gas retrofitted have
       flue penetrations added to an existing roof after the fact, and retrofitted penetrations
-      are consistently among the most leak-prone details we find. It's the first thing we check
-      on a Hall Park leak call.
+      are consistently among the most leak-prone details found in this neighbourhood. It's one
+      of the first things worth checking on a Hall Park leak call.
   - title: Sixty-plus-year-old structures
     body: >-
       Whatever the current shingles' age, the building beneath them dates from the 1960s. Early
@@ -60,7 +60,7 @@ localNotes:
       Where roofs are shared or run continuously across attached units, the work needs
       coordinating between owners. A roof replaced on one half of a duplex and not the other
       creates a junction at the party wall that will need attention sooner rather than later.
-      We'll flag that at the inspection rather than after.
+      A thorough inspection flags that rather than leaving it as a surprise.
   - title: Small lots, tight access
     body: >-
       A little over one square mile held around 1,100 people, and the density shows. Narrow
@@ -75,13 +75,13 @@ faqs:
       designed to 1960 expectations rather than current ones. Both are assessed as part of an
       inspection, and both are far cheaper to address during a planned replacement than to
       discover during an emergency one.
-  - question: My house has a shared backyard. Where will you put the dumpster?
+  - question: My house has a shared backyard. Where does the dumpster go?
     answer: >-
-      We'll agree that with you before the job, and it's a genuine planning question in Hall
-      Park rather than a formality, because the common-area layout means the obvious spot may not be
-      yours to use. Depending on the property, options are the drive, an agreed area of hard
-      standing, or loading straight into a truck without a container. We protect any shared
-      ground we cross and magnet-sweep it daily along with your own.
+      That gets agreed before the job starts, and it's a genuine planning question in Hall
+      Park rather than a formality, because the common-area layout means the obvious spot may
+      not be yours to use. Depending on the property, options are the drive, an agreed area of
+      hard standing, or loading straight into a truck without a container. A careful provider
+      protects any shared ground it crosses and magnet-sweeps it daily along with your own.
   - question: I have a leak around a flue. Why is that so common here?
     answer: >-
       Because many of these homes started life all-electric and had gas service added later. A
@@ -96,7 +96,7 @@ faqs:
       one side creates a junction at the party wall between new and old covering, which is an
       added detail to maintain and a likely future leak point, and the second side will need
       doing within a few years anyway. Doing both together is also cheaper per unit because the
-      set-up cost is shared. We're happy to quote both halves separately so each owner sees
+      set-up cost is shared. A good provider quotes both halves separately so each owner sees
       their own number.
   - question: Is roofing cheaper in Hall Park than elsewhere in Norman?
     answer: >-
@@ -130,7 +130,8 @@ for.
 **Retrofitted flue penetrations.** All-electric homes don't need a flue through the roof.
 Natural gas arrived later in the 1960s, and where it was retrofitted, penetrations were cut
 into roofs that were never designed for them. These are consistently among the leakiest
-details we find in this neighbourhood, and it's where we look first on a leak call.
+details found in this neighbourhood, and they're one of the first things worth checking on a
+leak call.
 
 **Original ventilation design.** Attic ventilation practice in 1960 was not what it is now.
 Under-ventilated attics run extremely hot in an Oklahoma July and degrade shingles from
@@ -158,6 +159,6 @@ and properly redone retrofit penetrations are what move a Hall Park quote, and t
 things worth doing rather than skipping, because a new roof on a sixty-year-old building fails at
 the old building's weak points, not at the new shingles'.
 
-If you'd like to know the real condition of yours before deciding anything, our
-[free roof inspection](/services/roof-inspection/) covers the roof, the penetrations and the
+If you'd like to know the real condition of yours before deciding anything, requesting a
+[roof inspection](/services/roof-inspection/) can cover the roof, the penetrations and the
 attic, and you keep the photo report.

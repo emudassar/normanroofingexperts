@@ -34,8 +34,9 @@ localNotes:
     body: >-
       Goldsby is across the county line, which affects permitting, inspection requirements and
       sometimes insurance rating. It also means Norman-based contractors occasionally treat it
-      as out of area despite it being a short run down I-35. We confirm the county requirements
-      that apply to your address rather than assuming Norman's rules extend over the river.
+      as out of area despite it being a short run down I-35. A good provider confirms the
+      county requirements that apply to your address rather than assuming Norman's rules
+      extend over the river.
   - title: Big roofs with complex geometry
     body: >-
       The larger newer homes here often have genuinely complicated rooflines: multiple
@@ -60,13 +61,12 @@ localNotes:
       fail at fasteners and closures rather than in the panel field and are normally repairable
       by refastening rather than re-sheeting.
 faqs:
-  - question: Do you cover Goldsby, or only Cleveland County?
+  - question: Does this site cover Goldsby, or only Cleveland County?
     answer: >-
-      We cover Goldsby. It's a short run south down I-35 and it's inside our normal service
-      area, with the same free inspection and the same pricing as anywhere else we work. The
-      one practical difference is that Goldsby is in McClain County, so permitting and
-      inspection requirements can differ from Norman's, so we check what applies to your specific
-      address before starting.
+      Yes, Goldsby is covered. It's a short run south down I-35 and inside this site's normal
+      coverage area. The one practical difference is that Goldsby is in McClain County, so
+      permitting and inspection requirements can differ from Norman's — a good provider checks
+      what applies to your specific address before starting.
   - question: Why is the quote for my Goldsby house higher than my friend's in Norman?
     answer: >-
       Usually roof complexity and size rather than location. Newer homes out here tend to be
@@ -81,8 +81,8 @@ faqs:
       because central Oklahoma is hard on roofs. The warranty length describes laboratory
       conditions and prorates steeply; real service life for a basic shingle here is frequently
       in the 12 to 18 year range even without hail. If yours shows widespread granule loss with
-      dark mat visible through it, its age is not the relevant number. A free inspection settles
-      it either way.
+      dark mat visible through it, its age is not the relevant number. Requesting an inspection
+      settles it either way.
   - question: We get a lot of wind out here. What should I be watching for?
     answer: >-
       Not missing shingles. Those are the obvious case and the least common. Watch for the
@@ -93,11 +93,11 @@ faqs:
       fold line, have a fractured mat along the crease. Both need someone on the roof to find.
   - question: Can you do the house and the shop at the same time?
     answer: >-
-      Yes, and it's usually more economical to do them together because the set-up is shared.
+      Usually, and it's often more economical to do them together because the set-up is shared.
       Metal shops generally need refastening and new closures rather than re-sheeting, because screws
       back out over time and the neoprene washers under their heads fail in UV, so each becomes
-      a small leak. We survey both, quote them as separate line items, and you can proceed with
-      either or both.
+      a small leak. A good provider surveys both, quotes them as separate line items, and lets
+      you proceed with either or both.
 relatedServices:
   - roof-replacement
   - storm-hail-damage-restoration
@@ -165,5 +165,5 @@ here, so ask your carrier what premium discount applies, because that number cha
 and it's specific to your policy.
 
 If your roof has been through a storm, or you simply want to know what the builder actually
-put on it, our [free roof inspection](/services/roof-inspection/) covers the house and any
-outbuildings and leaves you with a dated photo report.
+put on it, requesting a [roof inspection](/services/roof-inspection/) can cover the house and
+any outbuildings and leave you with a dated photo report.

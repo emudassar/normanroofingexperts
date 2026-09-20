@@ -2,16 +2,18 @@
 title: Storm & Hail Damage Restoration
 h1: Storm & Hail Damage Roof Restoration in Norman, OK
 metaTitle: Hail Damage Roof Repair Norman OK | Claim Help
-description: Storm and hail damage roof restoration in Norman, OK. Free assessment, documentation built for your adjuster, tarping and insurance claim support.
+description: Storm and hail damage roof restoration in Norman, OK. Request an assessment, documentation built for your adjuster, and guidance through the insurance claim.
 keyword: hail damage roof repair Norman OK
-summary: Documented damage assessment, emergency tarping, and support through the whole insurance claim, not just the roof work at the end.
+summary: Documented damage assessment, emergency tarping, and support through the insurance claim, not just the roof work at the end.
 intro: >-
-  Hail damage roof repair in Norman, OK is as much a documentation problem as a construction
-  problem. Cleveland County sits in one of the most active hail corridors in the country,
-  and the difference between a claim that gets paid properly and one that gets underpaid or
-  denied usually comes down to what was photographed, when, and how clearly it was tied to
-  a specific storm. We handle the assessment, the documentation and the restoration, and we
-  stay involved through the claim rather than handing you a quote and disappearing.
+  Hail damage roof repair in Norman, OK is as much a documentation problem as a
+  construction problem. Cleveland County sits in one of the most active hail corridors in
+  the country, and the difference between a claim that gets paid properly and one that gets
+  underpaid or denied usually comes down to what was photographed, when, and how clearly it
+  was tied to a specific storm. Request an assessment through this site and a roofing
+  provider serving your area can handle the assessment, the documentation and the
+  restoration, staying involved through the claim rather than handing you a quote and
+  disappearing.
 icon: storm
 order: 4
 heroImage: ../../assets/images/placeholder-service-storm-hail.jpg
@@ -26,115 +28,119 @@ signals:
 includes:
   - title: Emergency tarping and water mitigation
     body: >-
-      If water is entering the house, stopping it comes first. We tarp and dry-in damaged
-      areas to prevent the far more expensive interior damage that follows, and that
-      mitigation cost is itself usually claimable.
+      If water is entering the house, stopping it comes first. A responsive provider tarps
+      and dries in damaged areas to prevent the far more expensive interior damage that
+      follows, and that mitigation cost is itself usually claimable. Ask about emergency
+      tarping availability when you submit your request.
   - title: Storm-specific damage assessment
     body: >-
-      Roof, soft metals, gutters, siding, windows, fascia and AC unit. We tie findings to
-      the date and event, because a claim is about a specific storm on a specific day, not
-      about general condition.
+      Roof, soft metals, gutters, siding, windows, fascia and AC unit. Findings should be
+      tied to the date and event, because a claim is about a specific storm on a specific
+      day, not about general condition.
   - title: Adjuster-ready documentation
     body: >-
       Dated, captioned, slope-by-slope photographs with test squares and measurements,
       formatted the way adjusters expect to receive it. Well-documented claims are settled
       faster and disputed less.
-  - title: We meet your adjuster on site
+  - title: Meeting your adjuster on site
     body: >-
-      At your request, we're on the roof with the adjuster. Damage gets missed, particularly
-      on slopes that are awkward to access, and a second qualified set of eyes at the
-      inspection is worth more than an appeal afterwards.
+      Ask whether your provider will be on the roof with the adjuster at your request.
+      Damage gets missed, particularly on slopes that are awkward to access, and a second
+      qualified set of eyes at the inspection is worth more than an appeal afterwards.
   - title: Supplement handling
     body: >-
       Initial estimates routinely omit code-required items, decking, ventilation or full
-      flashing replacement. Supplements are a normal part of the process; we file them with
-      documentation rather than absorbing the shortfall by cutting your scope.
+      flashing replacement. Supplements are a normal part of the process; ask whether your
+      provider files them with documentation rather than absorbing the shortfall by cutting
+      your scope.
   - title: Full restoration to code
     body: >-
       Complete roof replacement or repair, plus gutters, vents and associated exterior work,
       built to current requirements rather than matched to what was there before.
 process:
-  - title: Free storm damage inspection
+  - title: Request a storm damage assessment
     body: >-
-      We assess and document before you file. If there isn't enough damage to justify a
-      claim, we'll tell you, because a denied claim can still appear on your record.
+      A provider assesses and documents before you file. If there isn't enough damage to
+      justify a claim, an honest provider will tell you, because a denied claim can still
+      appear on your record.
   - title: You file the claim
     body: >-
-      You contact your carrier; the policy is between you and them. We give you the
-      documentation, the storm date and the damage summary you need to file accurately.
+      You contact your carrier; the policy is between you and them. The provider gives you
+      the documentation, the storm date and the damage summary you need to file accurately.
   - title: Adjuster inspection
     body: >-
-      We meet them on site, walk the roof together, and make sure everything documented is
-      seen and considered.
+      Ask your provider to meet the adjuster on site, walk the roof together, and make sure
+      everything documented is seen and considered.
   - title: Scope review and supplements
     body: >-
-      We compare their scope against what the job actually requires and file supported
-      supplements where it falls short.
+      A good provider compares the adjuster's scope against what the job actually requires
+      and files supported supplements where it falls short.
   - title: Restoration
     body: >-
-      Materials ordered, work scheduled, roof rebuilt. You pay your deductible; your carrier
-      pays the rest per your policy.
+      Materials ordered, work scheduled, roof rebuilt. You pay your deductible; your
+      carrier pays the rest per your policy.
   - title: Final documentation
     body: >-
       Completion photographs, invoices and warranty paperwork, including what your carrier
       needs to release any recoverable depreciation held back on an RCV policy.
 pricingNote: >-
-  On a covered claim your out-of-pocket cost is normally your deductible, plus any upgrades
-  you choose that the policy doesn't cover, Class 4 impact-resistant shingles being the
-  common one. Whether you receive the full replacement cost or a depreciated amount depends
-  on whether your policy is replacement cost value (RCV) or actual cash value (ACV); on an
-  ACV policy the gap can be substantial and it is worth knowing before you file, not after.
-  We will never offer to waive, absorb or rebate your deductible. That is insurance fraud
-  under Oklahoma law and it exposes you as well as the contractor.
+  On a covered claim, out-of-pocket cost is normally your deductible, plus any upgrades you
+  choose that the policy doesn't cover, Class 4 impact-resistant shingles being the common
+  one. Whether you receive the full replacement cost or a depreciated amount depends on
+  whether your policy is replacement cost value (RCV) or actual cash value (ACV); on an ACV
+  policy the gap can be substantial and it's worth knowing before you file, not after. No
+  legitimate contractor will offer to waive, absorb or rebate your deductible — that's
+  insurance fraud under Oklahoma law and it exposes you as well as the contractor.
 faqs:
   - question: How do I know if I have hail damage on my roof?
     answer: >-
-      From the ground you usually can't, which is the problem, because functional hail damage often
-      isn't visible from the driveway even when it's extensive. The reliable indicators are
-      on the soft metals: dents in gutters, downspouts, vent caps, window wraps and the fins
-      of your AC condenser. If those are dented, the roof took the same impacts. On the roof
-      itself, hail leaves random-pattern bruising where the mat is fractured under the surface
-      and granules have been knocked away. A free inspection with photographs settles it either way.
+      From the ground you usually can't, which is the problem, because functional hail
+      damage often isn't visible from the driveway even when it's extensive. The reliable
+      indicators are on the soft metals: dents in gutters, downspouts, vent caps, window
+      wraps and the fins of your AC condenser. If those are dented, the roof took the same
+      impacts. On the roof itself, hail leaves random-pattern bruising where the mat is
+      fractured under the surface and granules have been knocked away. Requesting an
+      inspection with photographs settles it either way.
   - question: Will filing a hail claim raise my insurance premium?
     answer: >-
-      Possibly, and it's a fair question to ask before filing. Hail is generally treated as a
-      catastrophic weather loss rather than a fault-based claim, so a single storm claim is
-      usually treated differently from an at-fault claim, but carriers vary, rates across
-      whole hail-prone regions rise regardless of individual claims, and multiple claims in a
-      short period can affect renewal. We are roofers, not licensed insurance advisers, so ask
-      your agent directly. What we can do is tell you honestly whether the damage is
-      significant enough that a claim is worth considering at all.
+      Possibly, and it's a fair question to ask before filing. Hail is generally treated as
+      a catastrophic weather loss rather than a fault-based claim, so a single storm claim
+      is usually treated differently from an at-fault claim, but carriers vary, rates
+      across whole hail-prone regions rise regardless of individual claims, and multiple
+      claims in a short period can affect renewal. This is general information, not licensed
+      insurance advice — ask your agent directly. A good inspection can at least tell you
+      honestly whether the damage is significant enough that a claim is worth considering.
   - question: How long do I have to file a hail claim in Oklahoma?
     answer: >-
       Policies set their own deadlines and they vary: some require notice within a year of
-      the date of loss, others are less prescriptive but expect prompt reporting. The practical
-      answer is: sooner is much better. Damage that goes unreported for a long time gets harder
-      to attribute to a specific storm, and carriers reasonably question why a roof went two
-      years without anyone noticing. Check your policy documents or call your agent for the
-      exact term that applies to you.
+      the date of loss, others are less prescriptive but expect prompt reporting. The
+      practical answer is: sooner is much better. Damage that goes unreported for a long
+      time gets harder to attribute to a specific storm, and carriers reasonably question
+      why a roof went two years without anyone noticing. Check your policy documents or call
+      your agent for the exact term that applies to you.
   - question: What if my claim is denied?
     answer: >-
       A denial isn't always the end of it. Claims get denied because damage was missed on a
       difficult slope, because the documentation was thin, or because the adjuster judged
       damage cosmetic rather than functional. You can request a re-inspection, submit
-      additional documentation, or invoke the appraisal clause most policies contain. We can
-      supply the technical documentation to support that. If the denial is simply correct, and
-      the roof is worn out rather than storm damaged, we'll tell you that too, and talk
-      through [roof replacement](/services/roof-replacement/) options that don't involve a claim.
-  - question: Do you offer to cover my deductible?
+      additional documentation, or invoke the appraisal clause most policies contain. A good
+      provider can supply technical documentation to support that. If the denial is simply
+      correct, and the roof is worn out rather than storm damaged, a trustworthy contractor
+      will tell you that too, and talk through
+      [roof replacement](/services/roof-replacement/) options that don't involve a claim.
+  - question: Should I trust a contractor who offers to cover my deductible?
     answer: >-
-      No, and you should walk away from any contractor who does. Under Oklahoma law it is
-      insurance fraud for a contractor to rebate, absorb or advertise the waiving of an
-      insurance deductible, and it puts you at legal risk as well as them. A contractor
-      willing to commit fraud on your behalf at the start of a job is not a contractor whose
-      workmanship warranty means anything at the end of it.
+      No — walk away. Under Oklahoma law it is insurance fraud for a contractor to rebate,
+      absorb or advertise the waiving of an insurance deductible, and it puts you at legal
+      risk as well as them. A contractor willing to commit fraud on your behalf at the start
+      of a job is not one whose workmanship warranty means anything at the end of it.
   - question: Should I sign a contingency agreement before the adjuster comes?
     answer: >-
       Read it carefully first, and take your time. A contingency agreement commits you to a
       contractor if the claim is approved, before you know the scope or the price. Some are
       reasonable; some contain steep cancellation penalties. Nobody should be pressing you to
-      sign one on your doorstep the day after a storm. We are happy to inspect and document
-      your roof without one.
+      sign one on your doorstep the day after a storm. A reputable provider will inspect and
+      document your roof without requiring one.
 relatedLocations:
   - west-norman
   - noble-ok
@@ -148,7 +154,7 @@ few parts of the country match. Peak season runs roughly March through June, tho
 storms occur outside it. The practical result is that most roofs in Cleveland County will be
 hit by a claimable event at some point in their service life, and many are hit more than once.
 
-This changes the calculus in two ways. First, the roof you install should be specified for
+This changes the calculus in two ways. First, the roof installed should be specified for
 this, which is why Class 4 impact-resistant shingles are worth a serious conversation here
 even though they cost more. Second, storm restoration in this market is largely an insurance
 process, and the contractors who serve homeowners well are the ones who understand claims,
@@ -185,10 +191,10 @@ storm. That five minutes is worth more than anything anyone does later.
 Then get an independent assessment before you file. If the damage is marginal, a claim may
 not be in your interest, and it is better to know that at the start.
 
-When the adjuster comes, be there, and have your contractor there. Adjusters are working
-through an enormous volume after a regional hail event and they are not infallible. Damage on
-a steep or awkward slope gets missed. Two people on the roof at the same time, agreeing what
-they're looking at, prevents most disputes before they start.
+When the adjuster comes, be there, and ask your provider to be there too. Adjusters are
+working through an enormous volume after a regional hail event and they are not infallible.
+Damage on a steep or awkward slope gets missed. Two people on the roof at the same time,
+agreeing what they're looking at, prevents most disputes before they start.
 
 Expect supplements. Initial scopes routinely omit code-required items like ice-and-water
 membrane, ventilation upgrades, decking replacement and full flashing. This is normal and it
@@ -213,8 +219,8 @@ Ask any contractor for proof of general liability and workers' compensation insu
 before they set foot on your property, and verify it independently. If someone is hurt on
 your roof and the contractor isn't properly insured, that can become your problem.
 
-If you'd like your roof assessed and documented after a storm, a
-[free roof inspection](/services/roof-inspection/) is the place to start. Want to get ahead of
-it? [Get ready before hail season hits](/blog/oklahoma-hail-season-roof-guide/). And if you do
-end up filing, see our guide to
+If you'd like your roof assessed and documented after a storm, requesting a
+[roof inspection](/services/roof-inspection/) is the place to start. Want to get ahead of
+it? [Get ready before hail season hits](/blog/oklahoma-hail-season-roof-guide/). And if you
+do end up filing, see the guide to
 [filing an insurance claim after storm damage](/blog/roof-insurance-claim-process-oklahoma/).

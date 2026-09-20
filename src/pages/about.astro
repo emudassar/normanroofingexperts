@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHeader from '../components/PageHeader.astro';
 import CTABand from '../components/CTABand.astro';
-import { site, yearsServing } from '../config/site';
+import { site } from '../config/site';
 import aboutImage from '../assets/images/placeholder-crew-blue-sky.jpg';
 
 const url = `${site.url}/about/`;
@@ -30,120 +30,104 @@ const schema = [
 
 <BaseLayout
   title="About Norman Roofing Experts | Local Roofers, Norman OK"
-  description="Who we are, how we work, and what we will and will not do. A Norman, OK roofing company that inspects before quoting and never touches your deductible."
+  description="What Norman Roofing Experts is, how requesting a roof estimate here actually works, and what to check before hiring any Norman, OK roofing contractor."
   schema={schema}
 >
   <PageHeader
     eyebrow="About us"
-    title="A roofing company built around one idea: show the homeowner the evidence"
-    lede="Most bad roofing outcomes in Norman start the same way. A homeowner is asked to make a five-figure decision based on someone's verbal assessment of a surface they cannot see. We built this company to remove that problem."
+    title="A straightforward way to request roofing help in Norman"
+    lede="Most bad roofing outcomes start the same way: a homeowner makes a five-figure decision based on someone's verbal assessment of a surface they can't see. This site exists to get you to a local provider faster, and to tell you plainly what to check before you hire anyone."
   />
 
   <section class="section">
     <div class="container about">
       <div class="about__body prose">
-        <h2>Why we work this way</h2>
+        <h2>What this site is</h2>
         <p>
-          Roofing has a structural information problem. The customer cannot inspect the product,
-          cannot watch most of the work, and cannot easily tell a good job from a bad one for
-          several years, by which point the contractor may be long gone. Almost every complaint
-          about this trade traces back to that gap.
+          Norman Roofing Experts is a website, not a roofing crew. It doesn't send trucks, carry
+          insurance, or perform inspections itself. What it does is collect the details of your
+          roofing project through the phone number and forms on this site, and pass them along to
+          a roofing provider serving your area, who then contacts you directly to schedule an
+          inspection, answer questions and quote the work.
         </p>
         <p>
-          Our entire process is designed around closing it. We photograph everything we find and
-          give you the report whether or not you hire us. We price a defined scope in writing
-          before anything is opened up, including the rate for replacing decking we haven't seen
-          yet. We tell you when a repair is the right answer even though a replacement pays us
-          better. And when the honest answer is that your roof is fine and you should call us
-          again in three years, that is what you'll be told.
+          There's no cost or obligation to submit a request. We'd rather say that plainly than
+          have you assume you're speaking with an in-house crew when you're not.
         </p>
 
-        <h2>What we do</h2>
+        <h2>What you can request</h2>
         <p>
-          We are a residential and light-commercial roofing company serving Norman, the rest of
-          Cleveland County and northern McClain County. Roof repair, full replacement,
-          inspections, storm and hail damage restoration with insurance claim support, gutters,
-          and low-slope commercial work.
-        </p>
-        <p>
-          We have served the Norman area for {yearsServing} years, since {site.servingSince}, and
-          we are not a storm-chasing operation that appears after a hail event and leaves when
-          the work runs out. That distinction matters more than it sounds. A workmanship warranty
-          is only worth as much as the likelihood that the company issuing it will still be
-          reachable when a defect surfaces, which in roofing is typically one to three years
-          after the job.
+          Roof repair, full replacement, inspections, storm and hail damage restoration, gutter
+          installation and repair, and residential or light-commercial roofing work, for
+          properties across Norman, the rest of Cleveland County and northern McClain County. See
+          the <a href="/services/">services</a> and <a href="/service-areas/">service areas</a>
+          pages for what's covered in each.
         </p>
 
-        <h2>How we're set up</h2>
+        <h2>How a request turns into a quote</h2>
         <p>
-          We are a <strong>local roofing contractor</strong> built around crews and trucks rather
-          than a retail showroom. Roofing happens at your property, so that is where our people
-          are: on the roof, in the attic and at your kitchen table going through the photographs.
-          Keeping our overhead in the field instead of a shopfront is part of how we hold our
-          pricing where it is.
-        </p>
-        <p>
-          Estimates are always produced from an on-site inspection. We do not give roof prices
-          over the phone. A number quoted without seeing the roof is a number that will change,
-          and the change is never downward.
+          You send the form or call with a description of the problem and your location. That
+          information goes to a roofing provider serving your area, who reaches out to arrange an
+          on-site look at the roof. Any real price comes from that visit, not from this site — a
+          number given without anyone seeing the roof is a number that will change once someone
+          actually inspects it.
         </p>
 
-        <h2>What we will not do</h2>
+        <h2>What to check before you hire anyone</h2>
         <p>
-          This list is short and we are direct about it, because most of these things are common
-          in this market.
+          These are the questions worth asking whichever roofing provider you end up working
+          with, whether they come through this site or anywhere else. Most complaints in this
+          trade trace back to one of these being skipped.
         </p>
         <ul>
           <li>
-            <strong>We will not touch your deductible.</strong> Rebating, absorbing or advertising
-            the waiving of an insurance deductible is fraud under Oklahoma law. It exposes you as
-            well as the contractor, and any company willing to commit fraud on your behalf at the
-            start of a job is not one whose warranty means anything at the end of it.
+            <strong>Ask whether they'll waive or absorb your deductible.</strong> If they offer,
+            walk away. Rebating, absorbing or advertising the waiving of an insurance deductible
+            is fraud under Oklahoma law, and it exposes you as well as the contractor.
           </li>
           <li>
-            <strong>We will not ask you to sign on your doorstep.</strong> Not a contract, not a
-            contingency agreement, not anything. If a decision is worth making it is worth making
-            after you've read the paperwork and slept on it.
+            <strong>Don't sign anything on your doorstep.</strong> Not a contract, not a
+            contingency agreement, not anything. A decision worth making is worth making after
+            you've read the paperwork and slept on it.
           </li>
           <li>
-            <strong>We will not tell you that you need a new roof when you don't.</strong> The
-            photo report exists so that you can check.
+            <strong>Ask for the evidence, not just the verdict.</strong> A contractor who can show
+            you dated photographs of what they found is easier to trust than one who tells you
+            what you need without proof.
           </li>
           <li>
-            <strong>We will not lay new shingles over old ones.</strong> It hides decking damage
-            you're about to cover for twenty years, adds weight, traps heat and can complicate a
-            future claim.
+            <strong>Ask whether they tear off the old roof or lay over it.</strong> A layover
+            hides decking damage you're about to cover for twenty years, adds weight and can
+            complicate a future claim.
           </li>
           <li>
-            <strong>We will not invent reviews, ratings or credentials.</strong> Which brings us
-            to the next point.
+            <strong>Verify their registration and insurance independently.</strong> Don't take a
+            verbal answer for it. Details below.
           </li>
         </ul>
 
         <h2>An honest note about reviews</h2>
         <p>
-          You will not find a star rating or a review count on this site. We would rather say
-          plainly that we are building our public review record than display numbers we cannot
-          substantiate, and a great many roofing sites display exactly those numbers. Ask any
-          roofing contractor in Oklahoma for their CIB registration number and verify it directly
-          with the state before you hire them.
-        </p>
-        <p>
-          We would rather earn your trust through the inspection than borrow it from a graphic.
+          You won't find a star rating or a review count on this site — there isn't a verified
+          review corpus behind it to display, and a great many roofing sites show numbers they
+          can't substantiate. Before you hire any Norman-area roofer, ask for references you can
+          actually call, and check their standing directly rather than trusting a badge on a
+          website.
         </p>
 
         <h2>Licensing and insurance</h2>
         <p>
-          We carry general liability and workers' compensation coverage, and we provide
-          certificates on request before work starts. You should ask this of every contractor you
-          consider and you should verify it independently rather than accept a verbal answer. If
-          someone is injured on your roof and the contractor is not properly insured, that can
+          This site doesn't carry a roofing license or insurance policy — it isn't the entity
+          doing the work. Whichever roofing provider you end up hiring should carry general
+          liability and workers' compensation coverage and provide certificates on request before
+          work starts. Ask for that of every contractor you consider, and verify it independently:
+          if someone is injured on your roof and the contractor isn't properly insured, that can
           become your problem.
         </p>
         <p>
           Oklahoma requires roofing contractors to register with the state Construction Industries
-          Board. Ask any contractor for their registration number and check it. It takes two
-          minutes and it eliminates a meaningful share of the risk.
+          Board. Ask any contractor for their registration number and check it directly with the
+          state. It takes a couple of minutes and it eliminates a meaningful share of the risk.
         </p>
       </div>
 
@@ -164,12 +148,11 @@ const schema = [
         <div class="factbox">
           <h2 class="factbox__title">At a glance</h2>
           <dl class="factbox__list">
-            <div><dt>Serving Norman since</dt><dd>{site.servingSince}</dd></div>
-            <div><dt>Business type</dt><dd>Local roofing crews, no retail showroom</dd></div>
+            <div><dt>What this is</dt><dd>A roofing request &amp; referral website</dd></div>
             <div><dt>Coverage</dt><dd>Norman, Cleveland County, north McClain County</dd></div>
-            <div><dt>Inspections</dt><dd>Free, with a photo report you keep</dd></div>
-            <div><dt>Quotes</dt><dd>Written, from an on-site inspection only</dd></div>
-            <div><dt>Insurance work</dt><dd>Yes, we meet your adjuster on the roof</dd></div>
+            <div><dt>Cost to request</dt><dd>Free, with no obligation</dd></div>
+            <div><dt>Who does the work</dt><dd>A local roofing provider, contacted after you submit a request</dd></div>
+            <div><dt>Quotes</dt><dd>From the provider, after an on-site inspection</dd></div>
             <div><dt>Deductible offers</dt><dd>Never. It's fraud in Oklahoma.</dd></div>
           </dl>
         </div>
@@ -178,8 +161,8 @@ const schema = [
   </section>
 
   <CTABand
-    heading="Start with an inspection, not a quote."
-    body="An hour on your roof and in your attic, a photo report you keep, and a straight recommendation. Then decide."
+    heading="Ready to get a straight answer on your roof?"
+    body="Request a free, no-obligation estimate and we'll pass your details to a roofing provider serving your area."
   />
 </BaseLayout>
 

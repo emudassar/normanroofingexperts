@@ -51,8 +51,9 @@ localNotes:
   - title: Second-layer roofs from earlier decades
     body: >-
       Homes re-roofed in the 1990s or early 2000s were often laid over rather than torn off,
-      when that was more widely accepted practice. We check layer count at the edges before
-      quoting, because two layers roughly doubles tear-off labour and disposal on a replacement.
+      when that was more widely accepted practice. A good inspection checks layer count at the
+      edges before quoting, because two layers roughly doubles tear-off labour and disposal on
+      a replacement.
   - title: Northwest Norman catches its share of storms
     body: >-
       Nothing about this part of the city is unusually exposed, but Cleveland County as a whole
@@ -65,17 +66,16 @@ faqs:
       Possibly, and it's a reasonable thing to check. Brookhaven homes were built in clusters
       and re-roofed in clusters, so roofs on a street genuinely do reach end of life around the
       same time. If a storm came through, your roof took the same weather theirs did. If it
-      didn't, your roof is likely the same age as theirs. Either way a free inspection answers
-      it definitively, and if the answer is that you have five good years left, that's what
-      we'll tell you.
+      didn't, your roof is likely the same age as theirs. Either way, requesting an inspection
+      answers it definitively, and if the honest answer is that you have five good years left,
+      that's what a straight inspector will tell you.
   - question: How much does a roof replacement cost in Brookhaven?
     answer: >-
-      Most Brookhaven homes fall within the general Norman range of roughly $9,000 to $20,000
-      for a full architectural shingle tear-off and replacement, but the spread within this
-      neighbourhood is wider than usual because the houses genuinely differ. Builders here
-      bought lots in small batches, so a two-storey with several valleys and dormers on one
-      street and a straightforward single-storey gable on the next are priced very differently.
-      We measure rather than estimate from the street.
+      The spread within this neighbourhood is wider than usual because the houses genuinely
+      differ. Builders here bought lots in small batches, so a two-storey with several valleys
+      and dormers on one street and a straightforward single-storey gable on the next price
+      very differently. A proper quote measures the actual roof rather than estimating from the
+      street.
   - question: The trees over my roof are causing problems. What should I do?
     answer: >-
       Trim back anything that touches or overhangs the roof surface, ideally keeping branches
@@ -92,13 +92,13 @@ faqs:
       realistically delivers around 15 to 22 years, less if the attic is poorly ventilated,
       the slopes are heavily shaded, or hail has been through. If you don't know when yours
       was last done, an inspection will give you a defensible estimate of the remaining life.
-  - question: Do you handle insurance claims for Brookhaven homes?
+  - question: Do local roofers handle insurance claims for Brookhaven homes?
     answer: >-
-      Yes, and after a storm across northwest Norman that's most of what we're doing. We
-      inspect, document to adjuster standard, and can meet your adjuster on site. Be aware that
-      a hail track over a dense neighbourhood like this generates hundreds of simultaneous
-      claims, so adjuster scheduling can stretch. Getting your own documentation done early
-      puts you in a better position. See
+      Most established providers do, and after a storm across northwest Norman that's much of
+      what they're doing. Ask whether a provider documents to adjuster standard and can meet
+      your adjuster on site. Be aware that a hail track over a dense neighbourhood like this
+      generates hundreds of simultaneous claims, so adjuster scheduling can stretch. Getting
+      your own documentation done early puts you in a better position. See
       [storm and hail damage restoration](/services/storm-hail-damage-restoration/).
 relatedServices:
   - roof-replacement
@@ -150,5 +150,5 @@ plan get competitive quotes, an unhurried material choice and a scheduled date. 
 replaced in an emergency, or in the fortnight after a regional hail event when every roofer
 in Cleveland County is booked, get whatever is available.
 
-A [free roof inspection](/services/roof-inspection/) gives you the number and a photo report
-to keep.
+Requesting a [roof inspection](/services/roof-inspection/) gives you the number and a photo
+report to keep.

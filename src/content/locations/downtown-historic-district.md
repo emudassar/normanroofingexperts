@@ -70,8 +70,8 @@ faqs:
       and roofing changes visible from the public right of way are typically within scope,
       particularly a change of material, profile or colour. Requirements and thresholds change,
       so check directly with the City of Norman planning department for your specific address
-      before ordering materials. We're happy to supply the technical detail and product
-      specifications you'll need for a submission.
+      before ordering materials. A good provider can supply the technical detail and product
+      specifications needed for a submission.
   - question: Can I put modern architectural shingles on a 1920s house?
     answer: >-
       Often yes, and it's the most common outcome, but the specific product and colour may
@@ -89,14 +89,14 @@ faqs:
       review requirements and material restrictions, and a historic roof is straightforwardly a
       bigger job. A quote that matches a subdivision price is a quote that hasn't understood the
       roof.
-  - question: What happens if you find rotten decking on a hundred-year-old roof?
+  - question: What happens if a hundred-year-old roof has rotten decking underneath?
     answer: >-
-      We expect some. Board decking that has been through a century of Oklahoma weather and
-      several re-roofs usually has areas that need replacing, particularly around chimneys,
-      valleys and eaves where water has concentrated. Our quote states the rate for replacement
-      so you know the cost before we find it. Where boards are being replaced on a house with
-      exposed rafter tails or visible sheathing from below, we match the material rather than
-      patching it with whatever is on the truck.
+      Some is normal to expect. Board decking that has been through a century of Oklahoma
+      weather and several re-roofs usually has areas that need replacing, particularly around
+      chimneys, valleys and eaves where water has concentrated. A proper quote states the rate
+      for replacement so you know the cost before anything is found. Where boards are being
+      replaced on a house with exposed rafter tails or visible sheathing from below, a careful
+      contractor matches the material rather than patching it with whatever is on the truck.
   - question: Do you work on the commercial buildings downtown as well?
     answer: >-
       Yes. Downtown Norman's older commercial buildings typically have low-slope roofs behind
@@ -145,18 +145,18 @@ specific house rather than a general preference.
 **Genuine slate or cedar**, where the original material was slate or shake and the budget
 allows. Rare in Norman and a specialist job, but occasionally the correct answer.
 
-What we would steer you away from is choosing a product from a sample chip without
-considering how it reads across a whole steep roof plane at street distance, and without
-checking whether it needs review first.
+The pitfall worth avoiding is choosing a product from a sample chip without considering how
+it reads across a whole steep roof plane at street distance, and without checking whether it
+needs review first.
 
 ## Working on an occupied historic home
 
 These are frequently owner-occupied family homes rather than rentals, and the work is more
-intrusive because there is more of it. What we control: staging that protects mature
-landscaping and original masonry, dust and debris containment, daily magnetic sweeps of the
-yard and pavement, and no roof left open overnight unless it's dried in.
+intrusive because there is more of it. What a careful contractor controls: staging that
+protects mature landscaping and original masonry, dust and debris containment, daily magnetic
+sweeps of the yard and pavement, and no roof left open overnight unless it's dried in.
 
 If your roof is one of Norman's older ones and you'd like a documented assessment before
-anything is decided, our [free roof inspection](/services/roof-inspection/) produces a photo
-report you keep, including the sort of detail a Historic District Commission submission
+anything is decided, requesting a [roof inspection](/services/roof-inspection/) can produce a
+photo report you keep, including the sort of detail a Historic District Commission submission
 tends to need.

@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import { site, legalNav, yearsServing } from '../config/site';
+import { site, legalNav } from '../config/site';
 
 /**
  * The footer links every service and every location directly. That is what keeps
@@ -35,9 +35,9 @@ const year = new Date().getFullYear();
           </span>
         </a>
         <p class="footer__blurb">
-          Roof repair, replacement, inspection and storm damage restoration for homeowners
-          across Norman and the surrounding Cleveland and McClain County communities.
-          Serving the Norman area for {yearsServing} years, since {site.servingSince}.
+          Request roof repair, replacement, inspection or storm damage service for homes
+          across Norman and the surrounding Cleveland and McClain County communities. Submit
+          your details and we'll route your request to a roofing provider serving your area.
         </p>
         <div class="footer__contact">
           <a class="footer__phone" href={site.phone.href}>{site.phone.display}</a>
@@ -100,18 +100,19 @@ const year = new Date().getFullYear();
 
     <div class="footer__disclaimer">
       <p>
-        <strong>How we work.</strong> Every roof we price gets inspected first. Our crews work on
-        site across Norman, Cleveland County and McClain County, and appointments are scheduled
-        by phone or through the form on this site. Any price figures published here are general
-        ranges for guidance; your actual price is the written estimate you receive after the
-        inspection.
+        <strong>How this site works.</strong> Norman Roofing Experts is a website that helps
+        homeowners across Norman, Cleveland County and McClain County request roofing service.
+        When you call or submit the form, your details are passed to a roofing provider serving
+        your area, who contacts you directly to schedule an inspection and quote the work. Any
+        cost information published here is general guidance, not a quote from this site or any
+        specific contractor; your actual price comes from the provider after they've seen the roof.
       </p>
       <p>
-        <strong>Insurance work.</strong> We handle claim documentation and meet your adjuster on
-        the roof, and we follow Oklahoma law on deductibles: the deductible is yours to pay and
-        no contractor may waive or absorb it. Information on this site is general guidance about
-        roofing, not legal, financial or insurance advice, so check your own policy with your
-        insurer or agent.
+        <strong>Insurance claims.</strong> This site does not adjust or file claims on your
+        behalf. Oklahoma law prohibits any contractor from waiving, rebating or absorbing your
+        insurance deductible — treat any offer to do so as a red flag. Information on this site
+        is general guidance about roofing and the claims process, not legal, financial or
+        insurance advice, so check your own policy with your insurer or agent.
       </p>
     </div>
 

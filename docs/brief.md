@@ -34,8 +34,28 @@ behind this site. That constraint shapes every decision below.
 | No physical address | **Never** emit `LocalBusiness` / `RoofingContractor` schema with a fabricated address or geo. `Organization` schema only. |
 | No Google Business Profile | The Maps 3-pack is **not** a realistic target. Organic ranking is the goal. |
 | No verified reviews yet | No review counts, star ratings, or `AggregateRating` schema anywhere on the site. |
-| No verified license number | Licensed & insured messaging stays general until a real contractor is attached; no invented license numbers. |
+| No verified license, insurance or crew | Copy must never claim this site "carries insurance," has "our crews," meets adjusters, or has served the area "since [year]" — none of that is true of a lead-gen website. See Voice & Disclosure below. |
 | No project photography | Visual design carries the premium feel via typography, colour, and layout — not stock photos pretending to be our own work. |
+
+### Voice & disclosure (added 2026-09-20)
+
+This site is **not** the entity that performs roofing work. It collects requests and routes
+them to a roofing provider via LeadSmart. Every page must reflect that honestly:
+
+- Never write in a voice that claims this site inspects roofs, sends crews, carries
+  insurance, meets adjusters, or issues warranties. Reframe as what a homeowner should
+  expect from **the provider** they're connected with, or as consumer-education advice.
+- Never state a specific years-in-business figure, founding year, or "serving since"
+  claim — there is no operating history to report. (`site.ts` has no `servingSince` field;
+  do not re-add one.)
+- Don't promise "free inspection," specific response times (same-day, 24/7), or exact
+  price ranges as guaranteed facts. Submitting a request through the site is genuinely
+  free and obligation-free — say that — but what a provider charges or how fast they
+  respond is theirs to state, not this site's to promise. Cost content should explain
+  the factors that drive price, not quote a specific range as a site-wide fact.
+- `about.astro`, `terms.astro` and `privacy-policy.astro` all disclose the lead-routing
+  model explicitly. Keep new copy consistent with that disclosure rather than reverting
+  to first-person "we are a roofing contractor" language.
 
 ## 3. Keyword Target
 

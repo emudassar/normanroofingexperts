@@ -27,13 +27,13 @@ const schema = [
 
 <BaseLayout
   title="Contact Norman Roofing Experts | Norman, OK Roofers"
-  description="Call or message Norman Roofing Experts for roof repair, replacement or a free inspection anywhere in Norman, Cleveland County and northern McClain County, OK."
+  description="Call or message Norman Roofing Experts to request roof repair, replacement or an inspection in Norman, Cleveland County and northern McClain County, OK."
   schema={schema}
 >
   <PageHeader
     eyebrow="Contact"
     title="Get in touch"
-    lede="Call for anything urgent: an active leak, storm damage, water coming through a ceiling. Use the form for everything else and we'll come back to you to arrange the inspection."
+    lede="Call for anything urgent: an active leak, storm damage, water coming through a ceiling. Use the form for everything else, and your request will be passed to a roofing provider serving your area."
   />
 
   <section class="section">
@@ -43,8 +43,8 @@ const schema = [
           <p class="detail__label">Phone</p>
           <a class="detail__phone" href={site.phone.href}>{site.phone.display}</a>
           <p class="detail__note">
-            Fastest route for anything urgent. Storm-season call volume can be heavy, so leave a
-            message and we will call back.
+            Fastest route for anything urgent. Storm-season call volume across the area can be
+            heavy, so leave a message if it goes unanswered.
           </p>
         </div>
 
@@ -60,27 +60,26 @@ const schema = [
           <p class="detail__label">Hours</p>
           <p class="detail__value">{site.hours}</p>
           <p class="detail__note">
-            Emergency tarping for active leaks is available outside normal hours during storm
-            season.
+            How quickly a provider can respond to an active leak varies by season and by
+            provider — say so clearly in your request.
           </p>
         </div>
 
         <div class="detail">
-          <p class="detail__label">Where we work</p>
+          <p class="detail__label">Where this covers</p>
           <p class="detail__value">Norman, Cleveland County &amp; northern McClain County</p>
           <p class="detail__note">
             Including Noble, Lexington, Slaughterville, Washington, Little Axe and Goldsby. See
-            the full list on our <a href="/service-areas/">service areas page</a>. There is no
-            travel charge anywhere we work.
+            the full list on the <a href="/service-areas/">service areas page</a>.
           </p>
         </div>
 
         <div class="detail detail--muted">
-          <p class="detail__label">We come to you</p>
+          <p class="detail__label">How this works</p>
           <p class="detail__note detail__note--lead">
-            Everything we do happens at your property, so there is nothing to drive to and no
-            appointment to sit through in a showroom. Book by phone or through the form and a
-            roofer comes out to you. Every estimate is produced from an on-site inspection.
+            This site doesn't send its own crews — roofing happens at your property, and the
+            provider who takes your request is the one who comes out and inspects. Reach out by
+            phone or through the form and your details go to a roofing provider serving your area.
           </p>
         </div>
       </div>
@@ -88,8 +87,8 @@ const schema = [
       <div class="contact__form">
         <LeadForm
           formId="contact"
-          heading="Send us a message"
-          lede="Tell us what's happening with the roof and where you are. We'll call you back to arrange a free inspection."
+          heading="Send a message"
+          lede="Tell us what's happening with the roof and where you are. We'll pass it to a roofing provider serving your area, who will follow up about an inspection."
         />
       </div>
     </div>

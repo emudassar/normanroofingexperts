@@ -10,8 +10,9 @@ intro: >-
   is how so many houses end up with gutters that overflow in exactly the storms they were
   meant for. Oklahoma rain does not arrive gently. A system sized for a mild drizzle will
   sheet straight over the front edge during a June thunderstorm and deposit that water
-  against your foundation. We size, pitch and hang gutters for the roof area and rainfall
-  intensity they actually have to handle.
+  against your foundation. Gutters should be sized, pitched and hung for the roof area and
+  rainfall intensity they actually have to handle — request an estimate and a roofing
+  provider serving your area can assess yours.
 icon: gutter
 order: 5
 heroImage: ../../assets/images/placeholder-service-gutters.jpg
@@ -33,8 +34,8 @@ includes:
   - title: Correct sizing for the roof area
     body: >-
       Standard 5-inch K-style handles most Norman homes. Large roof areas, steep pitches and
-      long runs need 6-inch gutter and larger downspouts. Undersized gutter is the single
-      most common reason a system overflows in a storm.
+      long runs need 6-inch gutter and larger downspouts. Undersized gutter is one of the
+      most common reasons a system overflows in a storm.
   - title: Proper pitch and hanger spacing
     body: >-
       Gutters need consistent fall towards the outlets and hangers close enough to carry the
@@ -46,33 +47,31 @@ includes:
       matter. A perfect gutter that empties beside the foundation has solved nothing.
   - title: Fascia and drip edge repair
     body: >-
-      Rotten fascia gets replaced before new gutter is hung on it. Where drip edge is missing
-      (common on older Norman homes) water wicks behind the gutter and rots the board from
-      behind, invisibly.
+      Rotten fascia should be replaced before new gutter is hung on it. Where drip edge is
+      missing (common on older Norman homes) water wicks behind the gutter and rots the
+      board from behind, invisibly.
   - title: Gutter guards where they make sense
     body: >-
-      Under mature trees, guards genuinely reduce maintenance. On an open lot they are often
-      an unnecessary expense. We'll tell you which situation you're in.
+      Under mature trees, guards genuinely reduce maintenance. On an open lot they're often
+      an unnecessary expense — ask a provider which situation applies to you.
   - title: Repairs, resealing and re-hanging
     body: >-
-      Not everything needs replacing. Re-pitching a sagging run, resealing corners, replacing
-      failed hangers and adding downspout capacity often fixes the problem for a fraction of
-      a full replacement.
+      Not everything needs replacing. Re-pitching a sagging run, resealing corners,
+      replacing failed hangers and adding downspout capacity often fixes the problem for a
+      fraction of a full replacement.
 pricingNote: >-
-  Seamless 5-inch aluminium gutter with downspouts typically runs around $8 to $15 per linear
-  foot installed in the Norman area; 6-inch and heavier-gauge or copper materials cost more.
-  A typical single-storey home needing a full replacement generally lands somewhere in the
-  low four figures. Repairs such as re-pitching a run, resealing corners, replacing hangers or adding
-  a downspout are usually a few hundred dollars. Fascia replacement is priced separately
-  because we won't know how much is rotten until the old gutter comes down.
+  Gutter cost depends on total footage, gutter size and gauge, material (aluminium versus
+  copper or heavier-gauge steel), the number of downspouts, access on a two-storey home, and
+  whether any fascia needs replacing. Repairs such as re-pitching a run, resealing corners or
+  adding a downspout are typically much less than a full replacement. There's no reliable
+  Norman-wide average worth quoting here — ask a provider to measure and quote in writing.
 faqs:
   - question: How much do new gutters cost in Norman, OK?
     answer: >-
-      Seamless 5-inch aluminium generally runs about $8 to $15 per linear foot installed,
-      which puts a typical single-storey home in the low four figures for a full replacement.
-      The variables are total footage, gutter size, gauge and colour, the number of downspouts,
-      two-storey access, and whether any fascia needs replacing. Guards, if you want them, are
-      priced per foot on top. We measure and quote in writing.
+      It varies with total footage, gutter size, gauge and colour, the number of downspouts,
+      two-storey access, and whether any fascia needs replacing. Guards, if wanted, are
+      typically priced per foot on top. Ask a provider to measure and quote in writing rather
+      than relying on a per-foot estimate given sight unseen.
   - question: Do I really need gutters in Oklahoma?
     answer: >-
       For most Norman homes, yes, but the reason is the foundation, not the roof. Central
@@ -87,30 +86,30 @@ faqs:
       draining to a single run is large, when the pitch is steep enough to accelerate runoff,
       or when the run is long with few outlet points. Steep roofs matter more than people
       expect. Water arrives at the edge with real velocity and can overshoot an undersized
-      gutter entirely. We calculate it from your roof rather than defaulting to whatever is on
-      the truck.
+      gutter entirely. A good provider calculates it from your roof rather than defaulting to
+      whatever is on the truck.
   - question: Are gutter guards worth it?
     answer: >-
       It depends entirely on your trees. Under mature oaks or pines that shed heavily, good
       guards meaningfully cut how often the gutters need clearing and are usually worth the
       cost. On an open lot with little overhang, they're an expense that solves a problem you
-      don't have. Be sceptical of "never clean your gutters again" claims, because every guard type
-      still needs periodic attention, and fine debris and shingle granules get through most of
-      them.
-  - question: Can you repair my gutters instead of replacing them?
+      don't have. Be sceptical of "never clean your gutters again" claims, because every guard
+      type still needs periodic attention, and fine debris and shingle granules get through
+      most of them.
+  - question: Can gutters be repaired instead of replaced?
     answer: >-
       Often, yes. Sagging runs can be re-pitched and re-hung, corners and end caps resealed,
       failed hangers replaced, and extra downspouts added to relieve capacity problems.
-      Replacement makes sense when the gutter itself is corroded through, badly dented by hail
-      across most of its length, or is sectional and leaking at multiple seams. We'll price
-      both so you can compare.
+      Replacement makes sense when the gutter itself is corroded through, badly dented by
+      hail across most of its length, or is sectional and leaking at multiple seams. Ask a
+      provider to price both so you can compare.
   - question: Does hail damage gutters, and is that claimable?
     answer: >-
-      Yes to both. Aluminium gutters and downspouts dent readily, and that denting is often the
-      clearest evidence available that a storm was severe enough to have damaged your roof, and it
-      is one of the first things an adjuster looks at. Gutter damage is normally covered under
-      the same claim as the roof. If you've had hail, get the whole exterior assessed together
-      rather than treating the gutters separately. See
+      Yes to both. Aluminium gutters and downspouts dent readily, and that denting is often
+      the clearest evidence available that a storm was severe enough to have damaged your
+      roof, and it's one of the first things an adjuster looks at. Gutter damage is normally
+      covered under the same claim as the roof. If you've had hail, get the whole exterior
+      assessed together rather than treating the gutters separately. See
       [storm and hail damage restoration](/services/storm-hail-damage-restoration/).
 relatedLocations:
   - brookhaven
@@ -158,11 +157,11 @@ behind the gutter. It progresses invisibly until a gutter comes away in your han
 
 ## Timing gutter work with roof work
 
-If you are replacing your roof, that is the moment to sort the gutters. Drip edge and
+If you're replacing your roof, that is the moment to sort the gutters. Drip edge and
 starter courses are installed at the same edge the gutter hangs from, access equipment is
 already on site, and any fascia repair is far easier with the roof edge open. Doing them
-together costs less than doing them a year apart, and it avoids new gutter being damaged
-during a tear-off.
+together typically costs less than doing them a year apart, and it avoids new gutter being
+damaged during a tear-off.
 
-If you're planning a [roof replacement](/services/roof-replacement/), ask us to price the
-gutters alongside it and compare.
+If you're planning a [roof replacement](/services/roof-replacement/), ask a provider to
+price the gutters alongside it and compare.

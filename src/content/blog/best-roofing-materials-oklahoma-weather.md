@@ -183,6 +183,6 @@ premium shingle installed badly. Every time.
 
 If you're weighing a replacement, ask for at least two options priced side by side rather than
 a single recommendation, and call your insurer about the Class 4 discount before you decide.
-Our [roof replacement](/services/roof-replacement/) page explains what a properly scoped quote
-should contain, and a [free roof inspection](/services/roof-inspection/) will tell you how
-much time you actually have to make the decision.
+The [roof replacement](/services/roof-replacement/) page explains what a properly scoped quote
+should contain, and requesting a [roof inspection](/services/roof-inspection/) can tell you
+how much time you actually have to make the decision.

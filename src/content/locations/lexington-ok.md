@@ -8,10 +8,11 @@ summary: Southern Cleveland County's river town, where a lot of the housing stoc
 intro: >-
   Finding roofing contractors in Lexington, OK who will actually make the trip is the first
   problem most homeowners here run into. Lexington sits at the southern end of Cleveland
-  County on the Canadian River, further from Norman than the other towns we serve, and that
-  distance means a lot of contractors quote it as an inconvenience or don't return the call.
-  We service it properly. The housing stock here is genuinely older on average than Norman's,
-  which makes careful assessment more important, not less.
+  County on the Canadian River, further from Norman than the other towns covered here, and
+  that distance means a lot of contractors quote it as an inconvenience or don't return the
+  call. This site treats it as full coverage, not an afterthought. The housing stock here is
+  genuinely older on average than Norman's, which makes careful assessment more important,
+  not less.
 order: 9
 group: surrounding
 county: Cleveland County
@@ -61,27 +62,28 @@ localNotes:
       wait can be longer. Documenting damage early puts you further up the queue with both
       adjusters and roofers.
 faqs:
-  - question: Will you really come out to Lexington?
+  - question: Does coverage really extend out to Lexington?
     answer: >-
-      Yes. Lexington is in our service area and the inspection is free here on the same terms
-      as everywhere else. We don't charge a travel premium and we don't treat it as a job of
-      last resort. It's a longer drive than Norman, which occasionally affects scheduling
-      flexibility rather than price. If we can't get to you in a reasonable time we'll say so
-      rather than string you along.
+      Yes. Lexington is inside this site's coverage area on the same terms as everywhere else —
+      no travel premium and no treating it as a job of last resort. It's a longer drive than
+      Norman, which can affect a provider's scheduling flexibility rather than the price. A
+      straightforward provider will say so if they can't get to you in a reasonable time,
+      rather than stringing you along.
   - question: My house is very old and I don't know when the roof was last replaced. What now?
     answer: >-
-      That's the normal starting point here and it's exactly what an inspection resolves. We
-      check layer count at the rake and eave edges, assess the decking type and condition, look
-      at the state of flashings and penetrations, and get into the attic where there's access.
-      From that we can give you a defensible estimate of remaining life and tell you whether
-      you're looking at a repair, a replacement, or nothing at all this year.
+      That's the normal starting point here and it's exactly what an inspection resolves. A
+      thorough inspection checks layer count at the rake and eave edges, assesses the decking
+      type and condition, looks at the state of flashings and penetrations, and gets into the
+      attic where there's access. From that, a good inspector can give you a defensible estimate
+      of remaining life and tell you whether you're looking at a repair, a replacement, or
+      nothing at all this year.
   - question: How much does a roof cost in Lexington compared to Norman?
     answer: >-
-      Our pricing is the same, and we don't add a distance charge. What can make a Lexington job
-      cost more than an equivalent Norman one is the age of the housing: multiple existing
-      layers mean more tear-off and disposal, and older decking more often needs remediation.
-      That's a real cost difference in the work rather than a premium on the postcode, and it
-      shows up as line items on the quote so you can see exactly what's driving it.
+      Pricing shouldn't differ by distance alone. What can make a Lexington job cost more than
+      an equivalent Norman one is the age of the housing: multiple existing layers mean more
+      tear-off and disposal, and older decking more often needs remediation. That's a real cost
+      difference in the work rather than a premium on the postcode, and a proper quote shows it
+      as line items so you can see exactly what's driving it.
   - question: Someone offered me a very cheap roof after the last storm. Is that a problem?
     answer: >-
       Frequently, yes. Cheap bids in this market are usually cheap for identifiable reasons:
@@ -90,13 +92,14 @@ faqs:
       here to honour it. Ask any bidder in writing whether all flashing is being replaced, what
       the per-sheet decking rate is, and whether it's a full tear-off. The answers usually
       explain the price difference entirely.
-  - question: Can you handle both my house and my barn?
+  - question: Can both the house and a barn be handled together?
     answer: >-
-      Yes, and we'd rather look at both in one visit. Metal outbuildings fail at fasteners: screws
-      back out, the neoprene washers under their heads degrade in UV, and every screw
-      slowly becomes a small leak. A full refasten with oversized screws plus new ridge and
-      eave closures usually restores the building for far less than re-sheeting. We quote each
-      structure separately so you can do them in whatever order suits your budget.
+      Usually, and it's often worth looking at both in one visit. Metal outbuildings fail at
+      fasteners: screws back out, the neoprene washers under their heads degrade in UV, and
+      every screw slowly becomes a small leak. A full refasten with oversized screws plus new
+      ridge and eave closures usually restores the building for far less than re-sheeting. A
+      good provider quotes each structure separately so you can proceed in whatever order suits
+      your budget.
 relatedServices:
   - roof-replacement
   - roof-repair
@@ -134,7 +137,7 @@ delivered as engineered trusses. Rafter spacing and sizing vary, and that occasi
 matters if a heavier covering is being considered.
 
 None of this makes a Lexington roof difficult. It makes it a job that has to be assessed
-before it's priced, which is why we don't quote roofs over the phone.
+before it's priced, which is why a roof shouldn't be quoted over the phone.
 
 ## Getting a fair deal at the edge of the market
 
@@ -160,6 +163,6 @@ mature trees, the highest-value maintenance is unglamorous: keep valleys and gut
 through autumn, trim back anything overhanging the roof, and deal with moss before it holds
 moisture against the shingles through a whole winter.
 
-If you'd like to establish where your roof actually stands, our
-[free roof inspection](/services/roof-inspection/) is free in Lexington and produces a dated
-photo report you keep regardless of whether you hire us.
+If you'd like to establish where your roof actually stands, requesting a
+[roof inspection](/services/roof-inspection/) can produce a dated photo report you keep
+regardless of who ends up doing the work.

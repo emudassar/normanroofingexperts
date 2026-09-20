@@ -76,9 +76,9 @@ faqs:
       Possibly. Many planned communities have covenants covering exterior appearance, and roof
       material and colour can be within scope. Check your association's documents or ask the
       board before selecting a product, especially if you're considering a metal roof or a
-      noticeable colour change. We can supply manufacturer specification sheets and colour
-      samples for any approval submission. It's worth resolving before materials are ordered
-      rather than after.
+      noticeable colour change. A good provider can supply manufacturer specification sheets
+      and colour samples for any approval submission. It's worth resolving before materials
+      are ordered rather than after.
   - question: Everyone on my street is getting a new roof after the storm. Is mine damaged too?
     answer: >-
       Probably worth checking properly rather than assuming either way. In a uniform
@@ -94,16 +94,17 @@ faqs:
       measurably better against small and moderate hail, and many Oklahoma insurers offer a
       premium discount for them that recovers a meaningful share of the extra cost over the
       roof's life. Ask your carrier what discount applies to you specifically, because that number
-      varies and it changes the maths. They aren't hail-proof and we won't claim otherwise, but
-      they are a reasonable response to living where we live.
+      varies and it changes the maths. They aren't hail-proof, and no honest contractor will
+      claim otherwise, but they are a reasonable response to living somewhere hail is a
+      regular event.
   - question: The builder's warranty is still active. Who do I call?
     answer: >-
       Start with the builder if the home is genuinely within its warranty period and the issue
       looks like a workmanship defect, because that's what the warranty is for. Bear in mind that
       builder warranties on roofing are usually short, cover installation defects rather than
-      storm damage or wear, and often exclude anything they can attribute to maintenance. We're
-      happy to inspect and document the condition either way; an independent photo report is
-      useful evidence in a warranty conversation.
+      storm damage or wear, and often exclude anything they can attribute to maintenance. An
+      inspection can document the condition either way; an independent photo report is useful
+      evidence in a warranty conversation.
 relatedServices:
   - roof-replacement
   - storm-hail-damage-restoration
@@ -138,7 +139,7 @@ This is not a scandal and it's not unique to any particular builder; it's how vo
 housing works everywhere. It just means the roof on a 2008 house is a live question in 2026,
 and many owners assume otherwise because the house still feels new.
 
-## What we most often find on ten- to twenty-year-old Norman homes
+## What shows up most often on ten- to twenty-year-old Norman homes
 
 **High nailing.** Shingles have a defined nailing zone. Nails placed above it hold one layer
 instead of two. On a still day it makes no difference; in a 60 mph Oklahoma gust it makes
@@ -163,6 +164,6 @@ the decking gets inspected, all new flashing, balanced ventilation, and a shingl
 this climate rather than for a spec sheet. Doing that once costs modestly more than a
 like-for-like replacement and materially changes how long the next roof lasts.
 
-Check your HOA covenants before you choose a material, then get the roof properly assessed. A
-[free roof inspection](/services/roof-inspection/) will tell you whether you're looking at
-this year's budget or a problem for five years' time.
+Check your HOA covenants before you choose a material, then get the roof properly assessed.
+Requesting a [roof inspection](/services/roof-inspection/) can tell you whether you're
+looking at this year's budget or a problem for five years' time.

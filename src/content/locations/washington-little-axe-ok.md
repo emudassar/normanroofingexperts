@@ -42,14 +42,14 @@ localNotes:
       There's a meaningful amount of manufactured housing across both communities, and it isn't
       the same job as a stick-built roof. Roof structures are lighter, pitches shallower, and
       the correct covering is sometimes a membrane or metal system rather than shingles.
-      Contractors who only work subdivision housing frequently get this wrong. We'll tell you
-      what your structure actually needs.
+      Contractors who only work subdivision housing frequently get this wrong — a good
+      provider will assess what a structure actually needs rather than defaulting to shingles.
   - title: Two counties, two sets of paperwork
     body: >-
       Little Axe is Cleveland County; Washington is McClain County. Permitting and inspection
-      requirements differ between jurisdictions and change over time. We confirm what applies
-      at your specific address rather than assuming Norman's rules extend outward, because they
-      frequently don't, in either direction.
+      requirements differ between jurisdictions and change over time. A good provider confirms
+      what applies at your specific address rather than assuming Norman's rules extend outward,
+      because they frequently don't, in either direction.
   - title: Outbuildings on almost every parcel
     body: >-
       Barns, shops, equipment sheds and detached garages, nearly all exposed-fastener metal.
@@ -62,19 +62,19 @@ localNotes:
       crews knocking on doors is higher. Early documentation is worth more here than it is in
       town.
 faqs:
-  - question: Do you service Little Axe and Washington, or only Norman?
+  - question: Does coverage reach both Little Axe and Washington, or only Norman?
     answer: >-
-      Both are inside our service area and the inspection is free in each. They're in different
-      directions from Norman and in different counties, so tell us the address when you call
-      and we'll schedule sensibly. We don't charge a travel premium for either.
-  - question: I have a manufactured home. Can you re-roof it?
+      Both are inside this site's coverage area, with no travel premium for either. They're in
+      different directions from Norman and in different counties, so mention the address in
+      your request so scheduling can be planned sensibly.
+  - question: Can a manufactured home be re-roofed?
     answer: >-
-      Yes, but it's genuinely a different job and it's worth understanding why. Manufactured
+      Usually, but it's genuinely a different job and it's worth understanding why. Manufactured
       and modular homes typically have lighter roof structures and shallower pitches than
       stick-built houses. Shallow pitch is the key issue: below a certain slope, asphalt
       shingles are the wrong product regardless of how carefully they're installed, and a
-      membrane or metal system is correct. We assess the structure and the pitch and recommend
-      accordingly, rather than shingling everything by default.
+      membrane or metal system is correct. A good provider assesses the structure and the pitch
+      and recommends accordingly, rather than shingling everything by default.
   - question: Trees overhang my roof near the lake. How much of a problem is that?
     answer: >-
       Enough to be worth acting on. Branches touching or overhanging the roof abrade shingles
@@ -88,9 +88,9 @@ faqs:
     answer: >-
       It depends on the jurisdiction, and Little Axe and Washington are in different counties
       with different requirements, neither of which necessarily matches Norman's. Requirements
-      also change. We confirm what applies at your specific address before starting, and handle
-      the paperwork where a permit is required. Be wary of any contractor who tells you
-      permitting never applies outside city limits without checking.
+      also change. A good provider confirms what applies at your specific address before
+      starting, and handles the paperwork where a permit is required. Be wary of any contractor
+      who tells you permitting never applies outside city limits without checking.
   - question: My barn roof is leaking around the screws. Replace or repair?
     answer: >-
       Almost certainly repair. Exposed-fastener metal leaks at screws long before the panels
@@ -162,10 +162,10 @@ that's worth questioning.
 ## Two counties means checking, not assuming
 
 Because these communities fall under different jurisdictions from Norman and from each other,
-permitting and inspection requirements vary, and they change over time. We confirm what
-applies at the specific address before work starts. A contractor who assures you that nothing
-applies outside city limits, without having checked, is guessing.
+permitting and inspection requirements vary, and they change over time. A good provider
+confirms what applies at the specific address before work starts. A contractor who assures
+you that nothing applies outside city limits, without having checked, is guessing.
 
-If you'd like the house and outbuildings assessed together, our
-[free roof inspection](/services/roof-inspection/) covers every structure on the property in
+If you'd like the house and outbuildings assessed together, requesting a
+[roof inspection](/services/roof-inspection/) can cover every structure on the property in
 one visit.

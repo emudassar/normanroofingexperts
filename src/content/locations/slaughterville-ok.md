@@ -34,14 +34,14 @@ localNotes:
     body: >-
       On most Slaughterville properties, the barn and shop together dwarf the house in roof
       area. Any contractor who quotes the residence and ignores the rest has assessed a
-      minority of your roofing. We survey every structure on the parcel and price them
-      separately so you can sequence the work by budget and urgency.
+      minority of the property's roofing. A thorough survey covers every structure on the
+      parcel and prices them separately so you can sequence the work by budget and urgency.
   - title: Thirty-nine square miles means addresses are far apart
     body: >-
       Your nearest neighbour may be a long way off, and so is everything else. That affects
-      scheduling logistics more than price, so we plan Slaughterville work in blocks where we
-      can. It also means storm damage here is genuinely under-reported, because there's nobody
-      passing to notice a lifted panel on a barn roof.
+      scheduling logistics more than price, and work here is often planned in blocks where
+      possible. It also means storm damage here is genuinely under-reported, because there's
+      nobody passing to notice a lifted panel on a barn roof.
   - title: Complete wind exposure
     body: >-
       Open pasture and cropland give wind an unbroken run. Metal buildings on exposed sites
@@ -53,8 +53,8 @@ localNotes:
     body: >-
       Working on a property with animals means gates get shut, debris gets contained and
       nothing sharp ends up in a pasture. Nails in a field are a genuine hazard to livestock,
-      not just an inconvenience, and we magnet-sweep accordingly. Ground that carries a loaded
-      truck in August often won't in April.
+      not just an inconvenience, and a careful crew magnet-sweeps accordingly. Ground that
+      carries a loaded truck in August often won't in April.
   - title: Rural insurance terms differ
     body: >-
       Policies covering acreage properties and agricultural outbuildings frequently carry
@@ -77,14 +77,14 @@ faqs:
       drainage, then it's a fastener and closure problem, and refastening is the right answer.
       Replacement is warranted once panels are corroded through, particularly along laps and at
       the eave where water sits, or where the purlins underneath have been compromised by long-term
-      leakage. We'll show you photographs of which one you have rather than asking you to take our
-      word for it.
-  - question: Will you come out this far?
+      leakage. A good inspection shows you photographs of which one applies rather than asking
+      you to take a contractor's word for it.
+  - question: Does coverage really extend this far out?
     answer: >-
-      Yes. Slaughterville is in our service area, the inspection is free, and we don't charge
-      for distance. Because the town is so spread out, tell us about access when you book: gate
-      codes, drive length and surface, livestock, and anything that affects where a loaded truck
-      can go. It saves a wasted trip in both directions.
+      Yes. Slaughterville is inside this site's coverage area, with no distance charge. Because
+      the town is so spread out, mention access when you submit a request: gate codes, drive
+      length and surface, livestock, and anything that affects where a loaded truck can go. It
+      saves a wasted trip in both directions.
   - question: Is hail damage on a metal building covered by insurance?
     answer: >-
       It depends on your policy far more than on the damage. Functional damage, meaning punctures,
@@ -92,22 +92,22 @@ faqs:
       denting on metal is frequently excluded outright, and rural and agricultural policies
       often carry a separate wind and hail deductible set as a percentage of insured value,
       which on a large insured property can be a substantial number. Read your declarations page
-      or ask your agent before filing. We document thoroughly either way, and we'll tell you
-      honestly whether what you have is functional or cosmetic.
-  - question: We have livestock. How do you handle nails and debris?
+      or ask your agent before filing. A good inspection documents thoroughly either way, and
+      gives you a straight answer on whether what you have is functional or cosmetic.
+  - question: How should nails and debris be handled on a property with livestock?
     answer: >-
-      Carefully, because it matters more here than in town. Debris is contained at the
-      structure rather than allowed to fall wherever it lands, containers are placed clear of
-      pasture and gates, and we magnet-sweep the working area at the end of every day rather
-      than only at the end of the job. Tell us where animals are and which gates need to stay
-      shut, and we'll work around them.
-  - question: Can I do the house now and the barn later?
+      Carefully, because it matters more here than in town. A responsible crew contains debris
+      at the structure rather than letting it fall wherever it lands, places containers clear of
+      pasture and gates, and magnet-sweeps the working area at the end of every day rather than
+      only at the end of the job. Mention where animals are and which gates need to stay shut so
+      the crew can work around them.
+  - question: Can the house be done now and the barn later?
     answer: >-
-      Yes, and we'll price them separately so you can. Sequencing is usually driven by which
-      structure is actually leaking and what's stored inside it. A shop full of equipment
-      often justifies going first even when the house roof is older. We'll give you a
-      prioritised recommendation across every structure on the parcel and let you decide the
-      order.
+      Usually, with each priced separately so you can sequence them. Sequencing is typically
+      driven by which structure is actually leaking and what's stored inside it — a shop full of
+      equipment often justifies going first even when the house roof is older. A good provider
+      gives you a prioritised recommendation across every structure on the parcel and lets you
+      decide the order.
 relatedServices:
   - roof-repair
   - storm-hail-damage-restoration
@@ -141,11 +141,11 @@ through the panel sealed only by a rubber washer under the screw head. Those was
 in ultraviolet light. The panels expand and contract through Oklahoma's temperature range,
 which backs the screws out a fraction at a time. Eventually every fastener is a slow leak.
 
-This is why the single most common, and most useful, piece of work we do on rural property
-is a full refasten: larger-diameter screws driven into fresh material, new closures at ridge
-and eave, sealant renewed at panel laps and penetrations. On a structurally sound building it
-buys many years for a small fraction of what re-sheeting costs, and we'd far rather tell you
-that than sell you a new roof.
+This is why the single most common, and most useful, piece of rural roofing work is a full
+refasten: larger-diameter screws driven into fresh material, new closures at ridge and eave,
+sealant renewed at panel laps and penetrations. On a structurally sound building it buys many
+years for a small fraction of what re-sheeting costs, and a good provider would far rather
+tell you that than sell a new roof that isn't needed.
 
 ## Damage here goes unnoticed for longer
 
@@ -159,15 +159,15 @@ rot or corrode the purlins they're fixed to, and at that point it genuinely is a
 The countermeasure is boring and effective: walk every roof on the property once a year, and
 again after any significant hail or wind event. Look for lifted panel edges, missing or
 proud screws, displaced ridge closures, and daylight visible from inside the building. If
-you'd rather someone else did it, our [free roof inspection](/services/roof-inspection/)
-covers every structure on the parcel in a single visit and leaves you with dated photographs
-of each one.
+you'd rather someone else did it, requesting a [roof inspection](/services/roof-inspection/)
+can cover every structure on the parcel in a single visit and leave you with dated
+photographs of each one.
 
 ## Working on a working property
 
-A few things we take as given on acreage jobs: gates stay as we found them, debris is
-contained at the structure rather than dropped, containers and vehicles stay clear of
-pasture, drain fields and septic laterals, and the working area is magnet-swept at the end of
-each day. Loose nails in a field are a real hazard to livestock and tyres, and treating that
-as an afterthought is one of the clearer signals that a contractor doesn't normally work
-rural property.
+A few things worth expecting on acreage jobs: gates left as they were found, debris contained
+at the structure rather than dropped, containers and vehicles kept clear of pasture, drain
+fields and septic laterals, and the working area magnet-swept at the end of each day. Loose
+nails in a field are a real hazard to livestock and tyres, and treating that as an
+afterthought is one of the clearer signals that a contractor doesn't normally work rural
+property.

@@ -40,7 +40,7 @@ localNotes:
       On older properties that have changed hands several times, it is not unusual to find two
       or even three layers of shingles. That adds weight, hides decking condition, and means a
       replacement here often involves substantially more tear-off and disposal than the roof
-      area alone would suggest. We check for it during the inspection so it's in the quote,
+      area alone would suggest. A good inspection checks for it up front so it's in the quote,
       not a surprise.
   - title: Tight lots and limited staging space
     body: >-
@@ -60,26 +60,29 @@ localNotes:
       for everyone. Summer is the obvious window; for landlords, turnover between tenancies is
       the practical time to do anything more than an emergency repair.
 faqs:
-  - question: Do you work with landlords and rental property owners in Campus Corner?
+  - question: Do local roofers work with landlords and rental property owners in Campus Corner?
     answer: >-
-      Yes, and a good proportion of our work near campus is for owners rather than occupiers.
-      We can inspect and document several properties at once, provide a condition report per
-      address with a prioritised schedule, and schedule work between tenancies. If you own
-      multiple properties, a documented assessment across all of them is usually more useful
-      than reacting to whichever one leaks first.
+      Most established providers do, and a good proportion of the work near campus is for
+      owners rather than occupiers. Ask a provider whether they can inspect and document
+      several properties at once, provide a condition report per address with a prioritised
+      schedule, and schedule work between tenancies. If you own multiple properties, a
+      documented assessment across all of them is usually more useful than reacting to
+      whichever one leaks first.
   - question: My house near campus is over eighty years old. Does that change the work?
     answer: >-
       Yes, in a few practical ways. Older Norman homes often have plank or board decking rather
       than modern plywood sheathing, which affects how shingles fasten and sometimes requires
       overlay sheathing. Pitches are frequently steeper, rooflines more complex, and previous
       repairs less well documented. It's more careful work than a modern subdivision roof, and
-      we price it that way rather than quoting it like new construction and then cutting corners.
-  - question: How do you handle a tear-off on a narrow lot with neighbours close by?
+      a good provider prices it that way rather than quoting it like new construction and
+      cutting corners later.
+  - question: How is a tear-off handled on a narrow lot with neighbours close by?
     answer: >-
-      Planning, mostly. We agree dumpster or dump-trailer placement in advance, protect adjacent
-      property and landscaping, contain debris rather than letting it fall where it will, and
-      magnet-sweep the yard, drive and street daily rather than only at the end. On the tightest
-      lots we sometimes load directly to a truck instead of siting a container at all.
+      Planning, mostly. A careful crew agrees dumpster or dump-trailer placement in advance,
+      protects adjacent property and landscaping, contains debris rather than letting it fall
+      where it will, and magnet-sweeps the yard, drive and street daily rather than only at the
+      end. On the tightest lots, loading directly to a truck instead of siting a container is
+      sometimes the answer.
   - question: There's a leak where my sunroom meets the main roof. Is that fixable?
     answer: >-
       Usually, and it's one of the most common calls we get from this area. The problem is
@@ -109,7 +112,7 @@ None of that is unusual and none of it is a crisis. It just means the honest sta
 for most roofs near campus is an inspection that establishes what's actually up there,
 rather than a quote based on what the roof looks like from the street.
 
-## The details we check first here
+## The details worth checking first here
 
 **Transitions between original roof and additions.** Nearly every older house in this area
 has been added to. Where a lower, shallower roof meets an original steeper one, water
@@ -120,8 +123,8 @@ porches and flat-roofed rear extensions get shingled anyway because it's quicker
 match looks better. They leak, usually within a few years, and the fix is a proper
 membrane rather than more shingles.
 
-**Layer count.** We check the eaves and rake edges for how many layers are up there before
-quoting a tear-off. It changes labour and disposal significantly.
+**Layer count.** A good inspection checks the eaves and rake edges for how many layers are up
+there before quoting a tear-off. It changes labour and disposal significantly.
 
 **Decking type.** Plank decking with gaps between boards is common on the oldest properties
 and needs a different fastening approach than plywood.
@@ -138,6 +141,6 @@ gap between spring and autumn tenancies, or an agreed date with tenants who are 
 happening. Emergency work obviously doesn't wait, but planned replacements almost always go
 better when they're scheduled rather than squeezed in.
 
-If you own property here and want to know where you stand before something fails, a
-[free roof inspection](/services/roof-inspection/) produces a documented, dated condition
+If you own property here and want to know where you stand before something fails, requesting
+a [roof inspection](/services/roof-inspection/) can produce a documented, dated condition
 report per address that you keep.

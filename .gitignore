@@ -48,3 +48,7 @@ client_secret.json
 # deployment platform output
 .vercel/
 .netlify/
+
+# third-party SEO report drop folder + generated audit reports (local analysis data)
+/seo-consultant/
+/reports/

@@ -20,7 +20,7 @@ const {
   defaultArea = '',
   defaultProject = '',
   heading = 'Request your free estimate',
-  lede = 'Tell us what the roof is doing. We inspect, photograph everything, and send a written price. No obligation and no doorstep pressure.',
+  lede = "Tell us what the roof is doing and where you're located. We'll pass your request to a roofing provider serving your area, who will contact you directly about scheduling a visit and pricing. No obligation.",
   tone = 'light',
 } = Astro.props;
 
@@ -128,8 +128,9 @@ const areaOptions = [
     <button class="btn btn--primary btn--wide" type="submit">Request My Free Estimate</button>
 
     <p class="leadform__note">
-      We'll call you back to arrange the inspection. We never sell your details on to a list, and
-      there's no obligation to proceed. If your roof is leaking right now,
+      Your request is routed to a roofing provider serving your area, who will follow up to
+      arrange an inspection. We don't sell your details to marketing lists, and there's no
+      obligation to proceed. If your roof is leaking right now,
       <a href={site.phone.href}>call {site.phone.display}</a> instead; that's faster.
     </p>
 
@@ -310,7 +311,7 @@ const areaOptions = [
         if (status) {
           status.hidden = false;
           status.textContent =
-            'This form is not connected yet, so your details were not sent. Please call us instead and we will book your free inspection.';
+            'This form is not connected yet, so your details were not sent. Please call instead to request your estimate.';
         }
       }
     });

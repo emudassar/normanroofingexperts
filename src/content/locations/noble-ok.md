@@ -7,10 +7,11 @@ keyword: roofing contractors Noble OK
 summary: The small Cleveland County town immediately south of Norman, with a housing mix from historic in-town homes to newer builds on the edges.
 intro: >-
   Homeowners looking for roofing contractors in Noble, OK are usually choosing between
-  travelling to Norman or waiting for someone to come down Highway 77. We treat Noble as core
-  service area rather than an outlying call. It's a short run south of Norman, and the housing
-  mix here, from older in-town homes near the school and main street to newer construction on
-  the outskirts and acreage properties beyond, covers most of the roofing work we do anywhere.
+  travelling to Norman or waiting for someone to come down Highway 77. This site treats Noble
+  as core coverage area rather than an outlying call. It's a short run south of Norman, and the
+  housing mix here, from older in-town homes near the school and main street to newer
+  construction on the outskirts and acreage properties beyond, covers most of the roofing work
+  seen anywhere in the area.
 order: 8
 group: surrounding
 county: Cleveland County
@@ -33,7 +34,7 @@ localNotes:
       Noble is close enough to Norman that most contractors will come, and far enough that some
       treat it as a low priority when they're busy. After a regional storm that matters: the
       towns outside the city are frequently the last to get inspected and the last to get
-      scheduled. We don't run a different service standard by postcode.
+      scheduled. This site treats it as core coverage, not a lower priority by postcode.
   - title: Older in-town homes need older-roof expertise
     body: >-
       The established streets have properties old enough to have plank decking, previous
@@ -57,20 +58,21 @@ localNotes:
       consequences: abrasion from overhanging limbs, shaded slopes holding damp, and valleys
       and gutters that pack with leaf litter every autumn.
 faqs:
-  - question: Do you actually service Noble, or is it an afterthought?
+  - question: Does coverage actually reach Noble, or is it an afterthought?
     answer: >-
-      Noble is inside our normal service area and gets the same free inspection, the same
-      scheduling and the same response times as anywhere in Norman. It's a short run down
-      Highway 77. The honest caveat applies to every roofer after a major regional hail event:
-      when several thousand roofs are damaged at once, everyone's queue extends. What we'll do
-      is give you a realistic date rather than an optimistic one.
+      Noble is inside this site's normal coverage area, on the same terms as anywhere in
+      Norman. It's a short run down Highway 77. The honest caveat applies to every roofer after
+      a major regional hail event: when several thousand roofs are damaged at once, everyone's
+      queue extends. A straightforward provider will give you a realistic date rather than an
+      optimistic one.
   - question: How much does a roof replacement cost in Noble?
     answer: >-
-      Broadly the same as Norman. Most single-family homes fall in the region of $9,000 to
-      $20,000 for a full architectural shingle tear-off and replacement, driven by size, pitch,
-      complexity, storeys, decking condition and shingle choice. Older in-town homes can run
-      higher than their square footage suggests if there are multiple existing layers or
-      significant decking work. Acreage properties with outbuildings are quoted per structure.
+      There's no reliable Noble-specific average worth quoting — cost is driven by size, pitch,
+      complexity, storeys, decking condition and shingle choice, the same factors as anywhere
+      in the Norman area. Older in-town homes can run higher than their square footage suggests
+      if there are multiple existing layers or significant decking work. Acreage properties
+      with outbuildings are typically quoted per structure. Ask a provider for a written price
+      after they've inspected.
   - question: A roofing crew knocked on my door after the storm. Should I use them?
     answer: >-
       Get a second opinion first, from anyone including us. Storm chasing is real across
@@ -80,19 +82,20 @@ faqs:
       them, and be very cautious of any contractor with no verifiable Oklahoma presence. Your
       workmanship warranty is worth nothing if they've left the state, and roofing defects
       usually surface a year or two later.
-  - question: My house in town is quite old. Can you work on it?
+  - question: Can older in-town houses be worked on the same way?
     answer: >-
       Yes. Older properties need more assessment before quoting: layer count, decking type and
       condition, and roof structure all vary and all change the work. Plank decking fastens
       differently from plywood and sometimes needs overlay sheathing. It's straightforward work
-      but it isn't the same job as a modern subdivision roof, and we price it honestly rather
-      than quoting low and cutting something to make the number work.
-  - question: Can you do the barn and shop as well as the house?
+      but it isn't the same job as a modern subdivision roof, and a good provider prices it
+      honestly rather than quoting low and cutting something to make the number work later.
+  - question: Can a barn and shop be handled along with the house?
     answer: >-
-      Yes, and on properties outside town that's often the larger share of the roof area. Metal
-      buildings typically need refastening and new closures rather than re-sheeting, because screws
-      back out and their neoprene washers fail in UV, and each one becomes a small leak. We
-      survey every structure on the property and quote them separately so you can prioritise.
+      Usually, and on properties outside town that's often the larger share of the roof area.
+      Metal buildings typically need refastening and new closures rather than re-sheeting,
+      because screws back out and their neoprene washers fail in UV, and each one becomes a
+      small leak. A good provider surveys every structure on the property and quotes them
+      separately so you can prioritise.
 relatedServices:
   - roof-replacement
   - storm-hail-damage-restoration
@@ -107,15 +110,14 @@ plainly, because homeowners in the smaller Cleveland County towns are used to be
 as an outlying call: quoted higher, scheduled later, or told the job is too small to be
 worth the trip.
 
-It isn't. Noble is inside our normal working area, the inspection is free here, and pricing
-is the same as it is in Norman.
+It isn't. Noble is inside this site's normal coverage area on the same terms as Norman.
 
 ## Three kinds of property, three kinds of job
 
 **Older homes in town.** Modest, mostly single-storey, simple gable roofs on smaller lots
-with mature trees. Straightforward to work on, but old enough that we check for layer count
-and plank decking before quoting. A roof that's been laid over twice has significantly more
-tear-off and disposal in it than the area suggests.
+with mature trees. Straightforward to work on, but old enough that a good inspection checks
+for layer count and plank decking before quoting. A roof that's been laid over twice has
+significantly more tear-off and disposal in it than the area suggests.
 
 **Newer construction around the edges.** Standard modern roofs, trussed, OSB-sheathed,
 architectural shingle. These are on their first covering, and the usual questions apply:
@@ -150,6 +152,6 @@ What to do about it:
 ## Where to start
 
 If a storm has been through, or your roof is simply old enough that you'd like to know where
-you stand, a [free roof inspection](/services/roof-inspection/) covers the house and any
-outbuildings in one visit and leaves you with a dated photo report, useful for an insurance
+you stand, requesting a [roof inspection](/services/roof-inspection/) can cover the house and
+any outbuildings in one visit and leave you with a dated photo report, useful for an insurance
 claim, a second opinion, or just for knowing when to start budgeting.

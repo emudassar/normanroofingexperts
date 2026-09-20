@@ -9,7 +9,7 @@ import AreaCard from '../components/AreaCard.astro';
 import FAQAccordion from '../components/FAQAccordion.astro';
 import LeadForm from '../components/LeadForm.astro';
 import CTAButton from '../components/CTAButton.astro';
-import { site, yearsServing } from '../config/site';
+import { site } from '../config/site';
 import { toPlainText } from '../utils/inline-markdown';
 import heroImage from '../assets/images/placeholder-hero-roofer-shingle.jpg';
 import whyImage from '../assets/images/placeholder-crew-brick-home.jpg';
@@ -24,28 +24,28 @@ const normanAreas = locations.filter((l) => l.data.group === 'norman');
 
 const reasons = [
   {
-    title: 'We inspect before we quote',
-    body: 'No roof price over the phone. We get on the roof, into the attic, and photograph what we find, then price a defined scope in writing.',
+    title: 'Insist on an inspection before a quote',
+    body: 'A price given without anyone seeing the roof is a number that will change. Ask any roofer you’re considering to inspect before pricing, not after.',
   },
   {
-    title: 'Full tear-off, never a layover',
-    body: 'Laying new shingles over old hides the decking, adds weight and shortens the life of the roof you just paid for. We remove what is there.',
+    title: 'Ask about tear-off versus a layover',
+    body: 'Laying new shingles over old hides decking damage, adds weight and shortens the life of the roof underneath. A full tear-off costs more but tells you what you actually have.',
   },
   {
-    title: 'All new flashing, every time',
-    body: 'Almost every leak on a sound roof is a flashing detail. Reusing flashing is the easiest thousand dollars to quietly cut from a bid.',
+    title: 'Check that flashing is being replaced',
+    body: 'Almost every leak on an otherwise sound roof is a flashing detail. Reused flashing is one of the easiest things to quietly cut from a bid.',
   },
   {
-    title: 'Ventilation brought up to spec',
-    body: 'Under-ventilated attics cook shingles from below through an Oklahoma summer, and void most manufacturers’ material warranties.',
+    title: 'Get ventilation looked at, not just shingles',
+    body: 'Under-ventilated attics cook shingles from below through an Oklahoma summer, and can void a manufacturer’s material warranty.',
   },
   {
-    title: 'Insurance claims handled properly',
-    body: 'Adjuster-standard documentation, and we will meet your adjuster on the roof. We never touch your deductible; that is fraud in Oklahoma.',
+    title: 'Confirm how insurance claims are handled',
+    body: 'A reputable roofer documents damage properly and can meet your adjuster on the roof. No contractor may legally waive or absorb your deductible — that’s fraud in Oklahoma.',
   },
   {
-    title: 'Daily magnetic nail sweeps',
-    body: 'Yard, drive and street swept at the end of every working day, not only on the last one. Landscaping and AC units covered before tear-off.',
+    title: 'Ask what happens to nails and debris',
+    body: 'A magnetic sweep of the yard, drive and street at the end of every work day, and landscaping and AC units protected before tear-off, are marks of a careful crew.',
   },
 ];
 
@@ -53,32 +53,32 @@ const faqs = [
   {
     question: 'How much do roofing contractors in Norman, OK charge?',
     answer:
-      'For a full architectural shingle tear-off and replacement on a typical Norman home, most jobs land between roughly $9,000 and $20,000. Repairs are usually $400–$1,500. The spread comes from roof size, pitch, complexity, storeys, how much decking needs replacing and the shingle grade you choose. Impact-resistant Class 4 shingles typically add 10–20%. We quote in writing after an inspection, because a price given without seeing the roof is a number that will change.',
+      'It depends on roof size, pitch, complexity, number of storeys, how much decking needs replacing and the shingle grade chosen, so there is no single Norman-wide number worth quoting here. Impact-resistant Class 4 shingles typically add to the cost of a standard architectural shingle job. Treat any price given without an on-site inspection as provisional — a real number only comes after someone has actually seen the roof.',
   },
   {
-    question: 'Do you charge for a roof inspection?',
+    question: 'Is requesting a roofing quote actually free?',
     answer:
-      'No. Our standard inspection and photo report are free and carry no obligation, across Norman and the surrounding communities we serve. You keep the report whether or not you hire us. Formal written certifications for a property sale are a separate paid service and we will tell you that before booking, not after.',
+      'Yes. Submitting a request through this site costs nothing and puts you under no obligation. Your details are passed to a roofing provider serving your area, who will contact you to discuss next steps. Ask that provider directly whether their on-site inspection itself is free — policies vary by contractor.',
   },
   {
-    question: 'How quickly can you come out if my roof is leaking?',
+    question: 'How quickly can someone come out if my roof is leaking?',
     answer:
-      'Active leaks are prioritised, and in normal weather we aim to be on site the same or next day. Emergency tarping can usually stop water entering immediately while the permanent repair is scheduled. After a major hail event across Cleveland County every roofer in the area is triaging, so we will give you an honest window rather than an optimistic one.',
+      'Response times vary by provider and by season — after a major hail event across Cleveland County, every roofer in the area is triaging a backlog. When you submit a request, say clearly that you have an active leak so it can be prioritized, and ask the provider directly for a realistic timeframe rather than assuming same-day service.',
   },
   {
-    question: 'Do you work with insurance companies?',
+    question: 'Do roofing providers in this area work with insurance companies?',
     answer:
-      'Yes. We document damage to adjuster standard, meet your adjuster on the roof at your request, and file supported supplements where the initial scope misses code-required work. What we will never do is rebate, absorb or waive your deductible; that is insurance fraud under Oklahoma law and it exposes you as well as the contractor.',
+      'Most established Norman-area roofers handle storm and hail claims regularly: documenting damage, and meeting an adjuster on the roof at the homeowner’s request. What no legitimate contractor will do is rebate, absorb or waive your deductible — that is insurance fraud under Oklahoma law and it exposes you as well as the contractor. Treat any offer to do so as a reason to walk away.',
   },
   {
     question: 'Are impact-resistant shingles worth it in Norman?',
     answer:
-      'Often, yes. Class 4 impact-rated shingles hold up measurably better against small and moderate hail, and many Oklahoma insurers offer a premium discount for them that recovers a meaningful share of the extra cost over the roof’s life. Ask your carrier what discount applies to you specifically, because it varies, and that number should drive the decision. They are not hail-proof and we will not claim otherwise.',
+      'Often, yes. Class 4 impact-rated shingles hold up measurably better against small and moderate hail, and many Oklahoma insurers offer a premium discount for them that can offset a meaningful share of the extra cost over the roof’s life. Ask your carrier what discount applies to your specific policy, since it varies and should drive the decision. They are not hail-proof, and any contractor claiming otherwise is overselling.',
   },
   {
-    question: 'Which areas around Norman do you cover?',
+    question: 'Which areas around Norman does this site cover?',
     answer:
-      'All of Norman, including Campus Corner, the historic districts, Brookhaven, Hall Park, Summit Lakes, West Norman and the Franklin Road area, plus Noble, Lexington, Slaughterville, Washington, Little Axe and Goldsby. See our service areas page for what we know about roofing in each.',
+      'All of Norman, including Campus Corner, the historic districts, Brookhaven, Hall Park, Summit Lakes, West Norman and the Franklin Road area, plus Noble, Lexington, Slaughterville, Washington, Little Axe and Goldsby. See the service areas page for what’s documented about roofing conditions in each.',
   },
 ];
 
@@ -102,7 +102,7 @@ const schema = [
 
 <BaseLayout
   title="Roofing Contractors in Norman, OK | Norman Roofing Experts"
-  description="Roofing contractors in Norman, OK for roof repair, replacement and hail damage. Free photo inspections, written pricing and insurance claim support."
+  description="Find roofing contractors in Norman, OK for roof repair, replacement and hail damage. Request a free estimate and get connected with a local roofing provider."
   schema={schema}
 >
   <Hero
@@ -110,7 +110,7 @@ const schema = [
     eyebrow="Norman · Cleveland County · McClain County"
     title="Roofing Contractors"
     titleAccent="Norman, OK Trusts"
-    lede="Roof repair, full replacement, inspections and storm damage restoration. We inspect before we quote, photograph everything we find, and put a fixed price in writing before anything is opened up."
+    lede="Request roof repair, full replacement, inspections or storm damage restoration for your Norman-area home. Tell us what's happening and we'll route your request to a roofing provider serving your area."
     image={heroImage}
     imageAlt="Roofer installing asphalt shingles on a residential roof in bright daylight"
     primaryCta={{ href: '/free-estimate/', label: 'Get a Free Estimate' }}
@@ -122,11 +122,11 @@ const schema = [
   <section class="section">
     <div class="container">
       <div class="section-head">
-        <p class="eyebrow">What we do</p>
+        <p class="eyebrow">What you can request</p>
         <h2>Roofing services across Norman</h2>
         <p class="lede">
           Seven services, each written for a homeowner with a specific problem rather than a
-          catalogue. Every one includes a free inspection and a written price before work starts.
+          catalogue. Every page explains what to expect and what to ask before work starts.
         </p>
       </div>
 
@@ -140,11 +140,11 @@ const schema = [
   <section class="section section--navy why">
     <div class="container why__inner">
       <div class="why__text">
-        <p class="eyebrow">Why homeowners choose us</p>
+        <p class="eyebrow">What to look for in a roofer</p>
         <h2>The six things that decide whether a roof lasts</h2>
         <p class="lede">
           Roofing bids differ by thousands and the shingle is almost never the reason. These are
-          what actually separate a roof that reaches its rated life from one that doesn't.
+          the questions worth asking any contractor before you sign anything.
         </p>
         <ul class="reasons">
           {
@@ -185,8 +185,8 @@ const schema = [
           decoding="async"
         />
         <div class="why__badge">
-          <span class="why__badge-num">{yearsServing}</span>
-          <span class="why__badge-label">Years serving<br />the Norman area</span>
+          <span class="why__badge-num">12</span>
+          <span class="why__badge-label">Norman-area<br />communities covered</span>
         </div>
       </div>
     </div>
@@ -224,15 +224,15 @@ const schema = [
         <p class="eyebrow">Free estimate</p>
         <h2>Leaking roof? Storm damage? Start here.</h2>
         <p class="lede">
-          Tell us what the roof is doing and we will book a free inspection. You get a photo
-          report you keep, a plain-English explanation of what we found, and a written price,
-          with no obligation and no doorstep pressure.
+          Tell us what the roof is doing and where you're located. There's no cost or
+          obligation to ask, and your request goes to a roofing provider serving your area, who
+          will follow up directly.
         </p>
         <ul class="estimate__points">
-          <li>Free inspection and photo report, no obligation</li>
-          <li>Fixed written pricing before any work begins</li>
-          <li>Insurance claim documentation to adjuster standard</li>
-          <li>Emergency tarping available for active leaks</li>
+          <li>Free and no-obligation to submit a request</li>
+          <li>Ask for pricing in writing before any work begins</li>
+          <li>Ask whether the provider documents insurance claims to adjuster standard</li>
+          <li>Mention an active leak so your request is flagged as urgent</li>
         </ul>
         <p class="estimate__call">
           Roof leaking right now? Call
@@ -256,10 +256,10 @@ const schema = [
   <section class="finale">
     <div class="container finale__inner">
       <div>
-        <h2 class="finale__heading">Get an honest assessment of your roof.</h2>
+        <h2 class="finale__heading">Get a straight answer about your roof.</h2>
         <p class="finale__body">
-          Free inspection, documented findings, written pricing. If your roof is fine, we will
-          tell you that and you can call us again in three years.
+          Request a free, no-obligation estimate and we'll connect you with a roofing provider
+          serving your area who can take a proper look and tell you where you stand.
         </p>
       </div>
       <div class="finale__actions">
