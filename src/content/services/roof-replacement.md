@@ -201,7 +201,9 @@ Bids that look wildly different on price usually differ on these answers, not on
 shingle. If you'd like an assessment before you commit to anything, request a
 [roof inspection](/services/roof-inspection/).
 
-Replacement is one of several services covered on this site, alongside repair, inspections
-and storm damage restoration — see the [roofing contractor in Norman](/) overview. Deciding
-between materials? See
+Not sure a full replacement is the right call yet? See
+[residential roofing contractors in Norman, OK](/services/residential-roofing/) for how
+that decision gets made. Replacement is one of several services covered on this site,
+alongside repair, inspections and storm damage restoration — see the
+[roofing contractor in Norman](/) overview. Deciding between materials? See
 [which roofing materials hold up best in Oklahoma weather](/blog/best-roofing-materials-oklahoma-weather/).

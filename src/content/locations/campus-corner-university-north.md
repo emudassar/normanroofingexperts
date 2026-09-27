@@ -2,7 +2,7 @@
 title: Campus Corner & University North
 h1: Roofing Contractors in Campus Corner & University North, Norman
 metaTitle: Roofing Campus Corner Norman OK | Roof Repair
-description: Roofing contractors serving Campus Corner and University North in Norman, OK. Older homes, student rental property and mixed-use buildings, handled properly.
+description: Roofing contractors serving Campus Corner and University North in Norman, OK. Older homes, student rentals and mixed-use buildings, handled properly.
 keyword: roofing Campus Corner Norman
 summary: Older homes and mixed-use buildings north of the OU campus, where rental turnover and deferred maintenance are the defining problem.
 intro: >-

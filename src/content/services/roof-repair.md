@@ -179,9 +179,11 @@ so rather than quietly repairing a roof that your policy might have replaced.
   attic instead of outside, and HVAC condensate lines all produce ceiling stains that look
   exactly like roof leaks and cost nothing on the roof to fix.
 
-Repair is one of several services covered on this site, alongside replacement, inspections
-and storm damage restoration — see the [roofing contractor in Norman](/) overview. If the
-damage might be insurance-related, see
+Not sure whether this is a repair or something bigger? See
+[residential roofing contractors in Norman, OK](/services/residential-roofing/) for how
+that decision gets made. Repair is one of several services covered on this site, alongside
+replacement, inspections and storm damage restoration — see the
+[roofing contractor in Norman](/) overview. If the damage might be insurance-related, see
 [how the roof insurance claim process works in Oklahoma](/blog/roof-insurance-claim-process-oklahoma/).
 
 If you want the roof assessed before deciding anything, requesting a

@@ -1,7 +1,7 @@
 ---
 title: The Oklahoma Hail Season Roof Guide
 metaTitle: Oklahoma Hail Season Roof Guide | Norman Roofing
-description: When Oklahoma hail season runs, what hail actually does to a roof, how to tell damage from ordinary wear, and what to do in the first 48 hours after a storm.
+description: When Oklahoma hail season runs, what hail does to a roof, how to tell damage from ordinary wear, and what to do in the first 48 hours after a storm.
 excerpt: >-
   Central Oklahoma sits in one of the most active hail corridors in the country. Here is what
   hail actually does to a roof, how to tell real damage from ordinary wear, and the checklist

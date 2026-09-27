@@ -1,8 +1,8 @@
 ---
 title: Roof Inspection
 h1: Roof Inspections in Norman, OK
-metaTitle: Roof Inspection Norman OK | Photo Report
-description: Request a roof inspection in Norman, OK with a photo report. Storm damage assessment, pre-purchase checks and a straight answer on whether you need work.
+metaTitle: Roof Inspection Near Me | Norman, OK Photo Report
+description: Roof inspection near me in Norman, OK — storm damage checks, pre-purchase inspections, and a straight answer, backed by a full photo report.
 keyword: roof inspection Norman OK
 summary: A documented, photo-by-photo assessment of your roof's actual condition, requested through this site and carried out by a local provider.
 intro: >-
@@ -127,6 +127,17 @@ relatedLocations:
   - hall-park
   - washington-little-axe-ok
 ---
+
+## Looking for a roof inspection near you?
+
+If you searched for a roof inspection near me, here's what that should look like in
+practice: a roofing provider based in the Norman area — not a call center scheduling
+someone three counties over — comes out, walks the full roofline, and photographs anything
+worth flagging: soft decking, lifted shingles, flashing pulling away, granule loss in the
+valleys. You should get the photo report the same day, in plain language, with a clear
+yes-or-no on whether repair or replacement makes sense. A trustworthy provider doesn't roll
+an inspection fee into a high-pressure sales pitch afterward — it's a straight answer,
+whether that answer costs you money or not.
 
 ## What a proper inspection actually looks for
 

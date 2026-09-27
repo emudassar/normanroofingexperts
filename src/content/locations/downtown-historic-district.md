@@ -2,7 +2,7 @@
 title: Downtown & Historic District
 h1: Roofing Contractors for Downtown Norman & the Historic Districts
 metaTitle: Historic District Roofing Norman OK | Period Homes
-description: Roofing for downtown Norman and the Chautauqua and Miller historic districts. Period-appropriate materials, complex 1920s rooflines and preservation review.
+description: Roofing for downtown Norman and the Chautauqua and Miller historic districts. Period-appropriate materials, complex rooflines and preservation review.
 keyword: historic district roofing Norman OK
 summary: 1910s–1930s homes in Norman's zoned historic districts, where the roof is part of a protected streetscape.
 intro: >-

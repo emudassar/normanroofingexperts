@@ -1,7 +1,7 @@
 ---
 title: The Best Roofing Materials for Oklahoma Weather
 metaTitle: Best Roofing Materials for Oklahoma Weather | Compared
-description: Which roofing materials actually hold up to Oklahoma hail, wind, heat and ice. Asphalt, impact-resistant Class 4, metal and low-slope systems compared honestly.
+description: Which roofing materials hold up to Oklahoma hail, wind, heat and ice. Asphalt, impact-resistant Class 4, metal and low-slope systems compared honestly.
 excerpt: >-
   Oklahoma asks more of a roof than almost anywhere: hail, straight-line wind, extreme summer
   heat and periodic ice. Here is how each material actually performs against all four, and

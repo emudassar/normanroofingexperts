@@ -2,7 +2,7 @@
 title: Washington & Little Axe
 h1: Roofing Contractors in Washington & Little Axe, OK
 metaTitle: Roofing Washington & Little Axe OK | Rural Roofers
-description: Roofing contractors serving Washington and Little Axe, OK. Rural and lakeside properties, metal outbuildings and storm damage work outside Norman city limits.
+description: Roofing contractors serving Washington and Little Axe, OK. Rural and lakeside properties, metal outbuildings and storm damage work outside Norman.
 keyword: roofing contractors Little Axe OK
 summary: Two rural communities on opposite sides of Norman, one toward Lake Thunderbird and one south into McClain County.
 intro: >-

@@ -2,7 +2,7 @@
 title: Storm & Hail Damage Restoration
 h1: Storm & Hail Damage Roof Restoration in Norman, OK
 metaTitle: Hail Damage Roof Repair Norman OK | Claim Help
-description: Storm and hail damage roof restoration in Norman, OK. Request an assessment, documentation built for your adjuster, and guidance through the insurance claim.
+description: Storm and hail damage roof restoration in Norman, OK. Request an assessment, adjuster-ready documentation, and guidance through the insurance claim.
 keyword: hail damage roof repair Norman OK
 summary: Documented damage assessment, emergency tarping, and support through the insurance claim, not just the roof work at the end.
 intro: >-

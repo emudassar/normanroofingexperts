@@ -2,7 +2,7 @@
 title: Franklin–Denver
 h1: Roofing Contractors for the Franklin–Denver Area, Norman OK
 metaTitle: Franklin-Denver Roofing Norman OK | Acreage Homes
-description: Roofing for the Franklin–Denver area of north Norman, OK. Acreage properties, metal outbuildings, wind-exposed roofs and long-drive access handled properly.
+description: Roofing for the Franklin–Denver area of north Norman, OK. Acreage properties, metal outbuildings, wind-exposed roofs and long-drive access.
 keyword: Franklin Denver roofing Norman OK
 summary: North Norman's low-density rural residential belt, where properties sit on acreage and most of the roof area isn't the house.
 intro: >-

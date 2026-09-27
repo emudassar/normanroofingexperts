@@ -182,10 +182,13 @@ falls. Ask any provider how they handle this:
 - The roof never left open overnight unless it is dried in and weather-tight
 - Someone you can actually reach by phone while the job is running
 
-This page covers work on houses specifically; for a business, warehouse or multi-family
-property, see [commercial roofing](/services/commercial-roofing/) instead. For the full
-range of services covered on this site, start on the [homepage](/). Curious which materials
-suit an Oklahoma roof? See how they
+Already know what you're dealing with? See [roof repair](/services/roof-repair/) for an
+active leak or storm damage, or [roof replacement](/services/roof-replacement/) if the roof
+has reached the end of its life. This page covers work on houses specifically; for a
+business, warehouse or multi-family property, see
+[commercial roofing](/services/commercial-roofing/) instead. For the full range of services
+covered on this site, see the [roofing contractor in Norman](/) overview. Curious which
+materials suit an Oklahoma roof? See how they
 [compare for Oklahoma homes](/blog/best-roofing-materials-oklahoma-weather/).
 
 If you want to start with an assessment rather than a quote, requesting a
