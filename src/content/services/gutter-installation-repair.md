@@ -1,8 +1,8 @@
 ---
 title: Gutter Installation & Repair
-h1: Gutter Installation & Repair Near Me in Norman, OK
-metaTitle: Gutter Installation & Repair Near Me | Norman, OK
-description: Gutter installation or repair near you in Norman, OK. Seamless gutters sized for Oklahoma downpours, pitched to drain and protect your foundation.
+h1: Gutter Replacement & Repair Near Me in Norman, OK
+metaTitle: Gutter Replacement, Installation & Repair | Norman, OK
+description: Gutter replacement, installation or repair near you in Norman, OK. Seamless gutters sized for Oklahoma downpours, pitched to drain away from the foundation.
 keyword: gutter installation Norman OK
 summary: Seamless gutters sized and pitched for Oklahoma downpours, plus repairs to the ones that were not.
 intro: >-
@@ -127,6 +127,16 @@ re-pitching a sagging run, resealing a corner, adding a downspout — solves the
 without a full replacement. Whether you need new gutters put up or an existing run repaired,
 requesting a quote through this site is free and connects you with a provider serving your
 specific neighbourhood, not a call center working from a list.
+
+## When do gutters need replacing instead of repair?
+
+A single leaking seam or a loose hanger is a repair. Gutter replacement makes sense when the
+problems are spread along the run: sections pulling away from the fascia, rust or splits in
+several places, gutters sagging so water pools instead of draining, or old sectional gutters
+that leak at every joint. After a hail storm, dented gutters can also stop carrying water
+properly. Seamless replacement removes most of those joints, and it is the chance to resize
+gutters and downspouts for heavy Oklahoma rain, so water lands away from the foundation
+instead of beside it.
 
 ## Why gutters matter more in central Oklahoma than most places
 

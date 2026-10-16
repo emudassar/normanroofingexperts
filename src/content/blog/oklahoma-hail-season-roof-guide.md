@@ -76,7 +76,9 @@ looks at. If a storm was severe enough to damage shingles, it will have dented g
 downspouts, vent caps, window wraps and the fins of your air conditioning condenser. Those
 dents are much easier to see than roof damage, and they are the reason a claim gets taken
 seriously. If the soft metals around your house are untouched, be sceptical of anyone telling
-you the roof is destroyed.
+you the roof is destroyed. Gutters dented along most of their length are normally covered under the
+same claim, and are often a case for [gutter replacement](/services/gutter-installation-repair/)
+rather than repair.
 
 ## The first 48 hours: a checklist
 

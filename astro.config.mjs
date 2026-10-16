@@ -21,7 +21,8 @@ export default defineConfig({
       // The 404 is not indexable and must not appear in the sitemap.
       filter: (page) => !page.includes('/404'),
       changefreq: 'monthly',
-      lastmod: new Date(),
+      // No global lastmod: stamping every URL with the build time on each deploy
+      // teaches Google to ignore lastmod (2026-10-16 SEO report, ticket 3).
     }),
   ],
   // Self-hosted, preloaded, subset webfonts — no render-blocking request to
