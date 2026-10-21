@@ -22,7 +22,7 @@ and its "Recent changes" log. If it looks stale versus the code, fix it as part 
 
 ## Current stage
 
-**Built — not yet pushed.** 18 indexable pages + 404: homepage, 8 leak-repair service pages,
+**Live since 2026-10-21.** 18 indexable pages + 404: homepage, 8 leak-repair service pages,
 5 area pages, about, contact, privacy, terms. `npm run check` passes (build, SEO audit, content
 audit). Outstanding items are in `docs/brief.md` §6.
 
