@@ -1,0 +1,26 @@
+---
+import { site } from '../config/site';
+
+interface Props {
+  /** Mark colors flip on dark surfaces. */
+  tone?: 'light' | 'dark';
+}
+
+const { tone = 'light' } = Astro.props;
+const ink = tone === 'dark' ? '#ffffff' : '#0b2545';
+const tile = tone === 'dark' ? 'rgb(255 255 255 / 0.08)' : '#eef3f9';
+---
+
+<a class="logo" href="/" aria-label={`${site.name}, home`}>
+  <svg viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+    <rect x="1" y="1" width="46" height="46" rx="14" fill={tile} stroke={tone === 'dark' ? 'rgb(255 255 255 / 0.16)' : '#d9e4f1'} />
+    <path d="M9 25 24 12l15 13" fill="none" stroke={ink} stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M30 17v-5h4v8.5" fill="none" stroke={ink} stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M24 23.5c-1 2.7-5 6.2-5 9.8a5 5 0 0 0 10 0c0-3.6-4-7.1-5-9.8z" fill="#f97316" />
+    <path d="M22.2 33.6a2.2 2.2 0 0 0 2 2" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" opacity="0.8" />
+  </svg>
+  <span class="logo__text">
+    <span class="logo__name">{site.name}</span>
+    <span class="logo__sub">Roof Leak Repair · {site.city}</span>
+  </span>
+</a>

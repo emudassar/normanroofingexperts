@@ -1,489 +1,586 @@
 ---
 import { getCollection } from 'astro:content';
-import { Image } from 'astro:assets';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
-import TrustBar from '../components/TrustBar.astro';
-import ServiceCard from '../components/ServiceCard.astro';
-import AreaCard from '../components/AreaCard.astro';
-import FAQAccordion from '../components/FAQAccordion.astro';
-import LeadForm from '../components/LeadForm.astro';
-import CTAButton from '../components/CTAButton.astro';
 import { site } from '../config/site';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroScene from '../components/HeroScene.astro';
+import Illustration from '../components/Illustration.astro';
+import SectionHead from '../components/SectionHead.astro';
+import CallButton from '../components/CallButton.astro';
+import Divider from '../components/Divider.astro';
+import Icon from '../components/Icon.astro';
+import FAQ from '../components/FAQ.astro';
+import CTABand from '../components/CTABand.astro';
 import { toPlainText } from '../utils/inline-markdown';
-import heroImage from '../assets/images/placeholder-hero-roofer-shingle.jpg';
-import whyImage from '../assets/images/placeholder-crew-brick-home.jpg';
 
-const services = (await getCollection('services', ({ data }) => !data.draft)).sort(
-  (a, b) => a.data.order - b.data.order,
-);
-const locations = (await getCollection('locations', ({ data }) => !data.draft)).sort(
-  (a, b) => a.data.order - b.data.order,
-);
-const normanAreas = locations.filter((l) => l.data.group === 'norman');
+const services = (await getCollection('services', ({ data }) => !data.draft)).sort((a, b) => a.data.order - b.data.order);
+const locations = (await getCollection('locations', ({ data }) => !data.draft)).sort((a, b) => a.data.order - b.data.order);
 
-const reasons = [
+/** Bento: the first service is the wide feature card; the rest fill a 3-column grid. */
+const bentoSize = ['feature'];
+
+const symptoms = [
   {
-    title: 'Insist on an inspection before a quote',
-    body: 'A price given without anyone seeing the roof is a number that will change. Ask any roofer you’re considering to inspect before pricing, not after.',
+    icon: 'droplet',
+    label: 'Water pouring in or a bulging ceiling',
+    title: 'This is an emergency leak',
+    body: 'When water is entering faster than you can catch it, or the ceiling is sagging, the priority is protection: buckets, power off near fixtures, and a temporary cover on the roof as soon as it is safe.',
+    source: 'Open roof area, torn flashing or blown-off shingles',
+    urgency: 'Call now',
+    href: '/emergency-roof-leak-repair/',
+    link: 'Emergency roof leak repair',
   },
   {
-    title: 'Ask about tear-off versus a layover',
-    body: 'Laying new shingles over old hides decking damage, adds weight and shortens the life of the roof underneath. A full tear-off costs more but tells you what you actually have.',
+    icon: 'chimney',
+    label: 'Stain beside the chimney or fireplace',
+    title: 'Most likely the chimney',
+    body: 'Water near the chimney breast usually comes from counter flashing pulling out of the mortar, a cracked crown, porous brick, or a missing cap. The repair depends on which of those is open.',
+    source: 'Chimney flashing, crown, mortar or cap',
+    urgency: 'Fix before winter',
+    href: '/chimney-leak-repair/',
+    link: 'Chimney leak repair',
   },
   {
-    title: 'Check that flashing is being replaced',
-    body: 'Almost every leak on an otherwise sound roof is a flashing detail. Reused flashing is one of the easiest things to quietly cut from a bid.',
+    icon: 'vent',
+    label: 'Small round stain under a bathroom',
+    title: 'Probably a vent pipe boot',
+    body: 'A ring-shaped stain under a bathroom or kitchen often traces to a cracked rubber boot around a plumbing vent, or to condensation in a fan duct. Both are usually quick to sort out.',
+    source: 'Pipe boot, vent cap or exhaust duct',
+    urgency: 'Book soon',
+    href: '/roof-vent-leak-repair/',
+    link: 'Roof vent leak repair',
   },
   {
-    title: 'Get ventilation looked at, not just shingles',
-    body: 'Under-ventilated attics cook shingles from below through an Oklahoma summer, and can void a manufacturer’s material warranty.',
+    icon: 'wind',
+    label: 'Leaks only in wind-driven rain',
+    title: 'Look at the flashing',
+    body: 'If the leak appears only when storms blow from one direction, rain is being pushed behind step, counter or kick-out flashing on the walls facing that wind.',
+    source: 'Wall, dormer or valley flashing',
+    urgency: 'Book soon',
+    href: '/roof-flashing-repair/',
+    link: 'Roof flashing repair',
   },
   {
-    title: 'Confirm how insurance claims are handled',
-    body: 'A reputable roofer documents damage properly and can meet your adjuster on the roof. No contractor may legally waive or absorb your deductible — that’s fraud in Oklahoma.',
+    icon: 'skylight',
+    label: 'Drips around a skylight',
+    title: 'Flashing or condensation',
+    body: 'Drips at the frame edges during rain point to flashing. Beads across the inside glass on cold, dry mornings are condensation. Fog between the panes means a failed glass seal.',
+    source: 'Skylight flashing kit, seals or indoor humidity',
+    urgency: 'Book soon',
+    href: '/skylight-leak-repair/',
+    link: 'Skylight leak repair',
   },
   {
-    title: 'Ask what happens to nails and debris',
-    body: 'A magnetic sweep of the yard, drive and street at the end of every work day, and landscaping and AC units protected before tear-off, are marks of a careful crew.',
+    icon: 'flatroof',
+    label: 'Water under a porch or addition roof',
+    title: 'Check the low-slope roof',
+    body: 'Porch, sunroom and addition roofs drain slowly. Leaks there usually start at open seams, ponding water, or the joint where the low roof meets the house wall.',
+    source: 'Membrane seams, drains or wall flashing',
+    urgency: 'Book soon',
+    href: '/flat-roof-leak-repair/',
+    link: 'Flat roof leak repair',
   },
+  {
+    icon: 'tree',
+    label: 'Shingles in the yard after a storm',
+    title: 'Storm damage to document',
+    body: 'Missing shingles, a limb on the roof or torn flashing after high wind need temporary protection and dated photos before the permanent repair, especially if you plan to talk to your insurer.',
+    source: 'Wind uplift or a falling limb',
+    urgency: 'Call today',
+    href: '/storm-damage-roof-repair/',
+    link: 'Storm damage roof repair',
+  },
+  {
+    icon: 'search',
+    label: 'Leak keeps coming back',
+    title: 'The real source was missed',
+    body: 'A leak that returns after a patch usually means the wrong spot was fixed. Tracing the water path in the attic and testing sections one at a time finds where it really enters.',
+    source: 'Hidden entry point, often uphill of the stain',
+    urgency: 'Book soon',
+    href: '/roof-leak-detection/',
+    link: 'Roof leak detection',
+  },
+] as const;
+
+const steps = [
+  { title: 'You call', body: 'Describe where the water shows up, when it started and what the weather was. The call is free.' },
+  { title: 'You are connected', body: `Your call goes to an independent roofing provider who serves ${site.city} and nearby towns.` },
+  { title: 'They inspect', body: 'The provider checks inside and up top, traces the water, and explains what failed and why.' },
+  { title: 'You decide', body: 'You get their price and plan for the repair. Nothing happens unless you agree to it.' },
+];
+
+const waiting = [
+  { when: 'Day 1', body: 'Water soaks into attic insulation, which holds it against the ceiling drywall like a sponge.' },
+  { when: 'Week 1', body: 'Drywall stains spread and can soften. Paint bubbles. Wet wood starts to darken around the entry point.' },
+  { when: 'Month 1', body: 'Mold can take hold in damp insulation and framing, especially in humid Maryland summers.' },
+  { when: 'Season 1', body: 'Roof decking softens and rots, and a one-piece flashing fix becomes decking, drywall and insulation work.' },
+];
+
+const costFactors = [
+  ['Source of the leak', 'A cracked pipe boot is a small job. Rebuilding chimney flashing or a crown is much larger.'],
+  ['How long it has leaked', 'Older leaks often mean wet insulation and rotted decking that must be replaced.'],
+  ['Roof pitch and height', 'Steep or two-story roofs need more safety equipment and time.'],
+  ['Roof material', 'Asphalt shingle, membrane flat roof and metal each use different materials and skills.'],
+  ['Access', 'Tight attics, landscaping or tall trees around the house can slow the work.'],
+  ['Timing', 'After-hours or active-storm visits and temporary tarping are often priced separately.'],
 ];
 
 const faqs = [
   {
-    question: 'How much do roofing contractors in Norman, OK charge?',
-    answer:
-      'It depends on roof size, pitch, complexity, number of storeys, how much decking needs replacing and the shingle grade chosen, so there is no single Norman-wide number worth quoting here. Impact-resistant Class 4 shingles typically add to the cost of a standard architectural shingle job. Treat any price given without an on-site inspection as provisional — a real number only comes after someone has actually seen the roof.',
+    question: 'How do I know where my roof is leaking from?',
+    answer: 'Start in the attic with a flashlight and follow the wet trail uphill to the highest damp spot. The entry point is usually just above it. The stain on your ceiling is often several feet away from the actual opening. If you can\'t find it, [roof leak detection](/roof-leak-detection/) traces it methodically.',
   },
   {
-    question: 'Is requesting a roofing quote actually free?',
-    answer:
-      'Yes. Submitting a request through this site costs nothing and puts you under no obligation. Your details are passed to a roofing provider serving your area, who will contact you to discuss next steps. Ask that provider directly whether their on-site inspection itself is free — policies vary by contractor.',
+    question: 'Is a roof leak an emergency?',
+    answer: 'It is when water is entering faster than you can catch it, near electrical fixtures, through a sagging ceiling, or through a visible opening. A small stain that hasn\'t grown can usually wait for a scheduled visit, but not for months.',
   },
   {
-    question: 'How quickly can someone come out if my roof is leaking?',
-    answer:
-      'Response times vary by provider and by season — after a major hail event across Cleveland County, every roofer in the area is triaging a backlog. When you submit a request, say clearly that you have an active leak so it can be prioritized, and ask the provider directly for a realistic timeframe rather than assuming same-day service.',
+    question: 'Can a roof leak be repaired in the rain?',
+    answer: 'A permanent repair usually needs a dry surface. In the rain, the work is temporary protection: a tarp or membrane patch, put on only when wind and lightning make it safe. The lasting fix follows in dry weather.',
   },
   {
-    question: 'Do roofing providers in this area work with insurance companies?',
-    answer:
-      'Most established Norman-area roofers handle storm and hail claims regularly: documenting damage, and meeting an adjuster on the roof at the homeowner’s request. What no legitimate contractor will do is rebate, absorb or waive your deductible — that is insurance fraud under Oklahoma law and it exposes you as well as the contractor. Treat any offer to do so as a reason to walk away.',
+    question: 'What is the most common cause of roof leaks?',
+    answer: 'Flashing: the metal that seals joints at walls, chimneys, skylights and valleys. Cracked rubber pipe boots and wind-damaged shingles come next. See [roof flashing repair](/roof-flashing-repair/).',
   },
   {
-    question: 'Are impact-resistant shingles worth it in Norman?',
-    answer:
-      'Often, yes. Class 4 impact-rated shingles hold up measurably better against small and moderate hail, and many Oklahoma insurers offer a premium discount for them that can offset a meaningful share of the extra cost over the roof’s life. Ask your carrier what discount applies to your specific policy, since it varies and should drive the decision. They are not hail-proof, and any contractor claiming otherwise is overselling.',
+    question: 'Should I repair the leak or replace the roof?',
+    answer: 'Most leaks come from one failed detail and can be repaired. Replacement makes sense when shingles are brittle and leaking in many places. Ask the provider for photos of the roof\'s overall condition so you can judge.',
   },
   {
-    question: 'Which areas around Norman does this site cover?',
-    answer:
-      'All of Norman, including Campus Corner, the historic districts, Brookhaven, Hall Park, Summit Lakes, West Norman and the Franklin Road area, plus Noble, Lexington, Slaughterville, Washington, Little Axe and Goldsby. See the service areas page for what’s documented about roofing conditions in each.',
+    question: 'Does homeowners insurance cover roof leaks?',
+    answer: 'It depends on your policy and the cause. Sudden storm damage is treated differently from age and wear. Take dated photos, keep receipts for temporary repairs, and contact your insurer. Only the insurer decides coverage.',
+  },
+  {
+    question: 'Who will I be talking to when I call?',
+    answer: `${site.name} is a referral service. Your call is connected to an independent local roofing provider who serves ${site.city}. That provider quotes and does the work.`,
+  },
+  {
+    question: 'Is it free to call?',
+    answer: 'Yes. Calling to describe your leak and be connected is free and doesn\'t commit you to anything. Any charges for inspection or repair are set by the provider, so ask them before work begins.',
+  },
+  {
+    question: 'Which areas around Severna Park are covered?',
+    answer: 'Severna Park (21146) and nearby Anne Arundel County communities, including [Arnold](/roof-leak-repair-arnold-md/), [Pasadena](/roof-leak-repair-pasadena-md/), [Millersville](/roof-leak-repair-millersville-md/), [Severn](/roof-leak-repair-severn-md/) and [Glen Burnie](/roof-leak-repair-glen-burnie-md/).',
+  },
+  {
+    question: 'What can I do right now while I wait?',
+    answer: 'Move belongings, catch the water, switch off power to any wet fixture, photograph the damage, and stay off the roof. If a ceiling bulges, keep people out from under it.',
   },
 ];
 
 const schema = [
   {
-    '@type': 'FAQPage',
-    '@id': `${site.url}/#faq`,
-    mainEntity: faqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: { '@type': 'Answer', text: toPlainText(faq.answer) },
-    })),
+    '@type': 'WebPage',
+    '@id': `${site.url}/#webpage`,
+    url: `${site.url}/`,
+    name: `Roof Leak Repair in ${site.city}, ${site.state}`,
+    isPartOf: { '@id': `${site.url}/#website` },
+    about: { '@id': `${site.url}/#service` },
   },
   {
-    '@type': 'BreadcrumbList',
-    '@id': `${site.url}/#breadcrumbs`,
-    itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: `${site.url}/` }],
+    '@type': 'Service',
+    '@id': `${site.url}/#service`,
+    name: `Roof leak repair in ${site.city}, ${site.stateName}`,
+    serviceType: 'Roof leak repair',
+    provider: { '@id': `${site.url}/#organization` },
+    areaServed: site.areaServed.map((name) => ({ '@type': 'Place', name })),
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Roof leak repairs',
+      itemListElement: services.map((s) => ({
+        '@type': 'Offer',
+        itemOffered: { '@type': 'Service', name: s.data.title, url: `${site.url}/${s.id}/` },
+      })),
+    },
+  },
+  {
+    '@type': 'FAQPage',
+    '@id': `${site.url}/#faq`,
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: toPlainText(f.answer) },
+    })),
   },
 ];
 ---
 
 <BaseLayout
-  title="Roofing Contractors in Norman, OK | Norman Roofing Experts"
-  description="Find roofing contractors in Norman, OK for roof repair, replacement and hail damage. Request a free estimate and connect with a local roofing provider."
+  title={`Roof Leak Repair ${site.city}, ${site.state} | ${site.name}`}
+  description="Roof leaking in Severna Park, MD? Find the source fast: flashing, chimneys, skylights, vents, flat roofs. Call (773) 302-2292 to reach a local roofer."
+  isHome
   schema={schema}
 >
-  <Hero
-    size="full"
-    eyebrow="Norman · Cleveland County · McClain County"
-    title="Roofing Contractors"
-    titleAccent="in Norman, OK"
-    lede="Request roof repair, full replacement, inspections or storm damage restoration for your Norman-area home. Tell us what's happening and we'll route your request to a roofing provider serving your area."
-    image={heroImage}
-    imageAlt="Roofer installing asphalt shingles on a residential roof in bright daylight"
-    primaryCta={{ href: '/free-estimate/', label: 'Get a Free Estimate' }}
-  />
-
-  <TrustBar />
-
-  <!-- Services -->
-  <section class="section">
-    <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">What you can request</p>
-        <h2>Roofing services across Norman</h2>
-        <p class="lede">
-          Seven services, each written for a homeowner with a specific problem rather than a
-          catalogue. Every page explains what to expect and what to ask before work starts.
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="hero__mesh" aria-hidden="true"></div>
+    <div class="hero__grain" aria-hidden="true"></div>
+    <div class="container hero__grid">
+      <div>
+        <span class="eyebrow">{site.city}, {site.stateName} · {site.county}</span>
+        <h1><span class="hl">Roof Leak Repair</span> in {site.city}, MD</h1>
+        <p class="hero__lede">
+          Water on the ceiling, a drip by the chimney, or shingles in the yard after a nor'easter? One call connects
+          you with a local roofer who traces the leak to where it really gets in and repairs it properly, instead of
+          smearing more caulk over the stain.
         </p>
-      </div>
-
-      <div class="grid grid--3">
-        {services.map((service) => <ServiceCard service={service} />)}
-      </div>
-    </div>
-  </section>
-
-  <!-- Why choose us -->
-  <section class="section section--navy why">
-    <div class="container why__inner">
-      <div class="why__text">
-        <p class="eyebrow">What to look for in a roofer</p>
-        <h2>The six things that decide whether a roof lasts</h2>
-        <p class="lede">
-          Roofing bids differ by thousands and the shingle is almost never the reason. These are
-          the questions worth asking any contractor before you sign anything.
-        </p>
-        <ul class="reasons">
-          {
-            reasons.map((reason) => (
-              <li class="reason">
-                <svg
-                  class="reason__tick"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  aria-hidden="true"
-                  focusable="false"
-                >
-                  <path d="m4 10.5 4 4 8-9" />
-                </svg>
-                <div>
-                  <h3 class="reason__title">{reason.title}</h3>
-                  <p class="reason__body">{reason.body}</p>
-                </div>
-              </li>
-            ))
-          }
+        <div class="hero__actions">
+          <CallButton />
+          <a class="btn btn--light" href="#checker">What's causing my leak?</a>
+        </div>
+        <ul class="chips" aria-label="Why call">
+          <li class="chip"><Icon name="droplet" />Leak repair only</li>
+          <li class="chip"><Icon name="pin" />Local to {site.city}</li>
+          <li class="chip"><Icon name="phone" />Free call, no forms</li>
         </ul>
+        <p class="hero__fine">{site.disclosure}</p>
       </div>
 
-      <div class="why__media">
-        <Image
-          src={whyImage}
-          alt="Roofing crew working on the roof of a brick family home"
-          widths={[420, 640, 900]}
-          sizes="(max-width: 68rem) 100vw, 30rem"
-          format="webp"
-          quality={72}
-          loading="lazy"
-          decoding="async"
-        />
-        <div class="why__badge">
-          <span class="why__badge-num">12</span>
-          <span class="why__badge-label">Norman-area<br />communities covered</span>
+      <div class="hero__art">
+        <HeroScene />
+        <div class="glass-card glass-card--a">
+          <span class="icon-tile"><Icon name="layers" /></span>
+          <div><strong>Flashing</strong><span>The #1 place leaks start</span></div>
+        </div>
+        <div class="glass-card glass-card--b">
+          <span class="icon-tile"><Icon name="search" /></span>
+          <div><strong>Traced, not guessed</strong><span>Water runs before it drips</span></div>
+        </div>
+        <div class="glass-card glass-card--c">
+          <span class="icon-tile"><Icon name="phone" /></span>
+          <div><strong>{site.phone.display}</strong><span>Free to call</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Service areas -->
-  <section class="section section--sunk">
+  <!-- ===================== INTRO / DIRECT ANSWER ===================== -->
+  <section class="section section--white" aria-labelledby="intro-title">
     <div class="container">
-      <div class="section-head">
-        <p class="eyebrow">Where we work</p>
-        <h2>Real Norman neighbourhoods, not a city-wide page</h2>
-        <p class="lede">
-          Roofing problems are local. A 1920s bungalow in the Miller district and a 2015 build in
-          Summit Lakes fail in completely different ways. We write a page for each area covering
-          what we actually find there.
-        </p>
+      <SectionHead eyebrow="The short answer" title="How do you fix a leaking roof in Severna Park?" id="intro-title" />
+      <div class="answer">
+        <div class="stack" data-reveal>
+          <p class="answer__lead">
+            Find where water actually enters, stop it temporarily if it's still raining, then repair the failed detail
+            properly once the roof is dry. On most homes that detail is flashing, a vent boot, a chimney or a skylight,
+            not the open field of shingles.
+          </p>
+          <p>
+            That's the whole method, and it's why this site focuses on leaks and nothing else. A leak is a water-path
+            problem. Rain gets in at one spot, runs along the underlayment or a rafter, and drips onto your ceiling
+            wherever gravity sends it. Patch the stain's location and the leak usually comes back. Trace it uphill and
+            fix the real opening, and it stays fixed.
+          </p>
+          <p>
+            Around {site.city}, the weather makes that tracing important. Nor'easters drive rain sideways for hours,
+            summer thunderstorms dump water fast, tall trees drop limbs and fill valleys with leaves, and winter
+            freeze-thaw cycles open cracks in chimneys and sealant. If water is coming in right now, go straight to
+            <a href="/emergency-roof-leak-repair/">emergency roof leak repair</a>. If you're not sure where it starts,
+            <a href="/roof-leak-detection/">roof leak detection</a> explains how professionals find it.
+          </p>
+        </div>
+        <aside class="answer__card" data-reveal aria-label="Do this first">
+          <h3>Do this in the first 10 minutes</h3>
+          <ul class="checklist">
+            <li><Icon name="check" /><span>Move furniture and electronics; put down buckets and towels.</span></li>
+            <li><Icon name="check" /><span>Switch off the breaker for any wet light or outlet.</span></li>
+            <li><Icon name="check" /><span>Photograph the stain, the ceiling and the outside of the roof.</span></li>
+            <li><Icon name="check" /><span>Stay off the roof, especially when it's wet.</span></li>
+            <li><Icon name="check" /><span>Call and describe where the water appears.</span></li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES BENTO ===================== -->
+  <section class="section section--off" id="services" aria-labelledby="services-title">
+    <Divider color="#ffffff" />
+    <div class="container">
+      <SectionHead eyebrow="Leak repairs" title="Every way a roof leaks, and how each one is fixed" id="services-title">
+        Eight specialised leak repairs, each with its own guide. Pick the one that matches what you're seeing, or call
+        and describe it.
+      </SectionHead>
+      <div class="bento">
+        {
+          services.map((s, i) => (
+            <article class:list={['card', bentoSize[i] && `bento__card--${bentoSize[i]}`]} data-reveal>
+              {i === 0 && <span class="bento__tag">Water coming in now</span>}
+              <span class="icon-tile"><Icon name={s.data.icon as any} /></span>
+              <h3><a href={`/${s.id}/`}>{s.data.title}</a></h3>
+              <p>{s.data.blurb}</p>
+              <span class="text-link">{i === 0 ? 'What to do first' : 'Read the guide'} <Icon name="arrow" /></span>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SYMPTOM CHECKER ===================== -->
+  <section class="section section--tint" id="checker" aria-labelledby="checker-title">
+    <div class="container">
+      <SectionHead eyebrow="Symptom checker" title="What is your leak telling you?" id="checker-title">
+        Where and when water shows up says a lot about where it gets in. Pick the symptom closest to yours to see the
+        most likely source and the repair that usually fixes it. It's a starting point, not a diagnosis; a roofer
+        confirms it on site.
+      </SectionHead>
+      <div class="checker" data-checker>
+        <div class="checker__tabs" role="tablist" aria-label="Leak symptoms" aria-orientation="vertical">
+          {
+            symptoms.map((s, i) => (
+              <button class="checker__tab" type="button" role="tab" id={`sym-tab-${i}`} aria-controls={`sym-panel-${i}`} aria-selected={i === 0 ? 'true' : 'false'}>
+                <Icon name={s.icon} />
+                {s.label}
+              </button>
+            ))
+          }
+        </div>
+        <div class="checker__panels">
+          {
+            symptoms.map((s, i) => (
+              <div class="checker__panel" role="tabpanel" id={`sym-panel-${i}`} aria-labelledby={`sym-tab-${i}`} tabindex="0">
+                <p class="eyebrow">{s.label}</p>
+                <h3>{s.title}</h3>
+                <p>{s.body}</p>
+                <div class="checker__meta">
+                  <span class="badge"><Icon name="search" />Likely source: {s.source}</span>
+                  <span class="badge badge--hot"><Icon name="clock" />{s.urgency}</span>
+                </div>
+                <a class="text-link" href={s.href}>{s.link} <Icon name="arrow" /></a>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== IN-DEPTH GUIDE ===================== -->
+  <section class="section section--white" aria-labelledby="guide-title">
+    <div class="container">
+      <SectionHead eyebrow="The guide" title="Roof leaks in Severna Park: causes, detection and what happens next" id="guide-title">
+        A plain explanation of why roofs here leak, how the source is found, and what a proper repair looks like.
+      </SectionHead>
+
+      <div class="split" data-reveal>
+        <div class="split__art"><Illustration name="flashing" /></div>
+        <div class="split__body">
+          <span class="eyebrow">Causes</span>
+          <h3>Why do roofs leak around Severna Park?</h3>
+          <p>
+            Shingles shed water well across an open slope. Leaks almost always start where that slope is interrupted:
+            a wall, a chimney, a skylight, a vent pipe or a valley. Those joints are sealed with flashing and
+            sealant, and they're where age, movement and weather do their damage first. That's why
+            <a href="/roof-flashing-repair/">roof flashing repair</a> is the most common leak fix, followed by
+            cracked rubber boots that call for <a href="/roof-vent-leak-repair/">roof vent leak repair</a>.
+          </p>
+          <p>
+            Local conditions add pressure. The land between the Severn and Magothy rivers catches wind off open
+            water, so storms push rain sideways under flashing that stays dry in a calm shower. Mature trees fill
+            valleys and gutters with leaves and drop limbs in high wind, a leading cause of
+            <a href="/storm-damage-roof-repair/">storm damage roof repair</a>. Humid summers and freezing winter nights
+            crack chimney crowns and mortar, which is where <a href="/chimney-leak-repair/">chimney leak repair</a>
+            comes in.
+          </p>
+          <aside class="callout callout--tip"><p><strong>Pro tip:</strong> Note the wind direction when your leak appears. A leak that only shows up in storms from one side points straight at the flashing on that side.</p></aside>
+        </div>
       </div>
 
-      <div class="grid grid--3">
-        {normanAreas.map((location) => <AreaCard location={location} />)}
+      <div class="split split--reverse" data-reveal>
+        <div class="split__art"><Illustration name="trace" /></div>
+        <div class="split__body">
+          <span class="eyebrow">Detection</span>
+          <h3>How is the source of a leak found?</h3>
+          <p>
+            Water travels before it drips. A good roofer starts inside: the stain, then the attic, following water
+            marks on rafters and decking uphill to the highest wet point. The entry is usually directly above it or a
+            little further up the slope.
+          </p>
+          <p>
+            Next comes the roof itself: every flashing joint, boot, skylight frame and valley above that point. When
+            two or three features are suspects, a controlled water test settles it. One person runs a hose on a small
+            section while another watches inside, moving uphill section by section. On
+            <a href="/flat-roof-leak-repair/">flat and low-slope roofs</a>, moisture meters and sometimes thermal
+            imaging map wet insulation under the membrane. Around skylights, the first question is whether it's a leak
+            at all; condensation is common, and <a href="/skylight-leak-repair/">skylight leak repair</a> explains how
+            to tell.
+          </p>
+          <aside class="callout callout--warn"><p><strong>Warning:</strong> In the attic, step only on joists. Ceiling drywall won't hold your weight, and a foot through the ceiling turns a leak into a much bigger repair.</p></aside>
+        </div>
       </div>
 
-      <p class="areas__more">
-        <CTAButton href="/service-areas/" variant="ghost"
-          >All 12 service areas, including nearby towns</CTAButton
-        >
+      <div class="split" data-reveal>
+        <div class="split__art"><Illustration name="ceiling" /></div>
+        <div class="split__body">
+          <span class="eyebrow">After the call</span>
+          <h3>What happens after the leak is found?</h3>
+          <p>
+            If it's still raining, the first step is temporary: a tarp fastened over the ridge, or a membrane patch
+            over a small opening. Once the roof is dry, the permanent repair replaces whatever failed, whether new step
+            flashing woven under lifted shingles, a new pipe boot, a rebuilt chimney crown, or fresh seams on a
+            flat roof.
+          </p>
+          <p>
+            A careful provider also checks for hidden damage: soft decking around the opening, soaked insulation and
+            wet drywall. Wet insulation should be pulled and replaced, because it holds moisture against the ceiling
+            and invites mold. Ask for before-and-after photos of anything that will be covered up, so you can see what
+            was done. If a leak was patched before and came back, that's a sign the real source was missed.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROCESS ===================== -->
+  <section class="section section--dark" aria-labelledby="process-title">
+    <Divider shape="angle" color="#ffffff" />
+    <div class="container">
+      <SectionHead eyebrow="How it works" title="From first drip to fixed, in four steps" id="process-title">
+        No forms, no waiting for an email. You talk to a person about your roof, and the provider takes it from there.
+      </SectionHead>
+      <ol class="steps">
+        {
+          steps.map((s, i) => (
+            <li class="step" data-reveal>
+              <span class="step__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{s.title}</h3>
+              <p>{s.body}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== COST OF WAITING ===================== -->
+  <section class="section section--dark" aria-labelledby="waiting-title" style="padding-top:0">
+    <div class="container">
+      <SectionHead eyebrow="Why it can't wait" title="What a small leak costs when it's left alone" id="waiting-title">
+        A slow drip looks harmless because most of the damage happens out of sight. Here's the usual progression when
+        a roof leak goes unrepaired.
+      </SectionHead>
+      <div class="wait-grid">
+        {
+          waiting.map((w) => (
+            <div class="wait-card" data-reveal>
+              <span class="wait-card__when">{w.when}</span>
+              <p>{w.body}</p>
+            </div>
+          ))
+        }
+      </div>
+      <p class="mt-lg" data-reveal>
+        The longer water runs, the more trades a repair involves: roofing, then carpentry, insulation, drywall and
+        paint. A leak that a pipe boot or a few feet of flashing would fix in week one can mean ceiling and decking
+        work by the end of a wet season. Acting early is the single biggest thing you can do to keep a repair small.
       </p>
     </div>
   </section>
 
-  <!-- Estimate form -->
-  <section class="section estimate">
-    <div class="container estimate__inner">
-      <div class="estimate__text">
-        <p class="eyebrow">Free estimate</p>
-        <h2>Leaking roof? Storm damage? Start here.</h2>
-        <p class="lede">
-          Tell us what the roof is doing and where you're located. There's no cost or
-          obligation to ask, and your request goes to a roofing provider serving your area, who
-          will follow up directly.
-        </p>
-        <ul class="estimate__points">
-          <li>Free and no-obligation to submit a request</li>
-          <li>Ask for pricing in writing before any work begins</li>
-          <li>Ask whether the provider documents insurance claims to adjuster standard</li>
-          <li>Mention an active leak so your request is flagged as urgent</li>
-        </ul>
-        <p class="estimate__call">
-          Roof leaking right now? Call
-          <a href={site.phone.href}>{site.phone.display}</a>; that's faster than the form.
-        </p>
-      </div>
-      <div class="estimate__form">
-        <LeadForm formId="home" />
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQs -->
-  <section class="section section--surface">
+  <!-- ===================== COST FACTORS ===================== -->
+  <section class="section section--white" aria-labelledby="cost-title">
+    <Divider color="#06121f" />
     <div class="container container--narrow">
-      <FAQAccordion faqs={faqs} heading="Roofing in Norman: common questions" />
+      <SectionHead eyebrow="Pricing" title="What affects the cost of roof leak repair?" id="cost-title">
+        Every leak is priced by the provider after they've seen it. These are the factors that move the number up or
+        down, so you know what to ask about.
+      </SectionHead>
+      <div class="table-wrap" data-reveal>
+        <table>
+          <thead><tr><th scope="col">Factor</th><th scope="col">Why it matters</th></tr></thead>
+          <tbody>{costFactors.map(([f, why]) => <tr><td>{f}</td><td>{why}</td></tr>)}</tbody>
+        </table>
+      </div>
+      <p class="mt-lg" data-reveal>
+        Ask the provider to separate temporary work from the permanent repair in their price, and to tell you before
+        starting if they find rotted decking or wet insulation. A clear scope up front prevents surprises later.
+      </p>
     </div>
   </section>
 
-  <!-- Final CTA -->
-  <section class="finale">
-    <div class="container finale__inner">
-      <div>
-        <h2 class="finale__heading">Get a straight answer about your roof.</h2>
-        <p class="finale__body">
-          Request a free, no-obligation estimate and we'll connect you with a roofing provider
-          serving your area who can take a proper look and tell you where you stand.
+  <!-- ===================== AREAS ===================== -->
+  <section class="section section--tint" id="areas" aria-labelledby="areas-title">
+    <div class="container">
+      <SectionHead eyebrow="Service area" title="Roof leak repair in Severna Park and nearby towns" id="areas-title">
+        Calls from {site.city} and the surrounding Anne Arundel County communities are connected to a local provider.
+        Each town has its own typical leak pattern.
+      </SectionHead>
+      <div class="area-grid">
+        <article class="card area-card--map" data-reveal>
+          <span class="area-card__zip" style="color:var(--accent)">ZIP {site.zip}</span>
+          <h3>{site.city}</h3>
+          <p>
+            Between the Severn and Magothy rivers, with the B&amp;A Trail running through town and plenty of mature
+            trees. Wind-driven rain, leafy valleys and older brick chimneys make flashing and chimney leaks the most
+            common calls here.
+          </p>
+          <Illustration name="map" />
+        </article>
+        {
+          locations.map((l) => (
+            <article class="card" data-reveal>
+              <span class="area-card__zip">ZIP {l.data.zip}</span>
+              <h3><a href={`/${l.id}/`}>{l.data.title}, MD</a></h3>
+              <p>{l.data.blurb}</p>
+              <span class="text-link">Roof leak repair in {l.data.title} <Icon name="arrow" /></span>
+            </article>
+          ))
+        }
+      </div>
+      <p class="mt-lg" data-reveal>
+        Just south, <a href="/roof-leak-repair-arnold-md/">roof leak repair in Arnold</a> deals with the same river
+        winds and wooded lots. Across the Magothy, <a href="/roof-leak-repair-pasadena-md/">Pasadena roof leak repair</a>
+        covers waterfront homes and porch roofs. West along I-97, <a href="/roof-leak-repair-millersville-md/">Millersville</a>
+        mixes older and newer homes, <a href="/roof-leak-repair-severn-md/">Severn</a> has many townhomes with shared
+        roof lines, and <a href="/roof-leak-repair-glen-burnie-md/">Glen Burnie</a> has a large stock of older roofs.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== HOW THE REFERRAL WORKS ===================== -->
+  <section class="section section--off" aria-labelledby="referral-title">
+    <div class="container referral">
+      <div class="stack" data-reveal>
+        <span class="eyebrow">How the call works</span>
+        <h2 id="referral-title">Who you're talking to when you call</h2>
+        <p>
+          {site.name} is a free referral service, not a roofing contractor. When you call {site.phone.display}, your
+          call is connected to an independent roofing provider who serves {site.city} and the surrounding area. That
+          provider inspects the roof, quotes the work and does the repair. They set their own prices and schedule, and
+          any agreement for work is between you and them.
+        </p>
+        <p>
+          We don't charge you for the call, and calling doesn't commit you to anything. Before work starts, ask the
+          provider to confirm their Maryland home improvement licence, their insurance, and a written scope and price.
+          A good provider will be glad you asked.
         </p>
       </div>
-      <div class="finale__actions">
-        <CTAButton href="/free-estimate/" variant="primary">Get a Free Estimate</CTAButton>
-        <CTAButton href={site.phone.href} variant="ghost" phone>{site.phone.display}</CTAButton>
-      </div>
+      <ul class="flow" data-reveal>
+        <li><span class="icon-tile icon-tile--accent"><Icon name="phone" /></span><p><strong>Free call.</strong> No forms and no account. Describe the leak.</p></li>
+        <li><span class="icon-tile"><Icon name="home" /></span><p><strong>Local provider.</strong> Independent roofer serving {site.city}.</p></li>
+        <li><span class="icon-tile"><Icon name="file" /></span><p><strong>Their quote.</strong> Written scope and price from the provider.</p></li>
+        <li><span class="icon-tile"><Icon name="shield" /></span><p><strong>Your choice.</strong> Verify their licence and insurance, then decide.</p></li>
+      </ul>
     </div>
   </section>
+
+  <!-- ===================== READY + FAQ ===================== -->
+  <section class="section section--white" aria-labelledby="faq-title">
+    <div class="container container--narrow">
+      <div class="answer__card" data-reveal style="margin-bottom:56px">
+        <h3>What to have ready when you call</h3>
+        <ul class="checklist">
+          <li><Icon name="pin" /><span>Your address or nearest cross street in {site.city} or the nearby town.</span></li>
+          <li><Icon name="droplet" /><span>Where the water shows up inside, and roughly how big the stain is.</span></li>
+          <li><Icon name="rain" /><span>When it started and what the weather was: steady rain, wind, snow melt.</span></li>
+          <li><Icon name="camera" /><span>Photos of the stain and the roof from the ground, if you have them.</span></li>
+          <li><Icon name="clock" /><span>The age of the roof, if you know it, and any past repairs to that spot.</span></li>
+        </ul>
+      </div>
+      <SectionHead eyebrow="FAQ" title="Roof leak questions from Severna Park homeowners" id="faq-title" />
+      <FAQ faqs={faqs} />
+    </div>
+  </section>
+
+  <CTABand title="Stop the leak before it becomes a ceiling repair" text="Call now, tell the provider what you're seeing, and get the source found and fixed properly." />
 </BaseLayout>
-
-<style>
-  /* --- Why choose us -------------------------------------------------------- */
-
-  .why__inner {
-    display: grid;
-    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-    gap: var(--space-xl);
-    align-items: center;
-  }
-
-  @media (max-width: 68rem) {
-    .why__inner {
-      grid-template-columns: 1fr;
-      gap: var(--space-l);
-    }
-  }
-
-  .reasons {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
-    gap: var(--space-m) var(--space-l);
-    list-style: none;
-    padding: 0;
-    margin-top: var(--space-l);
-  }
-
-  .reason {
-    display: flex;
-    gap: 0.75rem;
-    align-items: flex-start;
-  }
-
-  .reason__tick {
-    width: 1.35rem;
-    height: 1.35rem;
-    flex-shrink: 0;
-    margin-top: 0.2rem;
-    color: var(--copper-400);
-  }
-
-  .reason__title {
-    font-size: var(--step-0);
-    letter-spacing: -0.01em;
-    color: #fff;
-    margin-bottom: 0.25rem;
-  }
-
-  .reason__body {
-    font-size: var(--step--1);
-    line-height: 1.6;
-    color: var(--on-navy-muted);
-  }
-
-  .why__media {
-    position: relative;
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-  }
-
-  .why__media :global(img) {
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-  }
-
-  @media (max-width: 68rem) {
-    .why__media :global(img) {
-      aspect-ratio: 16 / 9;
-    }
-  }
-
-  .why__badge {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    gap: 0.85rem;
-    padding: var(--space-s) var(--space-m);
-    background: var(--copper-500);
-    color: #fff;
-    border-start-end-radius: var(--radius-lg);
-  }
-
-  .why__badge-num {
-    font-family: var(--font-display);
-    font-size: var(--step-3);
-    font-weight: 800;
-    line-height: 1;
-  }
-
-  .why__badge-label {
-    font-family: var(--font-display);
-    font-size: 0.74rem;
-    font-weight: 600;
-    line-height: 1.3;
-    letter-spacing: 0.02em;
-  }
-
-  /* --- Service areas -------------------------------------------------------- */
-
-  .areas__more {
-    margin-top: var(--space-l);
-  }
-
-  /* --- Estimate ------------------------------------------------------------- */
-
-  .estimate__inner {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 30rem);
-    gap: var(--space-xl);
-    align-items: start;
-  }
-
-  @media (max-width: 68rem) {
-    .estimate__inner {
-      grid-template-columns: 1fr;
-      gap: var(--space-l);
-    }
-  }
-
-  .estimate__points {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    list-style: none;
-    padding: 0;
-    margin-top: var(--space-m);
-  }
-
-  .estimate__points li {
-    position: relative;
-    padding-left: 1.6rem;
-    color: var(--ink-muted);
-    font-size: var(--step--1);
-  }
-
-  .estimate__points li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.5em;
-    width: 0.55rem;
-    height: 0.55rem;
-    background: var(--copper-500);
-    transform: rotate(45deg);
-  }
-
-  .estimate__call {
-    margin-top: var(--space-m);
-    padding-top: var(--space-s);
-    border-top: 1px solid var(--line);
-    font-size: var(--step--1);
-    color: var(--ink-muted);
-  }
-
-  .estimate__call a {
-    font-family: var(--font-display);
-    font-weight: 700;
-    white-space: nowrap;
-  }
-
-  /* --- Finale --------------------------------------------------------------- */
-
-  .finale {
-    background: var(--navy-950);
-    color: var(--on-navy);
-    background-image:
-      radial-gradient(circle at 85% 10%, rgb(206 107 38 / 0.28), transparent 45%),
-      radial-gradient(circle at 5% 95%, rgb(41 79 132 / 0.45), transparent 40%);
-  }
-
-  .finale__inner {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-l);
-    padding-block: var(--space-2xl);
-  }
-
-  .finale__heading {
-    color: #fff;
-    font-size: var(--step-3);
-    max-width: 22ch;
-  }
-
-  .finale__body {
-    margin-top: var(--space-s);
-    max-width: 40rem;
-    color: var(--on-navy-muted);
-    line-height: 1.65;
-  }
-
-  .finale__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-s);
-  }
-
-  .finale__actions :global(.btn--ghost) {
-    color: #fff;
-  }
-
-  .finale__actions :global(.btn--ghost:hover) {
-    background: #fff;
-    border-color: #fff;
-    color: var(--navy-900);
-  }
-
-  @media (max-width: 34rem) {
-    .finale__actions,
-    .finale__actions :global(.btn) {
-      width: 100%;
-    }
-  }
-</style>

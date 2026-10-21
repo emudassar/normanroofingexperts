@@ -6,57 +6,46 @@ import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
 interface Props {
-  /** <title> content. Should be unique across the site. */
+  /** <title> content. Must be unique across the site, ≤60 chars. */
   title: string;
-  /** Meta description. Should be unique across the site. */
+  /** Meta description. Must be unique across the site, ≤155 chars. */
   description: string;
   /** Path-only canonical override. Defaults to the current URL. */
   canonicalPath?: string;
-  /** Absolute or root-relative OG image. Defaults to the site image. */
   ogImage?: string;
-  /** "website" for most pages, "article" for blog posts. */
-  ogType?: 'website' | 'article';
   /** Keep the page out of the index (404 only). */
   noindex?: boolean;
+  /** Home page carries the Organization + WebSite nodes. */
+  isHome?: boolean;
   /** Extra JSON-LD graph nodes for this page. */
   schema?: Record<string, unknown>[];
 }
 
-const {
-  title,
-  description,
-  canonicalPath,
-  ogImage = site.defaultOgImage,
-  ogType = 'website',
-  noindex = false,
-  schema = [],
-} = Astro.props;
+const { title, description, canonicalPath, ogImage = site.defaultOgImage, noindex = false, isHome = false, schema = [] } = Astro.props;
 
 const canonical = new URL(canonicalPath ?? Astro.url.pathname, site.url).href;
 const ogImageUrl = new URL(ogImage, site.url).href;
 
 /**
- * Organization only, never LocalBusiness. There is no physical address and no
+ * Organization only, never LocalBusiness: there is no physical address and no
  * Google Business Profile behind this site, so a LocalBusiness node would be a
- * fabricated one. See docs/brief.md §2.
+ * fabricated one. Inner pages reference it by @id.
  */
 const organizationSchema = {
   '@type': 'Organization',
   '@id': `${site.url}/#organization`,
   name: site.name,
   url: `${site.url}/`,
+  logo: `${site.url}/favicon.svg`,
   description: site.description,
-  telephone: site.phone.display,
+  telephone: '+1-773-302-2292',
   email: site.email,
-  areaServed: site.areaServed.map((name) => ({
-    '@type': 'Place',
-    name,
-  })),
+  areaServed: site.areaServed.map((name) => ({ '@type': 'Place', name })),
   contactPoint: {
     '@type': 'ContactPoint',
-    telephone: site.phone.display,
+    telephone: '+1-773-302-2292',
     contactType: 'customer service',
-    areaServed: 'US-OK',
+    areaServed: 'US-MD',
     availableLanguage: 'English',
   },
 };
@@ -68,11 +57,12 @@ const websiteSchema = {
   name: site.name,
   description: site.description,
   publisher: { '@id': `${site.url}/#organization` },
+  inLanguage: 'en-US',
 };
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@graph': [organizationSchema, websiteSchema, ...schema],
+  '@graph': [...(isHome ? [organizationSchema, websiteSchema] : []), ...schema],
 };
 ---
 
@@ -80,10 +70,11 @@ const jsonLd = {
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="generator" content={Astro.generator} />
     <meta name="google-site-verification" content="xUsteo_DEnpzkQmYFBB4WMec-ZV-FDgKMs6rjJAIVjk" />
     <meta name="msvalidate.01" content="5CF4F6B4ACD5B2DF0D614FA07B0E5015" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
 
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -92,10 +83,9 @@ const jsonLd = {
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
-    <meta name="theme-color" content="#0B1E3B" />
+    <meta name="theme-color" content="#0b2545" />
 
-    <!-- Open Graph -->
-    <meta property="og:type" content={ogType} />
+    <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -105,19 +95,17 @@ const jsonLd = {
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="en_US" />
 
-    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
 
-    <!-- Self-hosted, preloaded webfonts. No external font request. -->
     <Font cssVariable="--font-display" preload />
     <Font cssVariable="--font-body" preload />
 
     <link rel="sitemap" href="/sitemap-index.xml" />
 
-    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />
+    {jsonLd['@graph'].length > 0 && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} is:inline />}
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-H5GXEGN5CN"></script>
@@ -137,5 +125,8 @@ const jsonLd = {
       <slot />
     </main>
     <Footer />
+    <script>
+      import '../scripts/main.ts';
+    </script>
   </body>
 </html>

@@ -1,0 +1,24 @@
+---
+/**
+ * First-level URLs for both collections: /roof-flashing-repair/ (services)
+ * and /roof-leak-repair-arnold-md/ (locations). Slugs are the markdown file
+ * names, so they must stay unique across the two folders.
+ */
+import type { GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import LocationLayout from '../layouts/LocationLayout.astro';
+
+export const getStaticPaths = (async () => {
+  const services = await getCollection('services', ({ data }) => !data.draft);
+  const locations = await getCollection('locations', ({ data }) => !data.draft);
+  return [
+    ...services.map((entry) => ({ params: { slug: entry.id }, props: { kind: 'service' as const, entry } })),
+    ...locations.map((entry) => ({ params: { slug: entry.id }, props: { kind: 'location' as const, entry } })),
+  ];
+}) satisfies GetStaticPaths;
+
+const { kind, entry } = Astro.props;
+---
+
+{kind === 'service' ? <ServiceLayout entry={entry as any} /> : <LocationLayout entry={entry as any} />}

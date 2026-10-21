@@ -1,5 +1,11 @@
 {
   "trailingSlash": true,
+  "redirects": [
+    { "source": "/services/:path*", "destination": "/", "permanent": true },
+    { "source": "/service-areas/:path*", "destination": "/#areas", "permanent": true },
+    { "source": "/blog/:path*", "destination": "/", "permanent": true },
+    { "source": "/free-estimate/", "destination": "/contact/", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -12,6 +18,10 @@
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
       ]
+    },
+    {
+      "source": "/(icons|textures)/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=2592000" }]
     }
   ]
 }

@@ -1,0 +1,65 @@
+---
+/**
+ * Shared body for service and area pages: dark page hero with breadcrumbs,
+ * then a three-column article (sticky "On this page" TOC, prose, sticky call
+ * card). On mobile the TOC and call card collapse under the H1.
+ */
+import { site } from '../config/site';
+import Breadcrumbs from './Breadcrumbs.astro';
+import CallButton from './CallButton.astro';
+import Icon from './Icon.astro';
+
+interface Props {
+  eyebrow: string;
+  h1: string;
+  lede: string;
+  crumb: string;
+  toc: { slug: string; text: string }[];
+  callTitle: string;
+}
+
+const { eyebrow, h1, lede, crumb, toc, callTitle } = Astro.props;
+---
+
+<section class="page-hero">
+  <div class="hero__mesh" aria-hidden="true"></div>
+  <div class="hero__grain" aria-hidden="true"></div>
+  <div class="container">
+    <Breadcrumbs current={crumb} />
+    <p class="eyebrow" style="margin-top:28px">{eyebrow}</p>
+    <h1>{h1}</h1>
+    <p class="page-hero__lede">{lede}</p>
+    <div class="page-hero__actions">
+      <CallButton />
+      <a class="btn btn--light" href="#faqs">Read the FAQs</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--white">
+  <div class="container article">
+    <details class="toc" open data-toc>
+      <summary>On this page <Icon name="chevron" /></summary>
+      <ol>
+        {toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}
+      </ol>
+    </details>
+
+    <aside class="article__aside" aria-label="Call for help">
+      <div class="call-card">
+        <h2>{callTitle}</h2>
+        <a class="call-card__phone" href={site.phone.href} data-call>{site.phone.display}</a>
+        <ul class="checklist">
+          <li><Icon name="check" /><span>One call, no forms</span></li>
+          <li><Icon name="check" /><span>Local {site.city}-area provider</span></li>
+          <li><Icon name="check" /><span>Free to call, no obligation</span></li>
+        </ul>
+        <CallButton label="Call now" />
+      </div>
+    </aside>
+
+    <div class="prose" data-content>
+      <slot />
+    </div>
+  </div>
+</section>

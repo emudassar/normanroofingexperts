@@ -1,18 +1,20 @@
 ---
-import { Image } from 'astro:assets';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import PageHeader from '../components/PageHeader.astro';
-import CTABand from '../components/CTABand.astro';
+import { getCollection } from 'astro:content';
 import { site } from '../config/site';
-import aboutImage from '../assets/images/placeholder-crew-blue-sky.jpg';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionHead from '../components/SectionHead.astro';
+import CTABand from '../components/CTABand.astro';
+import Icon from '../components/Icon.astro';
 
+const services = (await getCollection('services', ({ data }) => !data.draft)).sort((a, b) => a.data.order - b.data.order);
 const url = `${site.url}/about/`;
 
 const schema = [
   {
     '@type': 'AboutPage',
     '@id': `${url}#page`,
-    name: 'About Norman Roofing Experts',
+    name: `About ${site.name}`,
     url,
     isPartOf: { '@id': `${site.url}/#website` },
     about: { '@id': `${site.url}/#organization` },
@@ -29,223 +31,106 @@ const schema = [
 ---
 
 <BaseLayout
-  title="About Norman Roofing Experts | Local Roofers, Norman OK"
-  description="What Norman Roofing Experts is, how requesting a roof estimate here actually works, and what to check before hiring any Norman, OK roofing contractor."
+  title={`About Us | ${site.name}`}
+  description="Who we are: a free referral service that connects Severna Park, MD homeowners with a local roofer for roof leak repair. How it works and what we don't do."
   schema={schema}
 >
-  <PageHeader
+  <PageHero
     eyebrow="About us"
-    title="A straightforward way to request roofing help in Norman"
-    lede="Most bad roofing outcomes start the same way: a homeowner makes a five-figure decision based on someone's verbal assessment of a surface they can't see. This site exists to get you to a local provider faster, and to tell you plainly what to check before you hire anyone."
+    title="A leak-focused referral service for Severna Park homes"
+    lede="We do one thing: help homeowners with a leaking roof reach a local roofing provider quickly, and explain leaks clearly enough that you know what to ask."
+    crumb="About"
   />
 
-  <section class="section">
-    <div class="container about">
-      <div class="about__body prose">
-        <h2>What this site is</h2>
-        <p>
-          Norman Roofing Experts is a website, not a roofing crew. It doesn't send trucks, carry
-          insurance, or perform inspections itself. What it does is collect the details of your
-          roofing project through the phone number and forms on this site, and pass them along to
-          a roofing provider serving your area, who then contacts you directly to schedule an
-          inspection, answer questions and quote the work.
-        </p>
-        <p>
-          There's no cost or obligation to submit a request. We'd rather say that plainly than
-          have you assume you're speaking with an in-house crew when you're not.
-        </p>
+  <section class="section section--white">
+    <div class="container container--narrow prose" data-content>
+      <h2>Why a site only about roof leaks?</h2>
+      <p>
+        Most roofing websites try to sell everything: new roofs, gutters, siding, windows. When your ceiling is
+        dripping, that isn't much help. You need to know what's probably causing it, how urgent it is, and who can
+        come and fix it. {site.name} was built around that moment. Every page on this site is about finding and
+        fixing leaks in and around {site.city}, {site.stateName}, from <a href="/roof-flashing-repair/">failed
+        flashing</a> to <a href="/chimney-leak-repair/">leaking chimneys</a>.
+      </p>
+      <p>
+        Leaks are also the part of roofing where homeowners get the worst deal. A stain gets caulked from the inside,
+        a patch goes on the wrong spot, and the water comes back with the next storm. We think the best protection
+        is a clear explanation, so the guides here explain how water actually travels, how the real source is found,
+        and what a lasting repair looks like.
+      </p>
 
-        <h2>What you can request</h2>
-        <p>
-          Roof repair, full replacement, inspections, storm and hail damage restoration, gutter
-          installation and repair, and residential or light-commercial roofing work, for
-          properties across Norman, the rest of Cleveland County and northern McClain County. See
-          the <a href="/services/">services</a> and <a href="/service-areas/">service areas</a>
-          pages for what's covered in each.
-        </p>
+      <h2>How does {site.name} work?</h2>
+      <p>
+        <strong>{site.name} is a free referral service, not a roofing contractor.</strong> We don't employ roofers,
+        own trucks, carry contractor's insurance or perform repairs. When you call {site.phone.display}, your call is
+        connected to an independent roofing provider who serves {site.city} and the surrounding {site.county}
+        communities.
+      </p>
+      <p>
+        That provider is a separate business. They inspect your roof, give you their price, schedule the work and
+        stand behind it under their own terms. Any agreement for work is between you and the provider. We may be
+        compensated by the provider for connecting calls; you are never charged by us for calling.
+      </p>
+      <aside class="callout callout--tip"><p><strong>Pro tip:</strong> Before any work starts, ask the provider for their Maryland Home Improvement Commission (MHIC) licence number and proof of insurance, and get the scope and price in writing. These are reasonable questions for any contractor.</p></aside>
 
-        <h2>How a request turns into a quote</h2>
-        <p>
-          You send the form or call with a description of the problem and your location. That
-          information goes to a roofing provider serving your area, who reaches out to arrange an
-          on-site look at the roof. Any real price comes from that visit, not from this site — a
-          number given without anyone seeing the roof is a number that will change once someone
-          actually inspects it.
-        </p>
+      <h2>What we promise, and what we don't</h2>
+      <p>We keep our claims to things we can actually stand behind:</p>
+      <ul>
+        <li>Calling is free and doesn't commit you to anything.</li>
+        <li>The information on this site is written to be accurate and practical, and we correct it when we learn something is wrong.</li>
+        <li>We don't publish invented reviews, ratings, prices or awards.</li>
+        <li>We don't claim a street address or an office we don't have.</li>
+      </ul>
+      <p>
+        What we can't promise: a provider's exact availability, response time or prices. Those are set by the provider,
+        so ask them directly on the call. If something about a provider's work concerns you, tell us at
+        <a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
 
-        <h2>What to check before you hire anyone</h2>
-        <p>
-          These are the questions worth asking whichever roofing provider you end up working
-          with, whether they come through this site or anywhere else. Most complaints in this
-          trade trace back to one of these being skipped.
-        </p>
-        <ul>
-          <li>
-            <strong>Ask whether they'll waive or absorb your deductible.</strong> If they offer,
-            walk away. Rebating, absorbing or advertising the waiving of an insurance deductible
-            is fraud under Oklahoma law, and it exposes you as well as the contractor.
-          </li>
-          <li>
-            <strong>Don't sign anything on your doorstep.</strong> Not a contract, not a
-            contingency agreement, not anything. A decision worth making is worth making after
-            you've read the paperwork and slept on it.
-          </li>
-          <li>
-            <strong>Ask for the evidence, not just the verdict.</strong> A contractor who can show
-            you dated photographs of what they found is easier to trust than one who tells you
-            what you need without proof.
-          </li>
-          <li>
-            <strong>Ask whether they tear off the old roof or lay over it.</strong> A layover
-            hides decking damage you're about to cover for twenty years, adds weight and can
-            complicate a future claim.
-          </li>
-          <li>
-            <strong>Verify their registration and insurance independently.</strong> Don't take a
-            verbal answer for it. Details below.
-          </li>
-        </ul>
+      <h2>Where do we help?</h2>
+      <p>
+        The focus is {site.city} (ZIP {site.zip}), with calls also taken from nearby
+        <a href="/roof-leak-repair-arnold-md/">Arnold</a>, <a href="/roof-leak-repair-pasadena-md/">Pasadena</a>,
+        <a href="/roof-leak-repair-millersville-md/">Millersville</a>, <a href="/roof-leak-repair-severn-md/">Severn</a>
+        and <a href="/roof-leak-repair-glen-burnie-md/">Glen Burnie</a>. Each area page explains the leak patterns
+        typical of its housing and setting, from wooded lots to waterfront homes and townhome rows.
+      </p>
 
-        <h2>An honest note about reviews</h2>
-        <p>
-          You won't find a star rating or a review count on this site — there isn't a verified
-          review corpus behind it to display, and a great many roofing sites show numbers they
-          can't substantiate. Before you hire any Norman-area roofer, ask for references you can
-          actually call, and check their standing directly rather than trusting a badge on a
-          website.
-        </p>
+      <h2>Who is behind the site?</h2>
+      <p>
+        {site.name} is run by a small independent web publisher, not a roofing company. The site is built to be fast,
+        readable on a phone in a dark attic, and useful even if you never call. If you spot something on a page that is
+        wrong or unclear, or a provider didn't treat you well, email us. We read every message and update the guides
+        when a reader points out a better way to explain something.
+      </p>
 
-        <h2>Licensing and insurance</h2>
-        <p>
-          This site doesn't carry a roofing license or insurance policy — it isn't the entity
-          doing the work. Whichever roofing provider you end up hiring should carry general
-          liability and workers' compensation coverage and provide certificates on request before
-          work starts. Ask for that of every contractor you consider, and verify it independently:
-          if someone is injured on your roof and the contractor isn't properly insured, that can
-          become your problem.
-        </p>
-        <p>
-          Oklahoma requires roofing contractors to register with the state Construction Industries
-          Board. Ask any contractor for their registration number and check it directly with the
-          state. It takes a couple of minutes and it eliminates a meaningful share of the risk.
-        </p>
-      </div>
-
-      <aside class="about__aside">
-        <div class="about__media">
-          <Image
-            src={aboutImage}
-            alt="Roofing crew working on a residential roof under a clear blue sky"
-            widths={[420, 640, 900]}
-            sizes="(max-width: 68rem) 100vw, 24rem"
-            format="webp"
-            quality={72}
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-
-        <div class="factbox">
-          <h2 class="factbox__title">At a glance</h2>
-          <dl class="factbox__list">
-            <div><dt>What this is</dt><dd>A roofing request &amp; referral website</dd></div>
-            <div><dt>Coverage</dt><dd>Norman, Cleveland County, north McClain County</dd></div>
-            <div><dt>Cost to request</dt><dd>Free, with no obligation</dd></div>
-            <div><dt>Who does the work</dt><dd>A local roofing provider, contacted after you submit a request</dd></div>
-            <div><dt>Quotes</dt><dd>From the provider, after an on-site inspection</dd></div>
-            <div><dt>Deductible offers</dt><dd>Never. It's fraud in Oklahoma.</dd></div>
-          </dl>
-        </div>
-      </aside>
+      <h2>How the guides are written</h2>
+      <p>
+        The content here explains general, well-established roofing knowledge: how flashing is layered, why pipe boots
+        crack, how water tracing works, what affects repair cost. Local details are limited to things that are widely
+        known about the area, like its weather, its rivers and its housing. We don't quote prices, because a fair price
+        depends on what's found on your roof. If you're new to roof leaks, start with the
+        <a href="/">roof leak repair overview</a> and the symptom checker.
+      </p>
     </div>
   </section>
 
-  <CTABand
-    heading="Ready to get a straight answer on your roof?"
-    body="Request a free, no-obligation estimate and we'll pass your details to a roofing provider serving your area."
-  />
+  <section class="section section--tint" aria-labelledby="about-services">
+    <div class="container">
+      <SectionHead eyebrow="What we cover" title="Leak repairs explained on this site" id="about-services" />
+      <div class="related">
+        {
+          services.map((s) => (
+            <article class="card" data-reveal>
+              <span class="icon-tile"><Icon name={s.data.icon as any} /></span>
+              <h3><a href={`/${s.id}/`}>{s.data.title}</a></h3>
+              <span class="text-link">Read the guide <Icon name="arrow" /></span>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CTABand eyebrow="Talk to a local roofer" title="Have a leak? One call is all it takes." text="Describe what you're seeing and you'll be connected with a provider who serves Severna Park." />
 </BaseLayout>
-
-<style>
-  .about {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 22rem);
-    gap: var(--space-xl);
-    align-items: start;
-  }
-
-  @media (max-width: 68rem) {
-    .about {
-      grid-template-columns: 1fr;
-      gap: var(--space-l);
-    }
-  }
-
-  .about__body > :global(h2:first-child) {
-    margin-top: 0;
-  }
-
-  .about__media {
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-  }
-
-  .about__media :global(img) {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-  }
-
-  .factbox {
-    margin-top: var(--space-m);
-    padding: var(--space-m);
-    background: var(--navy-900);
-    color: var(--on-navy);
-    border-radius: var(--radius-lg);
-  }
-
-  .factbox__title {
-    color: #fff;
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    margin-bottom: var(--space-s);
-  }
-
-  .factbox__list {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.7rem;
-  }
-
-  .factbox__list > div {
-    display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
-    padding-bottom: 0.7rem;
-    border-bottom: 1px solid rgb(255 255 255 / 0.12);
-  }
-
-  .factbox__list > div:last-child {
-    border-bottom: 0;
-    padding-bottom: 0;
-  }
-
-  .factbox dt {
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--navy-400);
-  }
-
-  .factbox dd {
-    margin: 0;
-    font-family: var(--font-display);
-    font-size: 0.92rem;
-    font-weight: 650;
-    line-height: 1.35;
-    color: #fff;
-  }
-</style>

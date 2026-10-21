@@ -1,0 +1,22 @@
+---
+/**
+ * Wave or angled edge drawn in the colour of the NEXT (top) or PREVIOUS
+ * (bottom) section, so two backgrounds meet on a shape instead of a line.
+ */
+interface Props {
+  shape?: 'wave' | 'angle';
+  position?: 'top' | 'bottom';
+  /** CSS colour of the section this edge belongs to. */
+  color: string;
+}
+
+const { shape = 'wave', position = 'top', color } = Astro.props;
+const d =
+  shape === 'wave'
+    ? 'M0 0h1440v38c-120 22-240 34-360 34-240 0-360-52-600-52S120 62 0 46Z'
+    : 'M0 0h1440v8L0 80Z';
+---
+
+<svg class:list={['divider', `divider--${position}`]} viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+  <path d={d} fill={color} />
+</svg>

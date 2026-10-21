@@ -1,0 +1,16 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  id?: string;
+  center?: boolean;
+}
+
+const { eyebrow, title, id, center = false } = Astro.props;
+---
+
+<header class:list={['section-head', center && 'section-head--center']} data-reveal>
+  <span class="eyebrow">{eyebrow}</span>
+  <h2 id={id}>{title}</h2>
+  {Astro.slots.has('default') && <p class="intro"><slot /></p>}
+</header>

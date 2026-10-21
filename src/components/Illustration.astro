@@ -1,0 +1,104 @@
+---
+/**
+ * Original inline illustrations for split sections and the areas map.
+ * All decorative except `map`, which carries a title.
+ */
+interface Props {
+  name: 'trace' | 'flashing' | 'ceiling' | 'map';
+}
+
+const { name } = Astro.props;
+---
+
+{
+  name === 'trace' && (
+    <svg viewBox="0 0 560 420" aria-hidden="true" focusable="false">
+      <rect width="560" height="420" fill="#eef3f9" />
+      <path d="M0 300 280 70l280 230v120H0Z" fill="#173a60" />
+      <path d="M40 300 280 104l240 196Z" fill="#234b78" />
+      <g stroke="#567fb1" stroke-width="6" opacity="0.7">
+        <path d="M280 108v192M180 186l100 114M380 186 280 300" />
+      </g>
+      <path d="M40 300h480v120H40Z" fill="#f2c7a5" />
+      <path d="M40 300c20-14 40 0 60-10s40 8 60-2 40 8 60-2 40 8 60-2 40 8 60-2 40 8 60-2 40 8 60-2 40 8 60 0v20H40Z" fill="#e8b38a" />
+      <path d="M396 196c-6 24-30 34-34 60" fill="none" stroke="#f97316" stroke-width="4" stroke-dasharray="3 9" stroke-linecap="round" />
+      <path d="M362 262c-4 6-9 12-9 18a9 9 0 0 0 18 0c0-6-5-12-9-18z" fill="#f97316" />
+      <path d="M120 360 260 250" stroke="#fde68a" stroke-width="0" />
+      <path d="M150 380 330 230l20 40Z" fill="#fde68a" opacity="0.35" />
+      <rect x="110" y="362" width="64" height="26" rx="8" fill="#0b2545" transform="rotate(-38 142 375)" />
+      <circle cx="160" cy="352" r="10" fill="#fde68a" />
+      <rect x="420" y="40" width="112" height="44" rx="12" fill="#fff" />
+      <text x="476" y="68" text-anchor="middle" font-family="Sora, sans-serif" font-weight="700" font-size="16" fill="#0b2545">Trace uphill</text>
+    </svg>
+  )
+}
+
+{
+  name === 'flashing' && (
+    <svg viewBox="0 0 560 420" aria-hidden="true" focusable="false">
+      <rect width="560" height="420" fill="#eef3f9" />
+      <rect x="300" y="20" width="200" height="400" fill="#9a3b1c" />
+      <g stroke="#7c2d12" stroke-width="4">
+        <path d="M300 70h200M300 130h200M300 190h200M300 250h200M300 310h200M300 370h200" />
+        <path d="M400 20v50M350 70v60M450 70v60M400 130v60M350 190v60M450 190v60M400 250v60" />
+      </g>
+      <path d="M0 420 300 230v190Z" fill="#234b78" />
+      <g fill="#345f92" stroke="#173a60" stroke-width="3">
+        <path d="M30 400 96 358l18 30-66 42Z" />
+        <path d="M96 358l66-42 18 30-66 42Z" />
+        <path d="M162 316l66-42 18 30-66 42Z" />
+        <path d="M228 274l66-42 18 30-66 42Z" />
+      </g>
+      <path d="M220 290 300 240v-30l12 4v40" fill="none" stroke="#c0c8d4" stroke-width="10" stroke-linejoin="round" />
+      <path d="M300 200h40v70" fill="none" stroke="#f97316" stroke-width="10" stroke-linejoin="round" />
+      <rect x="32" y="40" width="200" height="44" rx="12" fill="#fff" />
+      <text x="132" y="68" text-anchor="middle" font-family="Sora, sans-serif" font-weight="700" font-size="16" fill="#0b2545">Step + counter flashing</text>
+      <path d="M232 62c40 0 60 40 72 130" fill="none" stroke="#0b2545" stroke-width="2" stroke-dasharray="4 6" />
+    </svg>
+  )
+}
+
+{
+  name === 'ceiling' && (
+    <svg viewBox="0 0 560 420" aria-hidden="true" focusable="false">
+      <rect width="560" height="420" fill="#eef3f9" />
+      <rect x="0" y="0" width="560" height="140" fill="#f7f5f1" />
+      <rect x="0" y="134" width="560" height="12" fill="#d9d2c5" />
+      <ellipse cx="300" cy="80" rx="150" ry="52" fill="#d97706" opacity="0.14" />
+      <ellipse cx="300" cy="80" rx="100" ry="34" fill="#d97706" opacity="0.2" />
+      <ellipse cx="300" cy="80" rx="56" ry="18" fill="#b45309" opacity="0.28" />
+      <path d="M300 146c-6 10-12 18-12 26a12 12 0 0 0 24 0c0-8-6-16-12-26z" fill="#f97316" />
+      <path d="M300 214c-4 6-8 11-8 16a8 8 0 0 0 16 0c0-5-4-10-8-16z" fill="#fb923c" opacity="0.8" />
+      <path d="M250 330h100l-10 70h-80Z" fill="#6b7a90" />
+      <path d="M244 330h112" stroke="#0b2545" stroke-width="6" stroke-linecap="round" />
+      <ellipse cx="300" cy="334" rx="46" ry="6" fill="#84a5cc" />
+      <rect x="40" y="250" width="150" height="120" rx="10" fill="#fff" stroke="#d9e4f1" stroke-width="3" />
+      <path d="M62 280h106M62 304h80M62 328h96" stroke="#b3c8e2" stroke-width="8" stroke-linecap="round" />
+      <circle cx="160" cy="250" r="22" fill="#f97316" />
+      <path d="M150 250l7 7 13-13" fill="none" stroke="#0b2545" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+      <rect x="380" y="270" width="140" height="44" rx="12" fill="#fff" />
+      <text x="450" y="298" text-anchor="middle" font-family="Sora, sans-serif" font-weight="700" font-size="16" fill="#0b2545">Photo, then call</text>
+    </svg>
+  )
+}
+
+{
+  name === 'map' && (
+    <svg viewBox="0 0 360 300" role="img" aria-labelledby="map-title" focusable="false">
+      <title id="map-title">Schematic, not-to-scale map of Severna Park and the five nearby communities covered</title>
+      <circle cx="190" cy="150" r="130" fill="none" stroke="rgb(255 255 255 / 0.12)" stroke-dasharray="4 6" />
+      <circle cx="190" cy="150" r="80" fill="none" stroke="rgb(255 255 255 / 0.16)" stroke-dasharray="4 6" />
+      <path d="M300 30c-20 40-60 50-70 90s30 70 10 110-60 40-60 70" fill="none" stroke="#345f92" stroke-width="10" stroke-linecap="round" opacity="0.6" />
+      <g font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#e6edf6">
+        <circle cx="190" cy="150" r="9" fill="#f97316" />
+        <circle cx="190" cy="150" r="18" fill="#f97316" opacity="0.2" />
+        <text x="190" y="182" text-anchor="middle" font-family="Sora, sans-serif" font-weight="800" font-size="14" fill="#fff">Severna Park</text>
+        <circle cx="200" cy="250" r="5" fill="#b3c8e2" /><text x="214" y="254">Arnold</text>
+        <circle cx="250" cy="70" r="5" fill="#b3c8e2" /><text x="262" y="66">Pasadena</text>
+        <circle cx="90" cy="190" r="5" fill="#b3c8e2" /><text x="40" y="214">Millersville</text>
+        <circle cx="50" cy="120" r="5" fill="#b3c8e2" /><text x="26" y="106">Severn</text>
+        <circle cx="120" cy="50" r="5" fill="#b3c8e2" /><text x="80" y="38">Glen Burnie</text>
+      </g>
+    </svg>
+  )
+}

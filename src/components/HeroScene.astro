@@ -1,0 +1,107 @@
+---
+/**
+ * Signature hero illustration: cut-away house in the rain. One orange drop
+ * traces the leak path from the chimney flashing, through the attic, to the
+ * ceiling stain in the room below. Original artwork, no external assets.
+ */
+---
+
+<svg viewBox="0 0 560 500" role="img" aria-labelledby="hero-scene-title" focusable="false">
+  <title id="hero-scene-title">Cut-away illustration of a house in the rain, showing water entering at the chimney flashing and travelling through the attic to a ceiling stain</title>
+  <defs>
+    <linearGradient id="hs-roof" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#345f92" />
+      <stop offset="1" stop-color="#173a60" />
+    </linearGradient>
+    <linearGradient id="hs-wall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f7f5f1" />
+      <stop offset="1" stop-color="#e6e1d8" />
+    </linearGradient>
+    <linearGradient id="hs-attic" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2a4d78" />
+      <stop offset="1" stop-color="#1b3a5e" />
+    </linearGradient>
+    <radialGradient id="hs-glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f97316" stop-opacity="0.55" />
+      <stop offset="1" stop-color="#f97316" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="hs-stain" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#b45309" stop-opacity="0.55" />
+      <stop offset="0.7" stop-color="#d97706" stop-opacity="0.18" />
+      <stop offset="1" stop-color="#d97706" stop-opacity="0" />
+    </radialGradient>
+    <clipPath id="hs-roof-clip">
+      <path d="M78 262 280 104l202 158Z" />
+    </clipPath>
+  </defs>
+
+  <!-- backdrop -->
+  <circle cx="290" cy="250" r="230" fill="#ffffff" fill-opacity="0.04" />
+  <circle cx="290" cy="250" r="170" fill="#ffffff" fill-opacity="0.04" />
+
+  <!-- rain -->
+  <g stroke="#b3c8e2" stroke-width="2" stroke-linecap="round" opacity="0.55">
+    <path d="M70 30l-12 26M130 14l-12 26M190 40l-12 26M250 8l-12 26M310 34l-12 26M370 12l-12 26M430 38l-12 26M490 16l-12 26" />
+    <path d="M100 80l-12 26M160 66l-12 26M220 90l-12 26M340 70l-12 26M400 96l-12 26M460 74l-12 26M520 96l-12 26M40 110l-12 26" />
+  </g>
+
+  <!-- ground -->
+  <ellipse cx="280" cy="462" rx="250" ry="20" fill="#000" fill-opacity="0.25" />
+
+  <!-- walls -->
+  <rect x="104" y="250" width="352" height="206" rx="6" fill="url(#hs-wall)" />
+
+  <!-- attic cut-away (inside the roof triangle) -->
+  <path d="M112 256 280 124l168 132Z" fill="url(#hs-attic)" />
+  <g stroke="#567fb1" stroke-width="3" opacity="0.6">
+    <path d="M280 128v128M196 192l84 64M364 192l-84 64" />
+  </g>
+  <!-- insulation -->
+  <path d="M120 256c10-10 20 0 30-8s20 6 30-2 20 6 30-2 20 6 30-2 20 6 30-2 20 6 30-2 20 6 30-2 20 6 30-2 20 6 30-2 12 6 18 6v12H120Z" fill="#f2c7a5" opacity="0.85" />
+
+  <!-- roof deck + shingles, drawn as a thick frame around the attic -->
+  <g clip-path="url(#hs-roof-clip)">
+    <path d="M78 262 280 104l202 158h-34L280 130 112 262Z" fill="url(#hs-roof)" />
+    <g stroke="#0b2545" stroke-width="2" opacity="0.5">
+      <path d="M100 246 280 105M120 262 280 120" />
+      <path d="M460 246 280 105M440 262 280 120" />
+    </g>
+  </g>
+  <path d="M70 266 280 100l210 166" fill="none" stroke="#0b2545" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- chimney with flashing -->
+  <rect x="356" y="128" width="44" height="96" fill="#9a3b1c" />
+  <g stroke="#7c2d12" stroke-width="2">
+    <path d="M356 148h44M356 168h44M356 188h44M356 208h44" />
+    <path d="M378 128v20M368 148v20M388 168v20M378 188v20" />
+  </g>
+  <rect x="350" y="118" width="56" height="12" rx="2" fill="#6b7a90" />
+  <path d="M348 222h60l-6 8h-48Z" fill="#f97316" />
+
+  <!-- skylight on the left slope -->
+  <path d="M168 210 214 174l22 17-46 36Z" fill="#b3c8e2" stroke="#e6edf6" stroke-width="3" />
+  <path d="M191 192l22 17" stroke="#e6edf6" stroke-width="2" />
+
+  <!-- vent pipe -->
+  <rect x="318" y="150" width="12" height="28" rx="2" fill="#d9e4f1" />
+  <rect x="314" y="174" width="20" height="6" rx="2" fill="#0b2545" />
+
+  <!-- ceiling + room -->
+  <rect x="104" y="262" width="352" height="10" fill="#d9d2c5" />
+  <ellipse cx="372" cy="276" rx="44" ry="12" fill="url(#hs-stain)" />
+  <rect x="150" y="300" width="96" height="84" rx="4" fill="#d9e4f1" stroke="#b3c8e2" stroke-width="4" />
+  <path d="M198 300v84M150 342h96" stroke="#b3c8e2" stroke-width="4" />
+  <rect x="300" y="352" width="56" height="104" rx="4" fill="#173a60" />
+  <circle cx="346" cy="406" r="3" fill="#f97316" />
+
+  <!-- bucket under the drip -->
+  <path d="M356 428h36l-4 28h-28Z" fill="#6b7a90" />
+  <path d="M354 428h40" stroke="#0b2545" stroke-width="3" stroke-linecap="round" />
+
+  <!-- leak path -->
+  <circle cx="378" cy="226" r="46" fill="url(#hs-glow)" />
+  <path d="M376 230c-4 14-22 18-24 30-1 6 6 8 14 6" fill="none" stroke="#f97316" stroke-width="3" stroke-dasharray="2 7" stroke-linecap="round" />
+  <path d="M372 288v108" fill="none" stroke="#f97316" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round" opacity="0.8" />
+  <path d="M372 404c-3 5-7 9-7 14a7 7 0 0 0 14 0c0-5-4-9-7-14z" fill="#f97316" />
+  <path d="M372 296c-2 3-4 6-4 9a4 4 0 0 0 8 0c0-3-2-6-4-9z" fill="#fb923c" />
+</svg>

@@ -1,0 +1,28 @@
+---
+import Icon from './Icon.astro';
+import { toHtml } from '../utils/inline-markdown';
+
+interface Props {
+  faqs: { question: string; answer: string }[];
+}
+
+const { faqs } = Astro.props;
+---
+
+<div class="faq">
+  {
+    faqs.map((faq, i) => (
+      <details open={i === 0}>
+        <summary>
+          <span>{faq.question}</span>
+          <span class="faq__icon">
+            <Icon name="plus" />
+          </span>
+        </summary>
+        <div class="faq__answer">
+          <p set:html={toHtml(faq.answer)} />
+        </div>
+      </details>
+    ))
+  }
+</div>

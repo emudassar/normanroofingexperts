@@ -1,78 +1,71 @@
 /**
  * Single source of truth for site-wide business details.
  *
- * This is a website-only lead-generation property, not an operating roofing
- * company (see docs/brief.md §2). Do not add fields that imply a founding
- * date, years-in-business, in-house crews, or carried insurance — none of
- * that is verified, and this site does not perform the roofing work itself.
- * Leads submitted here are routed to a roofing provider via LeadSmart.
- *
- * Remaining pre-launch placeholders are marked `TODO` below. See docs/brief.md §12.
+ * This is a pay-per-call referral website, not an operating roofing company
+ * (see docs/brief.md and docs/STRATEGY.md). Calls are routed to an independent
+ * local roofing provider. Do not add fields that imply a founding date,
+ * years-in-business, in-house crews, licences, insurance, an address or
+ * 24/7 availability; none of that is verified.
  */
 
 export const site = {
   name: 'Norman Roofing Experts',
   legalName: 'Norman Roofing Experts',
+  /** Title-tag suffix on inner pages, keeps titles within 60 chars. */
+  shortName: 'Norman Roofing',
   url: 'https://normanroofingexperts.com',
-  /** Used in <title> suffixes and the footer. */
-  tagline: 'Roofing Contractors in Norman, OK',
+  /** Main service and city, used in copy, titles and schema. */
+  service: 'Roof Leak Repair',
+  city: 'Severna Park',
+  state: 'MD',
+  stateName: 'Maryland',
+  county: 'Anne Arundel County',
+  zip: '21146',
+  tagline: 'Roof Leak Repair in Severna Park, MD',
   description:
-    'Norman Roofing Experts helps homeowners across Norman, Oklahoma and the surrounding Cleveland County communities request roof repair, replacement, inspection and storm damage service from a local roofing provider.',
+    'Norman Roofing Experts connects Severna Park, Maryland homeowners with a local roofing provider for roof leak repair: flashing, chimneys, skylights, vents, flat roofs and storm damage.',
 
   phone: {
     display: '(773) 302-2292',
     /** E.164, used for tel: links and schema. */
     href: 'tel:+17733022292',
-    isPlaceholder: false,
   },
 
   email: 'normanroofingsexperts@gmail.com',
 
-  /**
-   * TODO: replace with the LeadSmart endpoint. Until then the form posts
-   * nowhere and the client-side handler shows a "not yet connected" notice.
-   */
-  formEndpoint: '/api/lead-placeholder',
-
-  /** No physical address and no Google Business Profile. See docs/brief.md §2. */
+  /** No physical address and no Google Business Profile. Never add one. */
   hasPhysicalLocation: false,
 
-  /**
-   * Deliberately general: there is no verified staffing/hours commitment
-   * behind this site. Requests can be submitted online any time; how fast
-   * a provider responds is theirs to say, not ours to promise.
-   */
-  hours: 'Requests can be submitted online any time.',
+  /** Shown wherever the reference design would show an address. */
+  serviceAreaLine: 'Serving Severna Park, MD 21146 and nearby Anne Arundel County',
 
-  /** Broad service region, used in copy and Organization schema areaServed. */
+  /** Short referral disclosure. Used in the hero small print and footer only. */
+  disclosure:
+    'Norman Roofing Experts is a free referral service. Calls are connected to an independent, local roofing provider who quotes and performs the work.',
+
+  /** Broad service region, used in Organization schema areaServed. */
   areaServed: [
-    'Norman, OK',
-    'Noble, OK',
-    'Lexington, OK',
-    'Slaughterville, OK',
-    'Washington, OK',
-    'Little Axe, OK',
-    'Goldsby, OK',
-    'Cleveland County, OK',
-    'McClain County, OK',
+    'Severna Park, MD',
+    'Arnold, MD',
+    'Pasadena, MD',
+    'Millersville, MD',
+    'Severn, MD',
+    'Glen Burnie, MD',
+    'Anne Arundel County, MD',
   ],
 
   /** Open Graph default image, relative to /public. */
-  defaultOgImage: '/og/placeholder-og-default.jpg',
+  defaultOgImage: '/og/og-default.png',
 } as const;
 
 /**
- * Primary navigation. Both collection hubs sit in the header by design.
- *
- * `menu` marks an item that opens a dropdown in the header. The dropdown's
- * links are pulled straight from the matching content collection in
- * Header.astro, so adding a service or location page adds it to the menu.
+ * Primary navigation. `menu` marks an item that opens a dropdown whose links
+ * are pulled from the matching content collection in Header.astro.
  */
 export const primaryNav = [
-  { label: 'Services', href: '/services/', menu: 'services' },
-  { label: 'Areas We Serve', href: '/service-areas/', menu: 'locations' },
+  { label: 'Leak Repairs', href: '/#services', menu: 'services' },
+  { label: 'Areas', href: '/#areas', menu: 'locations' },
   { label: 'About', href: '/about/' },
-  { label: 'Roof Guides', href: '/blog/' },
   { label: 'Contact', href: '/contact/' },
 ] as const;
 
@@ -80,18 +73,4 @@ export const primaryNav = [
 export const legalNav = [
   { label: 'Privacy Policy', href: '/privacy-policy/' },
   { label: 'Terms of Service', href: '/terms/' },
-] as const;
-
-/**
- * Project-type options shared by every lead form so submissions land in
- * LeadSmart with a consistent taxonomy.
- */
-export const projectTypes = [
-  'Roof leak / emergency repair',
-  'Storm or hail damage',
-  'Full roof replacement',
-  'Roof inspection',
-  'Gutter installation or repair',
-  'Commercial roofing',
-  'Something else',
 ] as const;

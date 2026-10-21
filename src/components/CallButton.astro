@@ -1,0 +1,23 @@
+---
+import { site } from '../config/site';
+import Icon from './Icon.astro';
+
+interface Props {
+  variant?: 'call' | 'ghost' | 'light';
+  size?: 'sm' | 'md';
+  /** Defaults to "Call (773) 302-2292". */
+  label?: string;
+  class?: string;
+}
+
+const { variant = 'call', size = 'md', label = `Call ${site.phone.display}`, class: className } = Astro.props;
+---
+
+<a
+  class:list={['btn', `btn--${variant}`, size === 'sm' && 'btn--sm', className]}
+  href={site.phone.href}
+  data-call
+>
+  <Icon name="phone" />
+  <span>{label}</span>
+</a>
