@@ -1,9 +1,9 @@
 {
   "trailingSlash": true,
   "redirects": [
-    { "source": "/services/:path*", "destination": "/", "permanent": true },
-    { "source": "/service-areas/:path*", "destination": "/#areas", "permanent": true },
-    { "source": "/blog/:path*", "destination": "/", "permanent": true },
+    { "source": "/services/(.*)", "destination": "/", "permanent": true },
+    { "source": "/service-areas/(.*)", "destination": "/#areas", "permanent": true },
+    { "source": "/blog/(.*)", "destination": "/", "permanent": true },
     { "source": "/free-estimate/", "destination": "/contact/", "permanent": true }
   ],
   "headers": [
