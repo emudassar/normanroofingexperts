@@ -15,7 +15,7 @@ const faq = z.object({
  */
 const services = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/services' }),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     /** Short label used in nav, cards and breadcrumbs. */
     title: z.string(),
     /** On-page H1, carries the target keyword. */
@@ -30,6 +30,12 @@ const services = defineCollection({
     lede: z.string(),
     /** Bento card blurb on the homepage (~60 words). */
     blurb: z.string(),
+    /** Hero background photo (src/assets/photos/), with its alt text. */
+    heroImage: image().optional(),
+    heroAlt: z.string().optional(),
+    /** Close-up photo for the "About this repair" split and related cards. */
+    image: image().optional(),
+    imageAlt: z.string().optional(),
     /** Icon key, see src/components/Icon.astro. */
     icon: z.string(),
     order: z.number(),
@@ -46,7 +52,7 @@ const services = defineCollection({
  */
 const locations = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/locations' }),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     /** Area name as locals use it. Never a compass-direction invention. */
     title: z.string(),
     h1: z.string(),
@@ -57,6 +63,9 @@ const locations = defineCollection({
     /** One paragraph shown in the homepage "areas" section. */
     blurb: z.string(),
     zip: z.string(),
+    /** Hero background photo (src/assets/photos/), with its alt text. */
+    heroImage: image().optional(),
+    heroAlt: z.string().optional(),
     order: z.number(),
     faqs: z.array(faq).length(5),
     relatedServices: z.array(reference('services')).min(3).max(4),

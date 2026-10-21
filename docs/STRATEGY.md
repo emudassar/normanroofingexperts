@@ -103,7 +103,10 @@ no forms (the reference site leakdetectioncoltonca.com uses no forms either).
   alternating split sections, and dark bands for CTAs.
 - **Signature visual:** an original cut-away house SVG with rain hitting the roof and a
   single orange drop tracing its path through the flashing into the ceiling. Glass "leak
-  point" cards float around it.
+  point" cards float around it (homepage).
+- **Inner pages (2026-10-21):** modelled on the reference site's sections: photo hero +
+  call card, trust strip, one full-width section per H2 (image splits, card grids, dark
+  bands), FAQ split, photo cards. Photos are Grok-generated originals, no stock.
 
 ## 6. Homepage anchor rotation (each anchor used on one page only)
 

@@ -6,6 +6,10 @@ description: Wind, fallen limbs or a nor'easter damaged your Severna Park roof? 
 keyword: storm damage roof repair Severna Park
 lede: After high wind, a nor'easter or a tree coming down, the first few days decide how much damage a roof does to the rest of the house. Here's what to do in order.
 blurb: Wind-lifted and missing shingles, torn flashing and limb strikes after nor'easters and summer thunderstorms. The work covers temporary protection, photo documentation for your insurer, and lasting repairs.
+heroImage: ../../assets/photos/storm-hero.jpg
+heroAlt: Broken tree branch lying across a house roof after a storm
+image: ../../assets/photos/storm-detail.jpg
+imageAlt: Wind-damaged shingles with missing tabs exposing underlayment
 icon: wind
 order: 8
 faqs:

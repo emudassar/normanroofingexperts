@@ -7,6 +7,8 @@ keyword: roof leak repair Glen Burnie MD
 lede: Glen Burnie has one of the larger stocks of older homes in the area. Older roofs leak in predictable places, mainly chimneys, tired flashing and the add-ons built over the years.
 blurb: North-west of Severna Park, Glen Burnie has a large stock of post-war and mid-century homes. Original brick chimneys, flashing that has been re-roofed around more than once, and low-slope additions are the usual leak sources.
 zip: '21060/21061'
+heroImage: ../../assets/photos/glen-burnie-hero.jpg
+heroAlt: Brick Cape Cod house with dormers and an older shingle roof
 order: 5
 faqs:
   - question: My Glen Burnie home has an older roof. Is it worth repairing a leak?

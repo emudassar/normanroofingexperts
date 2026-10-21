@@ -6,6 +6,10 @@ description: Skylight dripping in Severna Park? Learn how to tell a leak from co
 keyword: skylight leak repair Severna Park
 lede: Before anyone climbs a ladder, figure out whether it's actually a leak. Skylights also drip from condensation, and the fix is completely different.
 blurb: Drips around a skylight come from failed flashing, a broken glass seal, a cracked frame, or plain condensation. A careful check tells them apart, so you pay for re-flashing or a new unit only when that's really the problem.
+heroImage: ../../assets/photos/skylight-hero.jpg
+heroAlt: Skylight with metal flashing set into a dark shingle roof, rain on the glass
+image: ../../assets/photos/skylight-detail.jpg
+imageAlt: Water stains and peeling paint around a skylight in a ceiling
 icon: skylight
 order: 4
 faqs:

@@ -7,6 +7,8 @@ keyword: roof leak repair Arnold MD
 lede: Arnold sits on the Broadneck peninsula between the Severn and the Magothy, with lots of tall trees. That combination shapes how roofs here leak.
 blurb: Arnold sits on the Broadneck peninsula just south of Severna Park, between the Severn and Magothy rivers. Tall trees over many lots mean clogged valleys, falling limbs and wet, shaded roofs, so leaks often start at valleys, flashing and storm-damaged shingles.
 zip: '21012'
+heroImage: ../../assets/photos/arnold-hero.jpg
+heroAlt: Colonial home on a wooded lot with tall trees over the roof
 order: 1
 faqs:
   - question: Do you cover all of Arnold, including the waterfront communities?

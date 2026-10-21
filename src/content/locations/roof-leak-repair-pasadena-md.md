@@ -7,6 +7,8 @@ keyword: roof leak repair Pasadena MD
 lede: With miles of shoreline on the Magothy, the Patapsco and their creeks, many Pasadena roofs take wind and moisture straight off the water.
 blurb: Pasadena stretches along the Magothy and Patapsco shorelines, with many homes on creeks and coves. Wind off the water drives rain into flashing and vents, damp air speeds up corrosion, and porch and sunroom roofs see more than their share of leaks.
 zip: '21122'
+heroImage: ../../assets/photos/pasadena-hero.jpg
+heroAlt: Waterfront home with a pier on a tidal creek
 order: 2
 faqs:
   - question: Does living on the water really affect my roof?

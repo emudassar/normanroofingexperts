@@ -12,6 +12,7 @@ Another rank-and-rent micro-niche site that Mudassar pointed to as the model.
 | Email shown in top bar and footer | Email shown | — |
 | Street address in footer, "Licensed & insured", "Open 24 hours" | — | Not copied: we have no real address and can't verify licence, insurance or hours |
 | Fixed prices ($129/$299/$499) and customer reviews | — | Not copied: invented prices/reviews break our honesty rules and Google's guidelines |
+| Section layout per page: photo hero, "about" image split, "what's included" cards, process with image, problems solved, pricing, before/after, reviews, FAQ, related, CTA (re-analysed 2026-10-21) | Photo hero + call card, image splits, card grids, process steps, cost factors, FAQ split, related photo cards, CTA band | Prices, reviews, years/24-7 trust bar, before/after "real results" (invented case studies), landmark filler |
 | Homepage ~1,600 words, service pages ~1,400 | — | We go deeper: homepage 3,200+, services 1,500+, areas 1,000+ |
 
 ## Severna Park competition

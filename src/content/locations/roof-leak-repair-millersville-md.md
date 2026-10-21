@@ -7,6 +7,8 @@ keyword: roof leak repair Millersville MD
 lede: Millersville mixes older homes on larger lots with newer subdivisions along the I-97 and Route 3 corridor. The two kinds of houses tend to leak in different places.
 blurb: Just west of Severna Park along I-97 and Route 3, Millersville mixes older homes on larger lots with newer subdivisions. Older houses tend to leak at chimneys and worn flashing, while newer ones often see their first leaks at pipe boots and vents.
 zip: '21108'
+heroImage: ../../assets/photos/millersville-hero.jpg
+heroAlt: Suburban street of brick-front colonial homes
 order: 3
 faqs:
   - question: My Millersville home is fairly new. Why is the roof already leaking?

@@ -1,0 +1,74 @@
+---
+/**
+ * Renders a service or area markdown body as a run of full-width sections
+ * (one per H2), each with its own layout: image splits, card grids, dark
+ * bands with a call button. Section kinds come from src/utils/sections.ts.
+ * The `after-nearby` slot lets the area layout add its nearby-area cards.
+ */
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+import type { Section, SectionKind } from '../utils/sections';
+import CallButton from './CallButton.astro';
+
+type Media = { src: ImageMetadata; alt: string };
+
+interface Props {
+  sections: Section[];
+  type: 'service' | 'location';
+  media?: Partial<Record<SectionKind, Media>>;
+  place: string;
+}
+
+const { sections, type, media = {}, place } = Astro.props;
+
+type Look = { eyebrow: string; tone: 'white' | 'off' | 'tint' | 'dark'; layout: 'split' | 'split-rev' | 'side' | 'stack'; cta?: string };
+
+const LOOKS: Record<string, Look> = {
+  about: { eyebrow: type === 'service' ? 'About this repair' : `Why it matters in ${place}`, tone: 'off', layout: 'split' },
+  how: { eyebrow: 'How it works', tone: 'white', layout: 'stack' },
+  signs: { eyebrow: 'Early warning signs', tone: 'dark', layout: 'stack', cta: 'Seeing these? Call now' },
+  causes: { eyebrow: 'Why it happens', tone: 'tint', layout: 'side' },
+  checks: { eyebrow: 'Before you call', tone: 'white', layout: 'split-rev' },
+  visit: { eyebrow: 'The repair process', tone: 'off', layout: 'split' },
+  cost: { eyebrow: 'What drives the cost', tone: 'white', layout: 'side', cta: 'Call for a quote' },
+  prevent: { eyebrow: 'Prevention', tone: 'tint', layout: 'stack' },
+  emergency: { eyebrow: 'Emergency or not?', tone: 'dark', layout: 'side', cta: 'Call about a leak now' },
+  services: { eyebrow: 'Most-needed repairs', tone: 'white', layout: 'stack' },
+  checklist: { eyebrow: 'Local checklist', tone: 'dark', layout: 'side', cta: 'Found a problem? Call' },
+  questions: { eyebrow: 'Questions to ask', tone: 'off', layout: 'side' },
+  nearby: { eyebrow: 'Nearby areas', tone: 'white', layout: 'side' },
+  plain: { eyebrow: place, tone: 'white', layout: 'side' },
+};
+---
+
+{
+  sections.map((s) => {
+    const look = LOOKS[s.kind];
+    const img = media[s.kind];
+    const layout = img ? look.layout : look.layout.startsWith('split') ? 'side' : look.layout;
+    return (
+      <section class:list={['section', `section--${look.tone}`, 'ps', `ps--${s.kind}`, `ps--${layout}`]}>
+        <div class="container ps__inner">
+          {img && (
+            <figure class="ps__media" data-reveal>
+              <Image src={img.src} alt={img.alt} widths={[480, 720, 960]} sizes="(min-width: 1024px) 520px, 100vw" format="webp" loading="lazy" />
+            </figure>
+          )}
+          <div class="ps__text">
+            <header class="ps__head" data-reveal>
+              <span class="eyebrow">{look.eyebrow}</span>
+              <h2 id={s.id}>{s.title}</h2>
+            </header>
+            <div class="ps__body prose" set:html={s.body} />
+            {look.cta && (
+              <div class="ps__cta">
+                <CallButton label={look.cta} variant={look.tone === 'dark' ? 'call' : 'ghost'} />
+              </div>
+            )}
+            {s.kind === 'nearby' && <slot name="after-nearby" />}
+          </div>
+        </div>
+      </section>
+    );
+  })
+}

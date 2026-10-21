@@ -6,6 +6,10 @@ description: Water around your chimney in Severna Park? Learn the 5 ways chimney
 keyword: chimney leak repair Severna Park
 lede: A leak beside the fireplace or in the ceiling next to the chimney doesn't always mean the flashing failed. Water can enter through five different parts of a chimney.
 blurb: Water staining beside the fireplace or the chimney chase usually traces to failed counter flashing, a cracked crown, porous brick and mortar, a missing cap, or a wide chimney with no cricket. Each needs a different repair.
+heroImage: ../../assets/photos/chimney-hero.jpg
+heroAlt: Brick chimney with metal counter flashing on a gray shingle roof
+image: ../../assets/photos/chimney-detail.jpg
+imageAlt: Cracked concrete chimney crown and worn mortar joints
 icon: chimney
 order: 3
 faqs:

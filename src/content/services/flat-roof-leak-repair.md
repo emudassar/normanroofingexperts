@@ -6,6 +6,10 @@ description: Leaking flat or low-slope roof in Severna Park? Learn why EPDM, TPO
 keyword: flat roof leak repair Severna Park
 lede: Porches, additions, dormers and garages often have a flat or low-slope section. Water moves slowly on those roofs, so the details matter even more.
 blurb: Porch roofs, additions and garages with low-slope EPDM, TPO or modified bitumen leak at seams, drains and edges, and wherever water ponds. Repairs range from seam patches to replacing a worn section of membrane.
+heroImage: ../../assets/photos/flat-hero.jpg
+heroAlt: Flat roof membrane with puddles of ponding water after rain
+image: ../../assets/photos/flat-detail.jpg
+imageAlt: Roofer heat-welding a seam on a white flat roof membrane
 icon: flatroof
 order: 5
 faqs:

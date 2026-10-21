@@ -1,0 +1,71 @@
+---
+/**
+ * Photo hero for service and area pages: full-bleed image under a navy
+ * gradient, breadcrumbs, H1 and call buttons on the left, a "talk to a pro"
+ * card on the right (below the text on mobile). Falls back to the mesh
+ * background when a page has no photo yet.
+ */
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+import { site } from '../config/site';
+import Breadcrumbs from './Breadcrumbs.astro';
+import CallButton from './CallButton.astro';
+import Icon from './Icon.astro';
+
+interface Props {
+  eyebrow: string;
+  h1: string;
+  lede: string;
+  crumb: string;
+  image?: ImageMetadata;
+  imageAlt?: string;
+  cardLabel: string;
+  cardTitle: string;
+  cardItems: string[];
+}
+
+const { eyebrow, h1, lede, crumb, image, imageAlt = '', cardLabel, cardTitle, cardItems } = Astro.props;
+---
+
+<section class:list={['detail-hero', image && 'detail-hero--photo']}>
+  {
+    image ? (
+      <Image class="detail-hero__img" src={image} alt={imageAlt} widths={[640, 1024, 1440, 1920]} sizes="100vw" format="webp" loading="eager" fetchpriority="high" />
+    ) : (
+      <div class="hero__mesh" aria-hidden="true" />
+    )
+  }
+  <div class="detail-hero__shade" aria-hidden="true"></div>
+  <div class="container detail-hero__grid">
+    <div class="detail-hero__text">
+      <Breadcrumbs current={crumb} />
+      <p class="eyebrow">{eyebrow}</p>
+      <h1>{h1}</h1>
+      <p class="detail-hero__lede">{lede}</p>
+      <div class="page-hero__actions">
+        <CallButton />
+        <a class="btn btn--light" href="#faqs">Read the FAQs</a>
+      </div>
+    </div>
+    <aside class="hero-card" aria-label="Call for help">
+      <span class="hero-card__label">{cardLabel}</span>
+      <p class="hero-card__title">{cardTitle}</p>
+      <ul class="hero-card__list">
+        {cardItems.map((item) => <li><Icon name="check" /><span>{item}</span></li>)}
+      </ul>
+      <a class="hero-card__phone" href={site.phone.href} data-call>
+        <span class="icon-tile icon-tile--accent"><Icon name="phone" /></span>
+        <span><small>Talk to a local pro</small>{site.phone.display}</span>
+      </a>
+    </aside>
+  </div>
+</section>
+
+<div class="trust-strip">
+  <div class="container trust-strip__inner">
+    <span><Icon name="phone" /> Calls only, no forms</span>
+    <span><Icon name="pin" /> {site.city}-area provider</span>
+    <span><Icon name="droplet" /> Leak repair, nothing else</span>
+    <span><Icon name="shield" /> Free to call, no obligation</span>
+  </div>
+</div>

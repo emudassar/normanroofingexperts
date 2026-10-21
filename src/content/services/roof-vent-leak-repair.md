@@ -6,6 +6,10 @@ description: Stain under a bathroom or near a vent pipe in Severna Park? Cracked
 keyword: roof vent leak repair Severna Park
 lede: A small, round stain under a bathroom, or a drip near a pipe in the attic, often traces to a cracked rubber pipe boot. It's one of the most common leaks, and one of the simplest to fix.
 blurb: Plumbing vent pipes, box vents, ridge vents and exhaust fans all pierce the roof. When a rubber pipe boot cracks or a vent's flashing loosens, water drips straight down. These are usually small, quick repairs if caught early.
+heroImage: ../../assets/photos/vent-hero.jpg
+heroAlt: Plumbing vent pipe with rubber boot flashing on a wet shingle roof
+image: ../../assets/photos/vent-detail.jpg
+imageAlt: Cracked, sun-damaged rubber pipe boot around a vent pipe
 icon: vent
 order: 6
 faqs:

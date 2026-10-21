@@ -6,6 +6,10 @@ description: Water dripping through the ceiling in Severna Park? Learn what to d
 keyword: emergency roof leak repair Severna Park
 lede: Water is coming in right now. Here is how to limit the damage in the next hour, what an emergency roofer actually does on the roof, and when a leak truly can't wait.
 blurb: Active drip, bulging ceiling or water running down a wall? An emergency visit focuses on stopping water first, usually with a secured tarp or temporary seal, then documents the cause so the permanent fix can follow once the roof is dry.
+heroImage: ../../assets/photos/emergency-hero.jpg
+heroAlt: Two-story colonial house in heavy rain with a blue tarp over part of the roof
+image: ../../assets/photos/emergency-detail.jpg
+imageAlt: Water dripping from a stained ceiling into a bucket on a wood floor
 icon: zap
 order: 1
 faqs:

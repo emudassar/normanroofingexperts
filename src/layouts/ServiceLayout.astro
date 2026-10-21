@@ -1,13 +1,18 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { getEntries, render } from 'astro:content';
+import { getEntries } from 'astro:content';
 import { site } from '../config/site';
 import BaseLayout from './BaseLayout.astro';
-import ArticleShell from '../components/ArticleShell.astro';
+import { Image } from 'astro:assets';
+import DetailHero from '../components/DetailHero.astro';
+import ContentSections from '../components/ContentSections.astro';
+import CallButton from '../components/CallButton.astro';
 import FAQ from '../components/FAQ.astro';
 import CTABand from '../components/CTABand.astro';
 import Icon from '../components/Icon.astro';
 import { toPlainText } from '../utils/inline-markdown';
+import { splitSections } from '../utils/sections';
+import { sharedPhoto } from '../utils/photos';
 
 interface Props {
   entry: CollectionEntry<'services'>;
@@ -15,16 +20,16 @@ interface Props {
 
 const { entry } = Astro.props;
 const d = entry.data;
-const { Content, headings } = await render(entry);
+const sections = splitSections(entry.rendered?.html ?? '', 'service');
 const relatedServices = await getEntries(d.relatedServices);
 const relatedLocations = await getEntries(d.relatedLocations);
 
 const url = `${site.url}/${entry.id}/`;
-const toc = [
-  ...headings.filter((h) => h.depth === 2),
-  { slug: 'faqs', text: `${d.title} FAQs` },
-  { slug: 'related', text: 'Related repairs and areas' },
-];
+const media = {
+  ...(d.image && { about: { src: d.image, alt: d.imageAlt ?? '' } }),
+  checks: sharedPhoto(d.order % 2 ? 'ceiling-stain' : 'attic-check'),
+  visit: sharedPhoto('roofer-inspection'),
+};
 
 const schema = [
   {
@@ -61,34 +66,68 @@ const schema = [
 ---
 
 <BaseLayout title={`${d.metaTitle} | ${site.shortName}`} description={d.description} schema={schema}>
-  <ArticleShell eyebrow={`Leak repair · ${site.city}, ${site.state}`} h1={d.h1} lede={d.lede} crumb={d.title} toc={toc} callTitle={`Need ${d.title.toLowerCase()} now?`}>
-    <Content />
+  <DetailHero
+    eyebrow={`Leak repair · ${site.city}, ${site.state}`}
+    h1={d.h1}
+    lede={d.lede}
+    crumb={d.title}
+    image={d.heroImage}
+    imageAlt={d.heroAlt}
+    cardLabel="Talk to a pro"
+    cardTitle={`Need ${d.title.toLowerCase()} now?`}
+    cardItems={['One call, no forms', `Local ${site.city}-area provider`, 'Free to call, no obligation']}
+  />
 
-    <h2 id="faqs">{d.title} FAQs</h2>
-    <FAQ faqs={d.faqs} />
+  <ContentSections sections={sections} type="service" media={media} place={site.city} />
 
-    <h2 id="related">Related repairs and areas</h2>
-    <div class="related">
-      {
-        relatedServices.map((s) => (
-          <article class="card">
-            <span class="icon-tile"><Icon name={s.data.icon as any} /></span>
-            <h3><a href={`/${s.id}/`}>{s.data.title}</a></h3>
-            <span class="text-link">Read more <Icon name="arrow" /></span>
-          </article>
-        ))
-      }
-      {
-        relatedLocations.map((l) => (
-          <article class="card bento__card--accent">
-            <span class="icon-tile icon-tile--accent"><Icon name="pin" /></span>
-            <h3><a href={`/${l.id}/`}>Roof leak repair in {l.data.title}</a></h3>
-            <span class="text-link">See the area <Icon name="arrow" /></span>
-          </article>
-        ))
-      }
+  <section class="section section--white faq-section">
+    <div class="container faq-layout">
+      <div class="faq-layout__head" data-reveal>
+        <span class="eyebrow">Questions</span>
+        <h2 id="faqs">{d.title} FAQs</h2>
+        <div class="call-card">
+          <p class="call-card__title">Still not sure what you're seeing?</p>
+          <a class="call-card__phone" href={site.phone.href} data-call>{site.phone.display}</a>
+          <CallButton label="Call now" />
+        </div>
+      </div>
+      <FAQ faqs={d.faqs} />
     </div>
-  </ArticleShell>
+  </section>
+
+  <section class="section section--off">
+    <div class="container">
+      <header class="section-head section-head--center" data-reveal>
+        <span class="eyebrow">Keep reading</span>
+        <h2 id="related">Related repairs and areas</h2>
+      </header>
+      <div class="photo-cards">
+        {
+          relatedServices.map((s) => (
+            <article class="photo-card">
+              {s.data.image ? (
+                <Image src={s.data.image} alt={s.data.imageAlt ?? s.data.title} widths={[400, 640]} sizes="(min-width: 1024px) 380px, 100vw" format="webp" loading="lazy" />
+              ) : (
+                <span class="photo-card__icon"><Icon name={s.data.icon as any} /></span>
+              )}
+              <div class="photo-card__body">
+                <span class="photo-card__tag">Leak repair</span>
+                <h3><a href={`/${s.id}/`}>{s.data.title}</a></h3>
+                <span class="text-link">Read more <Icon name="arrow" /></span>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+      <div class="area-chips">
+        {
+          relatedLocations.map((l) => (
+            <a href={`/${l.id}/`}><Icon name="pin" />Roof leak repair in {l.data.title}</a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 
   <CTABand title={`Get ${d.title.toLowerCase()} help in ${site.city} today`} text="Call and describe what you're seeing. You'll be connected with a local roofing provider who can look at it." />
 </BaseLayout>

@@ -6,6 +6,10 @@ description: Most roof leaks start at flashing. See how step, counter and kick-o
 keyword: roof flashing repair Severna Park
 lede: Flashing is the thin metal that seals every place a roof meets something else. It's also where most leaks begin. Here's how it fails and how it's fixed properly.
 blurb: Step flashing along walls, counter flashing on chimneys, kick-out flashing at the roof edge and valley metal. When these loosen, rust or lose their sealant, water slips behind them. Repairs range from re-sealing to replacing a full run of flashing.
+heroImage: ../../assets/photos/flashing-hero.jpg
+heroAlt: Roofer fitting new step flashing where a shingle roof meets a sided wall
+image: ../../assets/photos/flashing-detail.jpg
+imageAlt: Rusted step flashing pulling away from a wall, with cracked caulk
 icon: layers
 order: 2
 faqs:

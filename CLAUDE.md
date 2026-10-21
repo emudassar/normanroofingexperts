@@ -46,9 +46,11 @@ audit). Outstanding items are in `docs/brief.md` §6.
 │   ├── content/services/ # 8 leak-repair pages (markdown)
 │   ├── content/locations/# 5 area pages (markdown)
 │   ├── content.config.ts # collection schemas
+│   ├── assets/photos/    # Grok-generated photos (heroes, close-ups, shared/), optimised by astro:assets
 │   ├── layouts/          # BaseLayout, ServiceLayout, LocationLayout
-│   ├── components/       # Header, Footer, ArticleShell, HeroScene, Illustration, Icon, ...
+│   ├── components/       # Header, Footer, DetailHero, ContentSections, HeroScene, Icon, ...
 │   ├── pages/            # index, [slug] (services + locations), about, contact, legal, 404
+│   ├── utils/sections.ts # splits a markdown body into one section per H2 (kind from heading)
 │   ├── scripts/main.ts   # the only JS: menu, reveal, symptom checker, TOC spy, call tracking
 │   └── styles/global.css # the only stylesheet: tokens, layout, every component
 └── vercel.json           # headers/CSP + 301s from old Norman URLs
@@ -72,8 +74,18 @@ audit). Outstanding items are in `docs/brief.md` §6.
 
 Navy `#0B2545` + orange `#F97316` (orange only for CTAs and highlights; orange text uses
 `--accent-700` for contrast). Sora (headings) + Inter (body), self-hosted via Astro fonts.
-Signature visual: the cut-away house SVG in `HeroScene.astro`. All artwork is original
-inline SVG; there are no photos. Don't add stock photos, and never use images from competitors.
+Signature visual: the cut-away house SVG in `HeroScene.astro` (homepage).
+
+Service and area pages follow the reference site's section layout (2026-10-21): photo hero
+with a "talk to a pro" card, trust strip, then **one full-width section per H2**, styled by
+kind (`src/utils/sections.ts` + `ContentSections.astro`): image splits, numbered card grids,
+dark warning-sign band, process steps, cost panel, FAQ split, photo cards. The section kind
+comes from the H2 wording, so keep the heading patterns when writing new pages.
+
+Photos are original, generated with Grok (Mudassar's X Premium) and live in
+`src/assets/photos/`; frontmatter `heroImage`/`image` (+ alt) point at them, and
+`src/utils/photos.ts` serves the 3 shared ones. Never use stock photos or competitor images,
+and never present a generated photo as a real local job.
 
 ## Development
 

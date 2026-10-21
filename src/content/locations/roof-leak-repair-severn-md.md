@@ -7,6 +7,8 @@ keyword: roof leak repair Severn MD
 lede: Severn has a large share of townhomes and newer subdivisions. On attached homes, a leak can start on your roof, your neighbour's, or the line between them.
 blurb: North-west of Millersville, Severn has many townhome communities and newer subdivisions. Attached homes share roof lines, so leaks at the party wall can involve a neighbour or an HOA, while single-family homes often leak first at pipe boots, vents and skylights.
 zip: '21144'
+heroImage: ../../assets/photos/severn-hero.jpg
+heroAlt: Row of newer townhomes with gabled shingle roofs
 order: 4
 faqs:
   - question: My townhome leak might be coming from my neighbour's roof. What do I do?

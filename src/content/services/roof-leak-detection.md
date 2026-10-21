@@ -6,6 +6,10 @@ description: Can't find where your Severna Park roof is leaking? See how roofers
 keyword: roof leak detection Severna Park
 lede: The stain on your ceiling is rarely under the hole in your roof. Leak detection is the methodical work of tracing water back to where it actually gets in.
 blurb: When a leak keeps coming back or the source isn't obvious, a methodical trace finds it. Attic inspection, controlled water testing and moisture readings narrow it down before any shingles come off.
+heroImage: ../../assets/photos/detection-hero.jpg
+heroAlt: Roofer in an attic shining a flashlight on water-stained roof boards
+image: ../../assets/photos/detection-detail.jpg
+imageAlt: Moisture meter pressed against a water-stained drywall ceiling
 icon: search
 order: 7
 faqs:
